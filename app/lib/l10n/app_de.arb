@@ -1,0 +1,67 @@
+{
+  "@@locale": "de",
+  "appTitle": "Baby Schlafgeräusche",
+  "favorites": "Favoriten",
+  "refreshCatalog": "Katalog aktualisieren",
+  "language": "Sprache",
+  "systemLanguage": "Systemsprache",
+  "turkish": "Türkçe",
+  "english": "English",
+  "spanish": "Español",
+  "french": "Français",
+  "german": "Deutsch",
+  "italian": "Italiano",
+  "russian": "Русский",
+  "arabic": "العربية",
+  "soundCount": "{count} Sounds",
+  "@soundCount": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "categoryWhiteNoise": "Weißes Rauschen",
+  "categoryLullaby": "Schlaflieder",
+  "categoryRelaxing": "Entspannend",
+  "categoryMusic": "Musik",
+  "homeHeaderSubtitle": "Ruhiger Schlaf, süße Träume",
+  "developedBy": "Alfa Apps",
+  "versionLabel": "Version {version}",
+  "@versionLabel": {
+    "placeholders": {
+      "version": { "type": "String" }
+    }
+  },
+  "favoritesEmptyTitle": "Noch keine Favoriten",
+  "favoritesEmptyBody": "Tippe auf das Herz bei einem Sound, um ihn hier zu speichern.",
+  "emptyCategory": "Keine Sounds in dieser Kategorie",
+  "downloadOnFirstPlay": "Wird beim ersten Abspielen heruntergeladen",
+  "downloadFailed": "Sound konnte nicht heruntergeladen werden: {error}",
+  "@downloadFailed": {
+    "placeholders": {
+      "error": { "type": "String" }
+    }
+  },
+  "sleepTimer": "Schlaf-Timer",
+  "sleepTimerHint": "Der Sound wiederholt sich bis zum Ende der gewählten Zeit.",
+  "minutesOption": "{count} Min.",
+  "@minutesOption": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "unlimited": "Unbegrenzt",
+  "cancelTimer": "Timer abbrechen",
+  "timerRemaining": "Verbleibend: {time}",
+  "@timerRemaining": {
+    "placeholders": {
+      "time": { "type": "String" }
+    }
+  },
+  "playingStatus": "Wiedergabe · {time}",
+  "@playingStatus": {
+    "placeholders": {
+      "time": { "type": "String" }
+    }
+  },
+  "pausedStatus": "Pausiert"
+}

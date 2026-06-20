@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../l10n/app_localizations.dart';
+import '../l10n/app_locales.dart';
 import '../providers/app_state.dart';
 import '../providers/locale_provider.dart';
 import '../widgets/app_info_footer.dart';
@@ -37,38 +38,31 @@ class HomeScreen extends StatelessWidget {
       showDragHandle: true,
       builder: (context) {
         return SafeArea(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              ListTile(
-                title: Text(l10n.systemLanguage),
-                trailing: localeProvider.usesSystemLocale ? const Icon(Icons.check) : null,
-                onTap: () {
-                  localeProvider.useSystemLocale();
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                title: Text(l10n.turkish),
-                trailing: localeProvider.locale?.languageCode == 'tr'
-                    ? const Icon(Icons.check)
-                    : null,
-                onTap: () {
-                  localeProvider.setLocale(const Locale('tr'));
-                  Navigator.pop(context);
-                },
-              ),
-              ListTile(
-                title: Text(l10n.english),
-                trailing: localeProvider.locale?.languageCode == 'en'
-                    ? const Icon(Icons.check)
-                    : null,
-                onTap: () {
-                  localeProvider.setLocale(const Locale('en'));
-                  Navigator.pop(context);
-                },
-              ),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                ListTile(
+                  title: Text(l10n.systemLanguage),
+                  trailing: localeProvider.usesSystemLocale ? const Icon(Icons.check) : null,
+                  onTap: () {
+                    localeProvider.useSystemLocale();
+                    Navigator.pop(context);
+                  },
+                ),
+                ...AppLocales.codes.map((code) {
+                  final selected = localeProvider.locale?.languageCode == code;
+                  return ListTile(
+                    title: Text(AppLocales.label(l10n, code)),
+                    trailing: selected ? const Icon(Icons.check) : null,
+                    onTap: () {
+                      localeProvider.setLocale(Locale(code));
+                      Navigator.pop(context);
+                    },
+                  );
+                }),
+              ],
+            ),
           ),
         );
       },

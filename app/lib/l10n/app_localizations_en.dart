@@ -30,6 +30,24 @@ class AppLocalizationsEn extends AppLocalizations {
   String get english => 'English';
 
   @override
+  String get spanish => 'Español';
+
+  @override
+  String get french => 'Français';
+
+  @override
+  String get german => 'Deutsch';
+
+  @override
+  String get italian => 'Italiano';
+
+  @override
+  String get russian => 'Русский';
+
+  @override
+  String get arabic => 'العربية';
+
+  @override
   String soundCount(int count) {
     return '$count sounds';
   }

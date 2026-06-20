@@ -1,0 +1,67 @@
+{
+  "@@locale": "it",
+  "appTitle": "Suoni per Dormire Bebè",
+  "favorites": "Preferiti",
+  "refreshCatalog": "Aggiorna catalogo",
+  "language": "Lingua",
+  "systemLanguage": "Lingua di sistema",
+  "turkish": "Türkçe",
+  "english": "English",
+  "spanish": "Español",
+  "french": "Français",
+  "german": "Deutsch",
+  "italian": "Italiano",
+  "russian": "Русский",
+  "arabic": "العربية",
+  "soundCount": "{count} suoni",
+  "@soundCount": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "categoryWhiteNoise": "Rumore bianco",
+  "categoryLullaby": "Ninne",
+  "categoryRelaxing": "Rilassante",
+  "categoryMusic": "Musica",
+  "homeHeaderSubtitle": "Sonno tranquillo, sogni dolci",
+  "developedBy": "Alfa Apps",
+  "versionLabel": "Versione {version}",
+  "@versionLabel": {
+    "placeholders": {
+      "version": { "type": "String" }
+    }
+  },
+  "favoritesEmptyTitle": "Nessun preferito",
+  "favoritesEmptyBody": "Tocca il cuore su un suono per aggiungerlo qui.",
+  "emptyCategory": "Nessun suono in questa categoria",
+  "downloadOnFirstPlay": "Si scarica al primo ascolto",
+  "downloadFailed": "Impossibile scaricare il suono: {error}",
+  "@downloadFailed": {
+    "placeholders": {
+      "error": { "type": "String" }
+    }
+  },
+  "sleepTimer": "Timer del sonno",
+  "sleepTimerHint": "Il suono si ripete fino alla fine del tempo selezionato.",
+  "minutesOption": "{count} min",
+  "@minutesOption": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "unlimited": "Illimitato",
+  "cancelTimer": "Annulla timer",
+  "timerRemaining": "Rimanente: {time}",
+  "@timerRemaining": {
+    "placeholders": {
+      "time": { "type": "String" }
+    }
+  },
+  "playingStatus": "In riproduzione · {time}",
+  "@playingStatus": {
+    "placeholders": {
+      "time": { "type": "String" }
+    }
+  },
+  "pausedStatus": "In pausa"
+}

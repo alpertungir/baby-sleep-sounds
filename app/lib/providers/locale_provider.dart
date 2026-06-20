@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../l10n/app_locales.dart';
+
 class LocaleProvider extends ChangeNotifier {
   LocaleProvider({Locale? systemLocale}) : _systemLocale = systemLocale;
 
@@ -13,27 +15,22 @@ class LocaleProvider extends ChangeNotifier {
 
   Locale get effectiveLocale {
     if (_override != null) return _override!;
-    return _resolveSystemLocale(_systemLocale);
+    return AppLocales.resolve(_systemLocale);
   }
 
   bool get usesSystemLocale => _override == null;
 
-  static Locale _resolveSystemLocale(Locale? system) {
-    final code = system?.languageCode ?? 'tr';
-    if (code == 'tr') return const Locale('tr');
-    return const Locale('en');
-  }
-
   Future<void> load() async {
     final prefs = await SharedPreferences.getInstance();
     final code = prefs.getString(_key);
-    if (code == 'tr' || code == 'en') {
+    if (AppLocales.isSupported(code)) {
       _override = Locale(code!);
       notifyListeners();
     }
   }
 
   Future<void> setLocale(Locale locale) async {
+    if (!AppLocales.isSupported(locale.languageCode)) return;
     _override = locale;
     notifyListeners();
     final prefs = await SharedPreferences.getInstance();

@@ -1,0 +1,67 @@
+{
+  "@@locale": "ar",
+  "appTitle": "أصوات نوم الطفل",
+  "favorites": "المفضلة",
+  "refreshCatalog": "تحديث الفهرس",
+  "language": "اللغة",
+  "systemLanguage": "لغة الجهاز",
+  "turkish": "Türkçe",
+  "english": "English",
+  "spanish": "Español",
+  "french": "Français",
+  "german": "Deutsch",
+  "italian": "Italiano",
+  "russian": "Русский",
+  "arabic": "العربية",
+  "soundCount": "{count} صوت",
+  "@soundCount": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "categoryWhiteNoise": "الضوضاء البيضاء",
+  "categoryLullaby": "تهويدات",
+  "categoryRelaxing": "مريح",
+  "categoryMusic": "موسيقى",
+  "homeHeaderSubtitle": "نوم هادئ، أحلام جميلة",
+  "developedBy": "Alfa Apps",
+  "versionLabel": "الإصدار {version}",
+  "@versionLabel": {
+    "placeholders": {
+      "version": { "type": "String" }
+    }
+  },
+  "favoritesEmptyTitle": "لا توجد مفضلات بعد",
+  "favoritesEmptyBody": "اضغط على القلب بجانب الصوت لإضافته هنا.",
+  "emptyCategory": "لا توجد أصوات في هذه الفئة",
+  "downloadOnFirstPlay": "يُحمَّل عند أول تشغيل",
+  "downloadFailed": "تعذّر تحميل الصوت: {error}",
+  "@downloadFailed": {
+    "placeholders": {
+      "error": { "type": "String" }
+    }
+  },
+  "sleepTimer": "مؤقت النوم",
+  "sleepTimerHint": "يتكرر الصوت حتى انتهاء الوقت المحدد.",
+  "minutesOption": "{count} دقيقة",
+  "@minutesOption": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "unlimited": "غير محدود",
+  "cancelTimer": "إلغاء المؤقت",
+  "timerRemaining": "المتبقي: {time}",
+  "@timerRemaining": {
+    "placeholders": {
+      "time": { "type": "String" }
+    }
+  },
+  "playingStatus": "تشغيل · {time}",
+  "@playingStatus": {
+    "placeholders": {
+      "time": { "type": "String" }
+    }
+  },
+  "pausedStatus": "متوقف مؤقتًا"
+}

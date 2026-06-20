@@ -7,6 +7,12 @@
   "systemLanguage": "Telefon dili",
   "turkish": "Türkçe",
   "english": "English",
+  "spanish": "Español",
+  "french": "Français",
+  "german": "Deutsch",
+  "italian": "Italiano",
+  "russian": "Русский",
+  "arabic": "العربية",
   "soundCount": "{count} ses",
   "@soundCount": {
     "placeholders": {

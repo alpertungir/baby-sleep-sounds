@@ -7,6 +7,12 @@
   "systemLanguage": "System language",
   "turkish": "Türkçe",
   "english": "English",
+  "spanish": "Español",
+  "french": "Français",
+  "german": "Deutsch",
+  "italian": "Italiano",
+  "russian": "Русский",
+  "arabic": "العربية",
   "soundCount": "{count} sounds",
   "@soundCount": {
     "placeholders": {

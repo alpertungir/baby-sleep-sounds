@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
+import 'l10n/app_locales.dart';
 import 'l10n/app_localizations.dart';
 import 'providers/app_state.dart';
 import 'providers/locale_provider.dart';
@@ -84,13 +85,15 @@ class BabySleepApp extends StatelessWidget {
       theme: AppTheme.dark(),
       locale: localeProvider.effectiveLocale,
       localeResolutionCallback: (locale, supported) {
-        if (locale == null) return const Locale('tr');
+        if (locale != null && AppLocales.isSupported(locale.languageCode)) {
+          return Locale(locale.languageCode);
+        }
         for (final supportedLocale in supported) {
-          if (supportedLocale.languageCode == locale.languageCode) {
+          if (supportedLocale.languageCode == locale?.languageCode) {
             return supportedLocale;
           }
         }
-        return const Locale('tr');
+        return const Locale('en');
       },
       localizationsDelegates: const [
         AppLocalizations.delegate,

@@ -1,0 +1,67 @@
+{
+  "@@locale": "ru",
+  "appTitle": "Звуки для сна малыша",
+  "favorites": "Избранное",
+  "refreshCatalog": "Обновить каталог",
+  "language": "Язык",
+  "systemLanguage": "Язык системы",
+  "turkish": "Türkçe",
+  "english": "English",
+  "spanish": "Español",
+  "french": "Français",
+  "german": "Deutsch",
+  "italian": "Italiano",
+  "russian": "Русский",
+  "arabic": "العربية",
+  "soundCount": "{count} звуков",
+  "@soundCount": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "categoryWhiteNoise": "Белый шум",
+  "categoryLullaby": "Колыбельные",
+  "categoryRelaxing": "Расслабляющие",
+  "categoryMusic": "Музыка",
+  "homeHeaderSubtitle": "Спокойный сон, сладкие сны",
+  "developedBy": "Alfa Apps",
+  "versionLabel": "Версия {version}",
+  "@versionLabel": {
+    "placeholders": {
+      "version": { "type": "String" }
+    }
+  },
+  "favoritesEmptyTitle": "Пока нет избранного",
+  "favoritesEmptyBody": "Нажмите на сердечко у звука, чтобы добавить его сюда.",
+  "emptyCategory": "В этой категории нет звуков",
+  "downloadOnFirstPlay": "Загружается при первом воспроизведении",
+  "downloadFailed": "Не удалось загрузить звук: {error}",
+  "@downloadFailed": {
+    "placeholders": {
+      "error": { "type": "String" }
+    }
+  },
+  "sleepTimer": "Таймер сна",
+  "sleepTimerHint": "Звук повторяется до окончания выбранного времени.",
+  "minutesOption": "{count} мин",
+  "@minutesOption": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "unlimited": "Без ограничений",
+  "cancelTimer": "Отменить таймер",
+  "timerRemaining": "Осталось: {time}",
+  "@timerRemaining": {
+    "placeholders": {
+      "time": { "type": "String" }
+    }
+  },
+  "playingStatus": "Воспроизведение · {time}",
+  "@playingStatus": {
+    "placeholders": {
+      "time": { "type": "String" }
+    }
+  },
+  "pausedStatus": "Пауза"
+}

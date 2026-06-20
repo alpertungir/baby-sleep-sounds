@@ -1,0 +1,67 @@
+{
+  "@@locale": "es",
+  "appTitle": "Sonidos para Dormir Bebé",
+  "favorites": "Favoritos",
+  "refreshCatalog": "Actualizar catálogo",
+  "language": "Idioma",
+  "systemLanguage": "Idioma del sistema",
+  "turkish": "Türkçe",
+  "english": "English",
+  "spanish": "Español",
+  "french": "Français",
+  "german": "Deutsch",
+  "italian": "Italiano",
+  "russian": "Русский",
+  "arabic": "العربية",
+  "soundCount": "{count} sonidos",
+  "@soundCount": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "categoryWhiteNoise": "Ruido blanco",
+  "categoryLullaby": "Nanas",
+  "categoryRelaxing": "Relajante",
+  "categoryMusic": "Música",
+  "homeHeaderSubtitle": "Sueños tranquilos y dulces",
+  "developedBy": "Alfa Apps",
+  "versionLabel": "Versión {version}",
+  "@versionLabel": {
+    "placeholders": {
+      "version": { "type": "String" }
+    }
+  },
+  "favoritesEmptyTitle": "Aún no hay favoritos",
+  "favoritesEmptyBody": "Toca el corazón en un sonido para añadirlo aquí.",
+  "emptyCategory": "No hay sonidos en esta categoría",
+  "downloadOnFirstPlay": "Se descarga al reproducir por primera vez",
+  "downloadFailed": "No se pudo descargar el sonido: {error}",
+  "@downloadFailed": {
+    "placeholders": {
+      "error": { "type": "String" }
+    }
+  },
+  "sleepTimer": "Temporizador de sueño",
+  "sleepTimerHint": "El sonido se repite hasta que termine el tiempo seleccionado.",
+  "minutesOption": "{count} min",
+  "@minutesOption": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "unlimited": "Ilimitado",
+  "cancelTimer": "Cancelar temporizador",
+  "timerRemaining": "Restante: {time}",
+  "@timerRemaining": {
+    "placeholders": {
+      "time": { "type": "String" }
+    }
+  },
+  "playingStatus": "Reproduciendo · {time}",
+  "@playingStatus": {
+    "placeholders": {
+      "time": { "type": "String" }
+    }
+  },
+  "pausedStatus": "En pausa"
+}

@@ -1,0 +1,67 @@
+{
+  "@@locale": "fr",
+  "appTitle": "Sons pour Dormir Bébé",
+  "favorites": "Favoris",
+  "refreshCatalog": "Actualiser le catalogue",
+  "language": "Langue",
+  "systemLanguage": "Langue du système",
+  "turkish": "Türkçe",
+  "english": "English",
+  "spanish": "Español",
+  "french": "Français",
+  "german": "Deutsch",
+  "italian": "Italiano",
+  "russian": "Русский",
+  "arabic": "العربية",
+  "soundCount": "{count} sons",
+  "@soundCount": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "categoryWhiteNoise": "Bruit blanc",
+  "categoryLullaby": "Berceuses",
+  "categoryRelaxing": "Relaxant",
+  "categoryMusic": "Musique",
+  "homeHeaderSubtitle": "Dodo paisible, doux rêves",
+  "developedBy": "Alfa Apps",
+  "versionLabel": "Version {version}",
+  "@versionLabel": {
+    "placeholders": {
+      "version": { "type": "String" }
+    }
+  },
+  "favoritesEmptyTitle": "Pas encore de favoris",
+  "favoritesEmptyBody": "Appuyez sur le cœur d'un son pour l'ajouter ici.",
+  "emptyCategory": "Aucun son dans cette catégorie",
+  "downloadOnFirstPlay": "Téléchargé à la première lecture",
+  "downloadFailed": "Impossible de télécharger le son : {error}",
+  "@downloadFailed": {
+    "placeholders": {
+      "error": { "type": "String" }
+    }
+  },
+  "sleepTimer": "Minuteur de sommeil",
+  "sleepTimerHint": "Le son se répète jusqu'à la fin du temps choisi.",
+  "minutesOption": "{count} min",
+  "@minutesOption": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "unlimited": "Illimité",
+  "cancelTimer": "Annuler le minuteur",
+  "timerRemaining": "Restant : {time}",
+  "@timerRemaining": {
+    "placeholders": {
+      "time": { "type": "String" }
+    }
+  },
+  "playingStatus": "Lecture · {time}",
+  "@playingStatus": {
+    "placeholders": {
+      "time": { "type": "String" }
+    }
+  },
+  "pausedStatus": "En pause"
+}
