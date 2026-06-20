@@ -6,6 +6,7 @@ import '../providers/app_state.dart';
 import '../widgets/category_card.dart';
 import '../widgets/decorative_background.dart';
 import '../widgets/home_header.dart';
+import '../widgets/home_support_footer.dart';
 import '../widgets/language_menu_button.dart';
 import '../widgets/mini_player_bar.dart';
 import '../widgets/screen_insets.dart';
@@ -110,7 +111,7 @@ class HomeScreen extends StatelessWidget {
                   _horizontalPadding,
                   8,
                   _horizontalPadding,
-                  ScreenInsets.listBottom(context, state),
+                  ScreenInsets.listBottom(context, state, includeSupportFooter: true),
                 ),
                 sliver: SliverGrid(
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -142,9 +143,11 @@ class HomeScreen extends StatelessWidget {
               ),
             ],
           ),
-          const Align(
+          Align(
             alignment: Alignment.bottomCenter,
-            child: MiniPlayerBar(),
+            child: state.currentSound == null
+                ? const HomeSupportFooter()
+                : const MiniPlayerBar(),
           ),
         ],
       ),

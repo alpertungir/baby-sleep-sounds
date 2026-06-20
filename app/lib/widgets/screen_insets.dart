@@ -8,11 +8,19 @@ class ScreenInsets {
       MediaQuery.viewPaddingOf(context).bottom;
 
   static const double miniPlayerHeight = 78;
+  static const double supportFooterHeight = 52;
 
-  static double listBottom(BuildContext context, AppState state) {
+  static double listBottom(
+    BuildContext context,
+    AppState state, {
+    bool includeSupportFooter = false,
+  }) {
     final base = viewBottom(context) + 12;
-    if (state.currentSound == null) return base;
-    return base + miniPlayerHeight + 8;
+    if (state.currentSound != null) return base + miniPlayerHeight + 8;
+    if (includeSupportFooter) {
+      return base + supportFooterHeight + 8;
+    }
+    return base;
   }
 
   static double miniPlayerBottom(BuildContext context) {
