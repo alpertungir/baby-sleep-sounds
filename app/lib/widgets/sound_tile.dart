@@ -8,6 +8,8 @@ class SoundTile extends StatelessWidget {
     required this.sound,
     required this.isFavorite,
     required this.isPlaying,
+    required this.isLoading,
+    required this.isCached,
     required this.onTap,
     required this.onFavoriteTap,
   });
@@ -15,6 +17,8 @@ class SoundTile extends StatelessWidget {
   final SoundItem sound;
   final bool isFavorite;
   final bool isPlaying;
+  final bool isLoading;
+  final bool isCached;
   final VoidCallback onTap;
   final VoidCallback onFavoriteTap;
 
@@ -32,7 +36,7 @@ class SoundTile extends StatelessWidget {
             width: 52,
             height: 52,
             fit: BoxFit.cover,
-            errorBuilder: (_, __, ___) => Container(
+            errorBuilder: (context, error, stackTrace) => Container(
               width: 52,
               height: 52,
               color: theme.colorScheme.primaryContainer,
@@ -44,9 +48,17 @@ class SoundTile extends StatelessWidget {
           sound.name,
           style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),
         ),
+        subtitle: sound.isRemote && !isCached
+            ? Text(
+                'İlk dinlemede indirilir',
+                style: theme.textTheme.bodySmall,
+              )
+            : null,
         trailing: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
+            if (sound.isRemote && !isCached)
+              Icon(Icons.cloud_download_outlined, color: theme.colorScheme.primary, size: 20),
             IconButton(
               onPressed: onFavoriteTap,
               icon: Icon(
@@ -58,14 +70,23 @@ class SoundTile extends StatelessWidget {
               backgroundColor: isPlaying
                   ? theme.colorScheme.primary
                   : theme.colorScheme.surfaceContainerHighest,
-              child: Icon(
-                isPlaying ? Icons.pause : Icons.play_arrow,
-                color: isPlaying ? theme.colorScheme.onPrimary : theme.colorScheme.onSurface,
-              ),
+              child: isLoading
+                  ? SizedBox(
+                      width: 22,
+                      height: 22,
+                      child: CircularProgressIndicator(
+                        strokeWidth: 2,
+                        color: theme.colorScheme.onSurface,
+                      ),
+                    )
+                  : Icon(
+                      isPlaying ? Icons.pause : Icons.play_arrow,
+                      color: isPlaying ? theme.colorScheme.onPrimary : theme.colorScheme.onSurface,
+                    ),
             ),
           ],
         ),
-        onTap: onTap,
+        onTap: isLoading ? null : onTap,
       ),
     );
   }

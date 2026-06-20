@@ -4,9 +4,11 @@ import 'package:audio_session/audio_session.dart';
 import 'package:just_audio/just_audio.dart';
 
 import '../models/sound_item.dart';
+import 'sound_download_service.dart';
 
 class AudioPlayerService {
-  AudioPlayerService() {
+  AudioPlayerService({required SoundDownloadService downloadService})
+      : _downloadService = downloadService {
     _player.playerStateStream.listen((state) {
       isPlaying = state.playing;
       onStateChanged?.call();
@@ -15,6 +17,7 @@ class AudioPlayerService {
   }
 
   final AudioPlayer _player = AudioPlayer();
+  final SoundDownloadService _downloadService;
   SoundItem? currentSound;
   bool isPlaying = false;
   void Function()? onStateChanged;
@@ -25,14 +28,23 @@ class AudioPlayerService {
   Duration? get duration => _player.duration;
 
   Future<void> initSession() async {
-    final session = await AudioSession.instance;
-    await session.configure(const AudioSessionConfiguration.music());
+    try {
+      final session = await AudioSession.instance;
+      await session.configure(const AudioSessionConfiguration.music());
+    } catch (_) {
+      // audio_session is mobile-focused; desktop can play without it.
+    }
   }
 
   Future<void> play(SoundItem sound) async {
     if (currentSound?.id != sound.id) {
       currentSound = sound;
-      await _player.setAsset(sound.audioPath);
+      if (sound.isBundled) {
+        await _player.setAsset(sound.assetPath!);
+      } else {
+        final file = await _downloadService.resolveLocalFile(sound);
+        await _player.setFilePath(file.path);
+      }
       await _player.setLoopMode(LoopMode.one);
     }
     await _player.play();

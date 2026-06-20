@@ -7,6 +7,9 @@ Thumbs.db
 *.iml
 .vscode/
 
+# Local source library + signing secrets (do not commit)
+files/
+
 # Flutter / Dart (app/)
 app/.dart_tool/
 app/.flutter-plugins-dependencies
@@ -18,6 +21,8 @@ app/android/key.properties
 app/android/**/*.jks
 app/android/**/*.keystore
 app/android/local.properties
+app/android/build/
+app/android/.gradle/
 
 # iOS secrets
 app/ios/Flutter/Signing.xcconfig

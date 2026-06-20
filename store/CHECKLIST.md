@@ -24,7 +24,7 @@ Detay: [`docs/github-pages.md`](docs/github-pages.md)
 ## Google Play
 
 - [ ] Google Play Console hesabı ($25 tek seferlik)
-- [ ] Uygulama oluşturuldu: `com.babysleep.baby_sleep_sounds`
+- [ ] Uygulama oluşturuldu: `com.alfaapps.BabySleepSounds`
 - [ ] **Store listing** — TR (+ isteğe bağlı EN) metinler yapıştırıldı
 - [ ] **Kısa açıklama** (80 karakter): `Bebeğiniz için ninni, beyaz gürültü ve rahatlatıcı sesler.`
 - [ ] **Kategori:** Parenting (Ebeveynlik)

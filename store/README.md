@@ -51,7 +51,7 @@ cd app && ./scripts/build-ios-release.sh      # App Store (macOS)
 
 | Platform | Kimlik |
 |----------|--------|
-| Android | `com.babysleep.baby_sleep_sounds` |
+| Android | `com.alfaapps.BabySleepSounds` |
 | iOS | `com.babysleep.babySleepSounds` (Xcode'da ayarlayın) |
 | Sürüm | 2.0.0 (build 1) |
 | Görünen ad | Bebek Uyku Sesleri |

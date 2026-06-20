@@ -7,20 +7,26 @@ import '../models/sound_category.dart';
 import '../models/sound_item.dart';
 import '../services/audio_player_service.dart';
 import '../services/favorites_service.dart';
+import '../services/sound_download_service.dart';
 
 class AppState extends ChangeNotifier {
   AppState({
     required AudioPlayerService audioService,
     required FavoritesService favoritesService,
+    required SoundDownloadService downloadService,
   })  : _audioService = audioService,
-        _favoritesService = favoritesService {
+        _favoritesService = favoritesService,
+        _downloadService = downloadService {
     _audioService.onStateChanged = notifyListeners;
   }
 
   final AudioPlayerService _audioService;
   final FavoritesService _favoritesService;
+  final SoundDownloadService _downloadService;
 
   Set<String> _favoriteIds = {};
+  final Set<String> _cachedRemoteIds = {};
+  String? _loadingSoundId;
   Timer? _sleepTimer;
   Duration? _timerRemaining;
   double _volume = 0.8;
@@ -32,6 +38,7 @@ class AppState extends ChangeNotifier {
   double get volume => _volume;
   Duration? get timerRemaining => _timerRemaining;
   bool get hasActiveTimer => _timerRemaining != null;
+  String? get loadingSoundId => _loadingSoundId;
 
   Stream<Duration> get positionStream => _audioService.positionStream;
   Stream<Duration?> get durationStream => _audioService.durationStream;
@@ -40,7 +47,16 @@ class AppState extends ChangeNotifier {
     await _audioService.initSession();
     await _audioService.setVolume(_volume);
     _favoriteIds = await _favoritesService.loadFavorites();
+    await _refreshCachedRemoteIds();
     notifyListeners();
+  }
+
+  Future<void> _refreshCachedRemoteIds() async {
+    for (final sound in SoundCatalog.sounds) {
+      if (sound.isRemote && await _downloadService.isDownloaded(sound)) {
+        _cachedRemoteIds.add(sound.id);
+      }
+    }
   }
 
   List<SoundItem> soundsFor(SoundCategoryId categoryId) {
@@ -55,6 +71,12 @@ class AppState extends ChangeNotifier {
 
   bool isFavorite(String soundId) => _favoriteIds.contains(soundId);
 
+  bool isCached(SoundItem sound) {
+    return sound.isBundled || _cachedRemoteIds.contains(sound.id);
+  }
+
+  bool isLoading(SoundItem sound) => _loadingSoundId == sound.id;
+
   Future<void> toggleFavorite(String soundId) async {
     if (_favoriteIds.contains(soundId)) {
       _favoriteIds.remove(soundId);
@@ -65,7 +87,21 @@ class AppState extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> playSound(SoundItem sound) => _audioService.play(sound);
+  Future<void> playSound(SoundItem sound) async {
+    _loadingSoundId = sound.id;
+    notifyListeners();
+    try {
+      await _audioService.play(sound);
+      if (sound.isRemote) {
+        _cachedRemoteIds.add(sound.id);
+      }
+    } finally {
+      if (_loadingSoundId == sound.id) {
+        _loadingSoundId = null;
+      }
+      notifyListeners();
+    }
+  }
 
   Future<void> togglePlayback(SoundItem sound) => _audioService.toggle(sound);
 

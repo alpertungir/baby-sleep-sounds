@@ -4,6 +4,7 @@ import java.util.Properties
 plugins {
     id("com.android.application")
     id("dev.flutter.flutter-gradle-plugin")
+    id("com.google.gms.google-services")
 }
 
 val keystoreProperties = Properties()
@@ -13,7 +14,7 @@ if (keystorePropertiesFile.exists()) {
 }
 
 android {
-    namespace = "com.babysleep.baby_sleep_sounds"
+    namespace = "com.alfaapps.BabySleepSounds"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -34,7 +35,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.babysleep.baby_sleep_sounds"
+        applicationId = "com.alfaapps.BabySleepSounds"
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode

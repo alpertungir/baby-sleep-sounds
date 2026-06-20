@@ -61,9 +61,19 @@ class FavoritesScreen extends StatelessWidget {
                     sound: sound,
                     isFavorite: true,
                     isPlaying: isPlaying,
+                    isLoading: state.isLoading(sound),
+                    isCached: state.isCached(sound),
                     onFavoriteTap: () => state.toggleFavorite(sound.id),
                     onTap: () async {
-                      await state.playSound(sound);
+                      try {
+                        await state.playSound(sound);
+                      } catch (error) {
+                        if (!context.mounted) return;
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(content: Text('Ses indirilemedi: $error')),
+                        );
+                        return;
+                      }
                       if (!context.mounted) return;
                       await Navigator.of(context).push(
                         MaterialPageRoute(

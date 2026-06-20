@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "162932344385",
+    "project_id": "baby-sleep-sounds-482b5",
+    "storage_bucket": "baby-sleep-sounds-482b5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:162932344385:android:ff263f18984f5c107d28c0",
+        "android_client_info": {
+          "package_name": "com.alfaapps.BabySleepSounds"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "162932344385-uofmm7jhrp39d6su5fqed1por0tj0blb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.alfaapps.BabySleepSounds",
+            "certificate_hash": "8c9388b29219292da7a5830bfce9fe7fa9518766"
+          }
+        },
+        {
+          "client_id": "162932344385-vjji3bj1o37vi88lidqhkopkej9v705n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCtX9iy3QmIuVUDrXOkfsFTHFKJCWaQjLk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "162932344385-vjji3bj1o37vi88lidqhkopkej9v705n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

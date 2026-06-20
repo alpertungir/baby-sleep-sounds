@@ -2,7 +2,7 @@
 # Son güncelleme: 2.0.0
 
 app:
-  package_name: com.babysleep.baby_sleep_sounds
+  package_name: com.alfaapps.BabySleepSounds
   default_language: tr-TR
 
 listing:
