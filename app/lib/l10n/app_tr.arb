@@ -4,6 +4,7 @@
   "favorites": "Favoriler",
   "refreshCatalog": "Katalogu yenile",
   "language": "Dil",
+  "systemLanguage": "Telefon dili",
   "turkish": "Türkçe",
   "english": "English",
   "soundCount": "{count} ses",
@@ -30,6 +31,7 @@
     }
   },
   "sleepTimer": "Uyku Zamanlayıcısı",
+  "sleepTimerHint": "Seçilen süre dolana kadar ses tekrar çalar.",
   "minutesOption": "{count} dakika",
   "@minutesOption": {
     "placeholders": {

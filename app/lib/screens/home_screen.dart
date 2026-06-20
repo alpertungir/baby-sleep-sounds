@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import '../l10n/app_localizations.dart';
 import '../providers/app_state.dart';
 import '../providers/locale_provider.dart';
-import '../widgets/category_tile.dart';
+import '../widgets/category_card.dart';
 import '../widgets/mini_player_bar.dart';
 import 'category_screen.dart';
 import 'favorites_screen.dart';
@@ -24,6 +24,14 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
+              ListTile(
+                title: Text(l10n.systemLanguage),
+                trailing: localeProvider.usesSystemLocale ? const Icon(Icons.check) : null,
+                onTap: () {
+                  localeProvider.useSystemLocale();
+                  Navigator.pop(context);
+                },
+              ),
               ListTile(
                 title: Text(l10n.turkish),
                 trailing: localeProvider.locale?.languageCode == 'tr'
@@ -55,6 +63,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     final state = context.watch<AppState>();
+    final categories = state.visibleCategories;
 
     return Scaffold(
       appBar: AppBar(
@@ -83,15 +92,20 @@ class HomeScreen extends StatelessWidget {
       ),
       body: Stack(
         children: [
-          ListView.separated(
-            padding: const EdgeInsets.fromLTRB(0, 0, 0, 96),
-            itemCount: state.categories.length,
-            separatorBuilder: (_, __) => const Divider(height: 1),
+          GridView.builder(
+            padding: const EdgeInsets.fromLTRB(16, 8, 16, 96),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 14,
+              mainAxisSpacing: 14,
+              childAspectRatio: 0.92,
+            ),
+            itemCount: categories.length,
             itemBuilder: (context, index) {
-              final category = state.categories[index];
+              final category = categories[index];
               final count = state.soundsFor(category.id).length;
 
-              return CategoryTile(
+              return CategoryCard(
                 category: category,
                 soundCount: count,
                 onTap: () {

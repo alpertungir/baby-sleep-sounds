@@ -29,13 +29,17 @@ class SoundTile extends StatelessWidget {
     final theme = Theme.of(context);
 
     return ListTile(
+      leading: CircleAvatar(
+        backgroundColor: theme.colorScheme.primary.withValues(alpha: 0.25),
+        child: Icon(Icons.music_note, color: theme.colorScheme.primary),
+      ),
       title: Text(sound.name),
       subtitle: sound.isRemote && !isCached ? Text(l10n.downloadOnFirstPlay) : null,
       trailing: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
           if (sound.isRemote && !isCached)
-            Icon(Icons.cloud_download_outlined, color: theme.colorScheme.primary, size: 20),
+            Icon(Icons.cloud_download_outlined, color: theme.colorScheme.tertiary, size: 20),
           IconButton(
             onPressed: onFavoriteTap,
             icon: Icon(
@@ -49,12 +53,12 @@ class SoundTile extends StatelessWidget {
                 ? SizedBox(
                     width: 22,
                     height: 22,
-                    child: CircularProgressIndicator(strokeWidth: 2, color: theme.colorScheme.primary),
+                    child: CircularProgressIndicator(strokeWidth: 2, color: theme.colorScheme.secondary),
                   )
                 : Icon(
                     isPlaying ? Icons.pause_circle_filled : Icons.play_circle_filled,
                     size: 32,
-                    color: theme.colorScheme.primary,
+                    color: isPlaying ? theme.colorScheme.secondary : theme.colorScheme.primary,
                   ),
           ),
         ],

@@ -7,7 +7,6 @@ import '../models/sound_category.dart';
 import '../providers/app_state.dart';
 import '../widgets/mini_player_bar.dart';
 import '../widgets/sound_tile.dart';
-import 'player_screen.dart';
 
 class CategoryScreen extends StatelessWidget {
   const CategoryScreen({super.key, required this.category});
@@ -54,14 +53,7 @@ class CategoryScreen extends StatelessWidget {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(content: Text(l10n.downloadFailed('$error'))),
                         );
-                        return;
                       }
-                      if (!context.mounted) return;
-                      await Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (_) => PlayerScreen(sound: sound),
-                        ),
-                      );
                     },
                   );
                 },

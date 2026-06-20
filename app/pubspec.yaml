@@ -15,6 +15,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   just_audio: ^0.10.4
   audio_session: ^0.2.2
+  audio_service: ^0.18.17
   provider: ^6.1.5
   shared_preferences: ^2.5.3
   firebase_core: ^4.0.0

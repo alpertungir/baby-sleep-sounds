@@ -21,6 +21,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get language => 'Dil';
 
   @override
+  String get systemLanguage => 'Telefon dili';
+
+  @override
   String get turkish => 'Türkçe';
 
   @override
@@ -72,6 +75,9 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get sleepTimer => 'Uyku Zamanlayıcısı';
+
+  @override
+  String get sleepTimerHint => 'Seçilen süre dolana kadar ses tekrar çalar.';
 
   @override
   String minutesOption(int count) {

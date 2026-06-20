@@ -122,6 +122,12 @@ abstract class AppLocalizations {
   /// **'Dil'**
   String get language;
 
+  /// No description provided for @systemLanguage.
+  ///
+  /// In tr, this message translates to:
+  /// **'Telefon dili'**
+  String get systemLanguage;
+
   /// No description provided for @turkish.
   ///
   /// In tr, this message translates to:
@@ -217,6 +223,12 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Uyku Zamanlayıcısı'**
   String get sleepTimer;
+
+  /// No description provided for @sleepTimerHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Seçilen süre dolana kadar ses tekrar çalar.'**
+  String get sleepTimerHint;
 
   /// No description provided for @minutesOption.
   ///

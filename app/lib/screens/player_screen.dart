@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../l10n/app_localizations.dart';
 import '../models/sound_item.dart';
 import '../providers/app_state.dart';
+import '../widgets/sleep_timer_sheet.dart';
 
 class PlayerScreen extends StatelessWidget {
   const PlayerScreen({super.key, required this.sound});
@@ -14,64 +15,6 @@ class PlayerScreen extends StatelessWidget {
     final minutes = duration.inMinutes.remainder(60).toString().padLeft(2, '0');
     final seconds = duration.inSeconds.remainder(60).toString().padLeft(2, '0');
     return '$minutes:$seconds';
-  }
-
-  Future<void> _showTimerSheet(BuildContext context) async {
-    final l10n = AppLocalizations.of(context)!;
-    final state = context.read<AppState>();
-    final options = <Duration?>[
-      const Duration(minutes: 15),
-      const Duration(minutes: 30),
-      const Duration(minutes: 45),
-      const Duration(minutes: 60),
-      const Duration(minutes: 120),
-      null,
-    ];
-
-    await showModalBottomSheet<void>(
-      context: context,
-      showDragHandle: true,
-      builder: (context) {
-        return SafeArea(
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.fromLTRB(8, 0, 8, 16),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(12),
-                  child: Text(l10n.sleepTimer, style: Theme.of(context).textTheme.titleMedium),
-                ),
-                ...options.map((duration) {
-                  final label = duration == null
-                      ? l10n.unlimited
-                      : l10n.minutesOption(duration.inMinutes);
-                  return ListTile(
-                    title: Text(label),
-                    onTap: () {
-                      if (duration == null) {
-                        state.cancelSleepTimer();
-                      } else {
-                        state.startSleepTimer(duration);
-                      }
-                      Navigator.pop(context);
-                    },
-                  );
-                }),
-                if (state.hasActiveTimer)
-                  ListTile(
-                    title: Text(l10n.cancelTimer),
-                    onTap: () {
-                      state.cancelSleepTimer();
-                      Navigator.pop(context);
-                    },
-                  ),
-              ],
-            ),
-          ),
-        );
-      },
-    );
   }
 
   @override
@@ -88,6 +31,10 @@ class PlayerScreen extends StatelessWidget {
             title: Text(sound.name),
             actions: [
               IconButton(
+                onPressed: () => showSleepTimerSheet(context),
+                icon: const Icon(Icons.timer_outlined),
+              ),
+              IconButton(
                 onPressed: () => state.toggleFavorite(sound.id),
                 icon: Icon(
                   state.isFavorite(sound.id) ? Icons.favorite : Icons.favorite_border,
@@ -97,76 +44,79 @@ class PlayerScreen extends StatelessWidget {
             ],
           ),
           body: SafeArea(
-            child: LayoutBuilder(
-              builder: (context, constraints) {
-                return SingleChildScrollView(
-                  padding: const EdgeInsets.all(24),
-                  child: ConstrainedBox(
-                    constraints: BoxConstraints(minHeight: constraints.maxHeight - 48),
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Icon(Icons.music_note, size: 72, color: Theme.of(context).colorScheme.primary),
-                        const SizedBox(height: 24),
-                        Text(
-                          sound.name,
-                          textAlign: TextAlign.center,
-                          style: Theme.of(context).textTheme.headlineSmall,
-                        ),
-                        const SizedBox(height: 32),
-                        Row(
-                          children: [
-                            const Icon(Icons.volume_down),
-                            Expanded(
-                              child: Slider(
-                                value: state.volume,
-                                onChanged: (value) => state.setVolume(value),
-                              ),
-                            ),
-                            const Icon(Icons.volume_up),
-                          ],
-                        ),
-                        if (state.hasActiveTimer)
-                          Padding(
-                            padding: const EdgeInsets.only(bottom: 12),
-                            child: Text(l10n.timerRemaining(_format(state.timerRemaining!))),
+            child: Padding(
+              padding: const EdgeInsets.all(24),
+              child: Column(
+                children: [
+                  Expanded(
+                    child: Center(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(
+                            Icons.nights_stay_rounded,
+                            size: 88,
+                            color: Theme.of(context).colorScheme.primary,
                           ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            IconButton(
-                              onPressed: () => _showTimerSheet(context),
-                              icon: const Icon(Icons.timer_outlined),
-                            ),
-                            const SizedBox(width: 16),
-                            IconButton(
-                              onPressed: () {
-                                if (playing) {
-                                  state.pause();
-                                } else {
-                                  state.playSound(sound);
-                                }
-                              },
-                              icon: Icon(
-                                playing ? Icons.pause_circle_filled : Icons.play_circle_filled,
-                                size: 64,
-                                color: Theme.of(context).colorScheme.primary,
-                              ),
-                            ),
-                            const SizedBox(width: 16),
-                            IconButton(
-                              onPressed: () => state.toggleFavorite(sound.id),
-                              icon: Icon(
-                                state.isFavorite(sound.id) ? Icons.favorite : Icons.favorite_border,
-                              ),
+                          const SizedBox(height: 24),
+                          Text(
+                            sound.name,
+                            textAlign: TextAlign.center,
+                            style: Theme.of(context).textTheme.headlineSmall,
+                          ),
+                          if (state.hasActiveTimer) ...[
+                            const SizedBox(height: 16),
+                            Chip(
+                              avatar: const Icon(Icons.timer, size: 18),
+                              label: Text(l10n.timerRemaining(_format(state.timerRemaining!))),
                             ),
                           ],
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
-                );
-              },
+                  Row(
+                    children: [
+                      const Icon(Icons.volume_down),
+                      Expanded(
+                        child: Slider(
+                          value: state.volume,
+                          onChanged: (value) => state.setVolume(value),
+                        ),
+                      ),
+                      const Icon(Icons.volume_up),
+                    ],
+                  ),
+                  const SizedBox(height: 16),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      FilledButton.tonalIcon(
+                        onPressed: () => showSleepTimerSheet(context),
+                        icon: const Icon(Icons.timer_outlined),
+                        label: Text(l10n.sleepTimer),
+                      ),
+                      FilledButton(
+                        onPressed: () {
+                          if (playing) {
+                            state.pause();
+                          } else {
+                            state.playSound(sound);
+                          }
+                        },
+                        style: FilledButton.styleFrom(
+                          padding: const EdgeInsets.all(20),
+                          shape: const CircleBorder(),
+                        ),
+                        child: Icon(
+                          playing ? Icons.pause : Icons.play_arrow,
+                          size: 36,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ),
         );

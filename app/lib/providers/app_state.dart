@@ -37,6 +37,10 @@ class AppState extends ChangeNotifier {
   double _volume = 0.8;
 
   List<SoundCategory> get categories => SoundCatalog.categories;
+
+  List<SoundCategory> get visibleCategories {
+    return categories.where((category) => soundsFor(category.id).isNotEmpty).toList();
+  }
   Set<String> get favoriteIds => _favoriteIds;
   List<SoundItem> get allSounds => SoundCatalog.mergeWithRemote(_remoteSounds);
   SoundItem? get currentSound => _audioService.currentSound;
