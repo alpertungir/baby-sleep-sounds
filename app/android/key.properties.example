@@ -1,0 +1,10 @@
+# Android release imzalama — bu dosyayı key.properties olarak kopyalayın.
+# Komut: cp key.properties.example key.properties
+#
+# key.properties asla Git'e eklenmez (.gitignore).
+
+storePassword=STORE_PASSWORD_BURAYA
+keyPassword=KEY_PASSWORD_BURAYA
+keyAlias=upload
+# android/app/ modülüne göre göreli yol (keystore android/ içinde):
+storeFile=../upload-keystore.jks

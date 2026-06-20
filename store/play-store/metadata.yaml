@@ -1,0 +1,58 @@
+# Google Play Console — kopyala-yapıştır alanları
+# Son güncelleme: 2.0.0
+
+app:
+  package_name: com.babysleep.baby_sleep_sounds
+  default_language: tr-TR
+
+listing:
+  tr:
+    title: "Bebek Uyku Sesleri"
+    short_description: "Bebeğiniz için ninni, beyaz gürültü ve rahatlatıcı sesler."
+    full_description_file: listing-tr.md
+    category: PARENTING
+    tags:
+      - Bebek
+      - Ninni
+      - Uyku
+      - Beyaz gürültü
+      - Rahatlatıcı sesler
+  en:
+    title: "Baby Sleep Sounds"
+    short_description: "Lullabies, white noise and calming sounds for your baby."
+    full_description_file: listing-en.md
+    category: PARENTING
+
+content_rating:
+  suggested: Everyone / PEGI 3 / USK 0
+  questionnaire_hints:
+    - No violence, gambling, or user-generated content
+    - No ads in current version
+    - No account or social features
+    - Local favorites stored on device only
+
+data_safety:
+  collects_data: false
+  shares_data: false
+  encrypted_in_transit: not_applicable
+  data_types: []
+  notes: |
+    Uygulama kişisel veri toplamaz. Favori sesler yalnızca cihazda
+    (SharedPreferences) saklanır. Hesap, analitik ve reklam SDK'sı yok.
+
+contact:
+  email: "alperttungir@gmail.com"
+  website: "https://KULLANICI.github.io/REPO-ADI/"
+  privacy_policy_url: "https://KULLANICI.github.io/REPO-ADI/privacy-policy.html"
+
+graphics:
+  icon: 512x512 PNG (32-bit, alpha OK)
+  feature_graphic: 1024x500 PNG/JPEG
+  phone_screenshots: "1080x1920 veya 1440x2560, en az 2, en fazla 8"
+  seven_inch_tablet: "1200x1920 (isteğe bağlı)"
+  ten_inch_tablet: "1600x2560 (isteğe bağlı)"
+
+release:
+  version_name: "2.0.0"
+  version_code: 1
+  release_notes_file: ../release-notes/2.0.0-tr.txt

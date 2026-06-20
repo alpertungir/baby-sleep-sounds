@@ -1,0 +1,51 @@
+# App Store Connect — kopyala-yapıştır alanları
+# Son güncelleme: 2.0.0
+
+app:
+  bundle_id: com.babysleep.babySleepSounds  # Xcode'da eşleştirin
+  sku: baby-sleep-sounds-001
+  primary_language: Turkish
+
+listing:
+  tr:
+    name: "Bebek Uyku Sesleri"
+    subtitle: "Ninni ve beyaz gürültü"
+    promotional_text: "71 sakinleştirici ses, uyku zamanlayıcısı ve favoriler — reklamsız, sade arayüz."
+    keywords: "bebek,ninni,uyku,beyaz gürültü,rahatlatıcı,ses,uyutma,anne,baba,çocuk"
+    description_file: listing-tr.md
+    support_url: "https://KULLANICI.github.io/REPO-ADI/"
+    marketing_url: "https://KULLANICI.github.io/REPO-ADI/"
+    privacy_policy_url: "https://KULLANICI.github.io/REPO-ADI/privacy-policy.html"
+  en:
+    name: "Baby Sleep Sounds"
+    subtitle: "Lullabies & white noise"
+    promotional_text: "71 calming sounds, sleep timer and favorites — ad-free, simple dark UI."
+    keywords: "baby,lullaby,sleep,whitenoise,calm,sounds,infant,toddler,relax,nursery"
+    description_file: listing-en.md
+
+categories:
+  primary: Health & Fitness
+  secondary: Lifestyle
+  alternative_primary: Medical  # Uyku/rahatlama odaklı alternatif
+
+age_rating:
+  suggested: 4+
+  notes: |
+    Made for Kids değerlendirmesi yapılacaksa COPPA gereksinimlerini inceleyin.
+    Mevcut sürümde reklam, satın alma ve üçüncü taraf analitik yok.
+
+app_privacy:
+  data_linked_to_user: false
+  data_used_for_tracking: false
+  collected_data_types: []
+
+screenshots:
+  iphone_6_7: "1290 x 2796 px (iPhone 15 Pro Max)"
+  iphone_6_5: "1284 x 2778 px (iPhone 14 Plus)"
+  iphone_5_5: "1242 x 2208 px (isteğe bağlı, eski cihazlar)"
+  ipad_12_9: "2048 x 2732 px (iPad Pro, isteğe bağlı)"
+
+release:
+  version: "2.0.0"
+  build: "1"
+  whats_new_file: ../release-notes/2.0.0-tr.txt

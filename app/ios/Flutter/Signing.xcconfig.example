@@ -1,0 +1,7 @@
+// Bu dosyayı Signing.xcconfig olarak kopyalayın ve Team ID'nizi girin.
+// Komut: cp Signing.xcconfig.example Signing.xcconfig
+//
+// Team ID: Apple Developer → Membership details
+// Signing.xcconfig Git'e eklenmez.
+
+DEVELOPMENT_TEAM=YOUR_TEAM_ID

@@ -1,0 +1,35 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Flutter / Dart (app/)
+app/.dart_tool/
+app/.flutter-plugins-dependencies
+app/build/
+app/coverage/
+
+# Android secrets
+app/android/key.properties
+app/android/**/*.jks
+app/android/**/*.keystore
+app/android/local.properties
+
+# iOS secrets
+app/ios/Flutter/Signing.xcconfig
+app/ios/export/ExportOptions.appstore.plist
+app/ios/export/ExportOptions.adhoc.plist
+app/ios/Pods/
+app/ios/.symlinks/
+app/ios/Flutter/ephemeral/
+app/ios/Flutter/Generated.xcconfig
+app/ios/Flutter/flutter_export_environment.sh
+
+# macOS / desktop ephemeral
+app/macos/Flutter/ephemeral/
+app/linux/flutter/ephemeral/
+app/windows/flutter/ephemeral/
