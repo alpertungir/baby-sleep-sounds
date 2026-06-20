@@ -2,19 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../l10n/app_localizations.dart';
-import '../l10n/app_locales.dart';
 import '../providers/app_state.dart';
-import '../providers/locale_provider.dart';
 import '../widgets/app_info_footer.dart';
 import '../widgets/category_card.dart';
 import '../widgets/decorative_background.dart';
 import '../widgets/home_header.dart';
+import '../widgets/home_support_card.dart';
+import '../widgets/language_menu_button.dart';
 import '../widgets/mini_player_bar.dart';
 import '../widgets/screen_insets.dart';
 import 'category_screen.dart';
 import 'favorites_screen.dart';
+import 'support_screen.dart';
 
-enum _HomeMenuAction { refreshCatalog }
+enum _HomeMenuAction { refreshCatalog, support }
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -27,46 +28,6 @@ class HomeScreen extends StatelessWidget {
     if (width >= 900) return 4;
     if (width >= 600) return 3;
     return 2;
-  }
-
-  void _showLanguageMenu(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
-    final localeProvider = context.read<LocaleProvider>();
-
-    showModalBottomSheet<void>(
-      context: context,
-      showDragHandle: true,
-      builder: (context) {
-        return SafeArea(
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                ListTile(
-                  title: Text(l10n.systemLanguage),
-                  trailing: localeProvider.usesSystemLocale ? const Icon(Icons.check) : null,
-                  onTap: () {
-                    localeProvider.useSystemLocale();
-                    Navigator.pop(context);
-                  },
-                ),
-                ...AppLocales.codes.map((code) {
-                  final selected = localeProvider.locale?.languageCode == code;
-                  return ListTile(
-                    title: Text(AppLocales.label(l10n, code)),
-                    trailing: selected ? const Icon(Icons.check) : null,
-                    onTap: () {
-                      localeProvider.setLocale(Locale(code));
-                      Navigator.pop(context);
-                    },
-                  );
-                }),
-              ],
-            ),
-          ),
-        );
-      },
-    );
   }
 
   @override
@@ -99,11 +60,7 @@ class HomeScreen extends StatelessWidget {
                 foregroundColor: Colors.white,
                 title: Text(l10n.appTitle),
                 actions: [
-                  IconButton(
-                    tooltip: l10n.language,
-                    onPressed: () => _showLanguageMenu(context),
-                    icon: const Icon(Icons.language),
-                  ),
+                  const LanguageMenuButton(),
                   IconButton(
                     tooltip: l10n.favorites,
                     onPressed: () {
@@ -116,11 +73,23 @@ class HomeScreen extends StatelessWidget {
                   PopupMenuButton<_HomeMenuAction>(
                     tooltip: l10n.refreshCatalog,
                     onSelected: (action) {
-                      if (action == _HomeMenuAction.refreshCatalog) {
-                        state.refreshRemoteCatalog();
+                      switch (action) {
+                        case _HomeMenuAction.refreshCatalog:
+                          state.refreshRemoteCatalog();
+                        case _HomeMenuAction.support:
+                          openSupportScreen(context);
                       }
                     },
                     itemBuilder: (context) => [
+                      PopupMenuItem(
+                        value: _HomeMenuAction.support,
+                        child: ListTile(
+                          leading: const Icon(Icons.volunteer_activism_outlined),
+                          title: Text(l10n.supportMenu),
+                          contentPadding: EdgeInsets.zero,
+                          dense: true,
+                        ),
+                      ),
                       PopupMenuItem(
                         value: _HomeMenuAction.refreshCatalog,
                         child: ListTile(
@@ -143,7 +112,7 @@ class HomeScreen extends StatelessWidget {
                   _horizontalPadding,
                   8,
                   _horizontalPadding,
-                  ScreenInsets.listBottom(context, state),
+                  0,
                 ),
                 sliver: SliverGrid(
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -173,7 +142,21 @@ class HomeScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              const SliverToBoxAdapter(child: AppInfoFooter()),
+              SliverPadding(
+                padding: EdgeInsets.fromLTRB(
+                  _horizontalPadding,
+                  10,
+                  _horizontalPadding,
+                  0,
+                ),
+                sliver: const SliverToBoxAdapter(child: HomeSupportCard()),
+              ),
+              SliverPadding(
+                padding: EdgeInsets.only(
+                  bottom: ScreenInsets.listBottom(context, state),
+                ),
+                sliver: const SliverToBoxAdapter(child: AppInfoFooter()),
+              ),
             ],
           ),
           const Align(

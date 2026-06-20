@@ -24,7 +24,7 @@
   "categoryRelaxing": "Rahatlatıcı",
   "categoryMusic": "Müzik",
   "homeHeaderSubtitle": "Huzurlu uykular için",
-  "developedBy": "Tngr",
+  "developedBy": "Tngr Studio",
   "versionLabel": "Sürüm {version}",
   "@versionLabel": {
     "placeholders": {
@@ -63,5 +63,23 @@
       "time": { "type": "String" }
     }
   },
-  "pausedStatus": "Duraklatıldı"
+  "pausedStatus": "Duraklatıldı",
+  "supportMenu": "Gönüllü destek",
+  "supportLink": "Geliştirmeyi destekle",
+  "supportTitle": "Gönüllü destek",
+  "supportBody": "Bu uygulama reklamsız ve tamamen ücretsiz. Beğendiysen geliştirmeyi gönüllü olarak destekleyebilirsin. Hiçbir özellik kilitli değildir.",
+  "supportCoffeeTitle": "Bir kahve",
+  "supportCoffeeSubtitle": "Küçük bir teşekkür",
+  "supportMealTitle": "Bir öğün",
+  "supportMealSubtitle": "Geliştirmeyi destekle",
+  "supportGenerousTitle": "Cömert destek",
+  "supportGenerousSubtitle": "Ekstra teşekkürler",
+  "supportThankYou": "Desteğin için teşekkürler!",
+  "supportUnavailable": "Destek seçenekleri şu an kullanılamıyor. Daha sonra tekrar dene.",
+  "supportProductsPending": "Satın alma, Play Console'da ürünler etkinleştirildikten ve uygulama test kanalına yüklendikten sonra açılır.",
+  "supportPricePending": "Yakında",
+  "supportPurchasing": "İşleniyor…",
+  "supportPurchaseFailed": "Satın alma tamamlanamadı. Lütfen tekrar dene.",
+  "homeSupportCta": "Bir kahve ısmarla",
+  "homeSupportHint": "Gönüllü destek · Reklamsız uygulama"
 }

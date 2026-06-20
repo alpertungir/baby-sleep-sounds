@@ -24,7 +24,7 @@
   "categoryRelaxing": "Entspannend",
   "categoryMusic": "Musik",
   "homeHeaderSubtitle": "Ruhiger Schlaf, süße Träume",
-  "developedBy": "Tngr",
+  "developedBy": "Tngr Studio",
   "versionLabel": "Version {version}",
   "@versionLabel": {
     "placeholders": {
@@ -63,5 +63,23 @@
       "time": { "type": "String" }
     }
   },
-  "pausedStatus": "Pausiert"
+  "pausedStatus": "Pausiert",
+  "supportMenu": "Entwicklung unterstützen",
+  "supportLink": "Entwicklung unterstützen",
+  "supportTitle": "Freiwillige Unterstützung",
+  "supportBody": "Diese App ist kostenlos und werbefrei. Wenn sie dir gefällt, kannst du die Entwicklung freiwillig unterstützen. Keine Funktionen sind gesperrt.",
+  "supportCoffeeTitle": "Ein Kaffee",
+  "supportCoffeeSubtitle": "Ein kleines Dankeschön",
+  "supportMealTitle": "Eine Mahlzeit",
+  "supportMealSubtitle": "Entwicklung unterstützen",
+  "supportGenerousTitle": "Großzügige Unterstützung",
+  "supportGenerousSubtitle": "Extra Dank",
+  "supportThankYou": "Danke für deine Unterstützung!",
+  "supportUnavailable": "Unterstützungsoptionen sind derzeit nicht verfügbar. Bitte später erneut versuchen.",
+  "supportProductsPending": "Käufe sind verfügbar, sobald die Produkte in Play Console aktiv sind.",
+  "supportPricePending": "Bald",
+  "supportPurchasing": "Wird verarbeitet…",
+  "supportPurchaseFailed": "Kauf konnte nicht abgeschlossen werden. Bitte erneut versuchen.",
+  "homeSupportCta": "Spendier einen Kaffee",
+  "homeSupportHint": "Freiwillige Unterstützung · Werbefrei"
 }

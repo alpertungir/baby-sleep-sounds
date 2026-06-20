@@ -68,7 +68,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get homeHeaderSubtitle => 'Peaceful sleep, sweet dreams';
 
   @override
-  String get developedBy => 'Tngr';
+  String get developedBy => 'Tngr Studio';
 
   @override
   String versionLabel(String version) {
@@ -121,4 +121,62 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get pausedStatus => 'Paused';
+
+  @override
+  String get supportMenu => 'Support development';
+
+  @override
+  String get supportLink => 'Support development';
+
+  @override
+  String get supportTitle => 'Voluntary support';
+
+  @override
+  String get supportBody =>
+      'This app is free and ad-free. If you enjoy it, you can voluntarily support development. No features are locked.';
+
+  @override
+  String get supportCoffeeTitle => 'Buy a coffee';
+
+  @override
+  String get supportCoffeeSubtitle => 'A small thank-you';
+
+  @override
+  String get supportMealTitle => 'Buy a meal';
+
+  @override
+  String get supportMealSubtitle => 'Support development';
+
+  @override
+  String get supportGenerousTitle => 'Generous support';
+
+  @override
+  String get supportGenerousSubtitle => 'Extra thanks';
+
+  @override
+  String get supportThankYou => 'Thank you for your support!';
+
+  @override
+  String get supportUnavailable =>
+      'Support options are not available right now. Please try again later.';
+
+  @override
+  String get supportProductsPending =>
+      'Purchases unlock after in-app products are active in Play Console and the app is on a test track.';
+
+  @override
+  String get supportPricePending => 'Soon';
+
+  @override
+  String get supportPurchasing => 'Processing…';
+
+  @override
+  String get supportPurchaseFailed =>
+      'Purchase could not be completed. Please try again.';
+
+  @override
+  String get homeSupportCta => 'Buy a coffee';
+
+  @override
+  String get homeSupportHint => 'Voluntary support · Ad-free app';
 }

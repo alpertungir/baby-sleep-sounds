@@ -1,4 +1,4 @@
-# Tngr — Play Console marka metinleri
+# Tngr Studio — Play Console marka metinleri
 
 Play Console → **Geliştirici hesabı** / **Store presence** / **Developer page** alanlarına kopyala-yapıştır.
 
@@ -7,8 +7,10 @@ Play Console → **Geliştirici hesabı** / **Store presence** / **Developer pag
 ## Geliştirici adı (Developer name)
 
 ```
-Tngr
+Tngr Studio
 ```
+
+**Stüdyo ikonu:** `store/tngr-studio/icon-512.png` (Play geliştirici profili / mağaza)
 
 > Play Console → Ayarlar → Geliştirici hesabı → Geliştirici profili
 
@@ -17,7 +19,7 @@ Tngr
 ## Geliştirici açıklaması — Türkçe
 
 ```
-Tngr, Alper Tungir tarafından kurulan bağımsız bir mobil uygulama stüdyosudur.
+Tngr Studio, Alper Tungir tarafından kurulan bağımsız bir mobil uygulama stüdyosudur.
 
 Aileler ve ebeveynler için sade, reklamsız ve gizlilik odaklı uygulamalar geliştiriyoruz. İlk odak alanımız bebek uyku rutini: ninni, beyaz gürültü ve rahatlatıcı sesler.
 
@@ -29,7 +31,7 @@ Bebek Uyku Sesleri uygulamamız kişisel veri toplamaz; favoriler yalnızca ciha
 ## Developer description — English
 
 ```
-Tngr is an independent mobile app studio founded by Alper Tungir.
+Tngr Studio is an independent mobile app studio founded by Alper Tungir.
 
 We build simple, ad-free, privacy-focused apps for families and parents. Our first focus is bedtime routines for babies: lullabies, white noise, and calming sounds.
 
@@ -81,6 +83,7 @@ Tamamen yenilendi!
 • Uyku zamanlayıcısı ve favoriler
 • Beyaz gürültü ve Türk ninneleri çevrimdışı
 • Reklamsız
+• Tngr Studio markası
 ```
 
 ---
@@ -96,4 +99,5 @@ Fully redesigned!
 • Sleep timer and favorites
 • White noise and Turkish lullabies offline
 • Ad-free
+• Tngr Studio branding
 ```

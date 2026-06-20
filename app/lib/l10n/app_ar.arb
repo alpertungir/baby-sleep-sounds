@@ -24,7 +24,7 @@
   "categoryRelaxing": "مريح",
   "categoryMusic": "موسيقى",
   "homeHeaderSubtitle": "نوم هادئ، أحلام جميلة",
-  "developedBy": "Tngr",
+  "developedBy": "Tngr Studio",
   "versionLabel": "الإصدار {version}",
   "@versionLabel": {
     "placeholders": {
@@ -63,5 +63,23 @@
       "time": { "type": "String" }
     }
   },
-  "pausedStatus": "متوقف مؤقتًا"
+  "pausedStatus": "متوقف مؤقتًا",
+  "supportMenu": "ادعم التطوير",
+  "supportLink": "ادعم التطوير",
+  "supportTitle": "دعم اختياري",
+  "supportBody": "هذا التطبيق مجاني وبدون إعلانات. إذا أعجبك، يمكنك دعم التطوير بشكل اختياري. لا توجد ميزات مقفلة.",
+  "supportCoffeeTitle": "فنجان قهوة",
+  "supportCoffeeSubtitle": "شكر بسيط",
+  "supportMealTitle": "وجبة",
+  "supportMealSubtitle": "ادعم التطوير",
+  "supportGenerousTitle": "دعم سخي",
+  "supportGenerousSubtitle": "شكر إضافي",
+  "supportThankYou": "شكرًا لدعمك!",
+  "supportUnavailable": "خيارات الدعم غير متاحة حاليًا. حاول لاحقًا.",
+  "supportProductsPending": "تتوفر المشتريات بعد تفعيل المنتجات في Play Console.",
+  "supportPricePending": "قريبًا",
+  "supportPurchasing": "جارٍ المعالجة…",
+  "supportPurchaseFailed": "تعذّر إتمام الشراء. حاول مرة أخرى.",
+  "homeSupportCta": "ادعمني بقهوة",
+  "homeSupportHint": "دعم اختياري · بدون إعلانات"
 }

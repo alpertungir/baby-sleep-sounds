@@ -68,7 +68,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get homeHeaderSubtitle => 'Sueños tranquilos y dulces';
 
   @override
-  String get developedBy => 'Tngr';
+  String get developedBy => 'Tngr Studio';
 
   @override
   String versionLabel(String version) {
@@ -123,4 +123,62 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get pausedStatus => 'En pausa';
+
+  @override
+  String get supportMenu => 'Apoyar el desarrollo';
+
+  @override
+  String get supportLink => 'Apoyar el desarrollo';
+
+  @override
+  String get supportTitle => 'Apoyo voluntario';
+
+  @override
+  String get supportBody =>
+      'Esta app es gratuita y sin anuncios. Si te gusta, puedes apoyar el desarrollo de forma voluntaria. Ninguna función está bloqueada.';
+
+  @override
+  String get supportCoffeeTitle => 'Un café';
+
+  @override
+  String get supportCoffeeSubtitle => 'Un pequeño agradecimiento';
+
+  @override
+  String get supportMealTitle => 'Una comida';
+
+  @override
+  String get supportMealSubtitle => 'Apoya el desarrollo';
+
+  @override
+  String get supportGenerousTitle => 'Apoyo generoso';
+
+  @override
+  String get supportGenerousSubtitle => 'Un extra de gratitud';
+
+  @override
+  String get supportThankYou => '¡Gracias por tu apoyo!';
+
+  @override
+  String get supportUnavailable =>
+      'Las opciones de apoyo no están disponibles ahora. Inténtalo más tarde.';
+
+  @override
+  String get supportProductsPending =>
+      'Las compras estarán disponibles cuando los productos estén activos en Play Console.';
+
+  @override
+  String get supportPricePending => 'Pronto';
+
+  @override
+  String get supportPurchasing => 'Procesando…';
+
+  @override
+  String get supportPurchaseFailed =>
+      'No se pudo completar la compra. Inténtalo de nuevo.';
+
+  @override
+  String get homeSupportCta => 'Invítame un café';
+
+  @override
+  String get homeSupportHint => 'Apoyo voluntario · App sin anuncios';
 }

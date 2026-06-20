@@ -227,7 +227,7 @@ abstract class AppLocalizations {
   /// No description provided for @developedBy.
   ///
   /// In tr, this message translates to:
-  /// **'Tngr'**
+  /// **'Tngr Studio'**
   String get developedBy;
 
   /// No description provided for @versionLabel.
@@ -313,6 +313,114 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Duraklatıldı'**
   String get pausedStatus;
+
+  /// No description provided for @supportMenu.
+  ///
+  /// In tr, this message translates to:
+  /// **'Gönüllü destek'**
+  String get supportMenu;
+
+  /// No description provided for @supportLink.
+  ///
+  /// In tr, this message translates to:
+  /// **'Geliştirmeyi destekle'**
+  String get supportLink;
+
+  /// No description provided for @supportTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Gönüllü destek'**
+  String get supportTitle;
+
+  /// No description provided for @supportBody.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu uygulama reklamsız ve tamamen ücretsiz. Beğendiysen geliştirmeyi gönüllü olarak destekleyebilirsin. Hiçbir özellik kilitli değildir.'**
+  String get supportBody;
+
+  /// No description provided for @supportCoffeeTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bir kahve'**
+  String get supportCoffeeTitle;
+
+  /// No description provided for @supportCoffeeSubtitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Küçük bir teşekkür'**
+  String get supportCoffeeSubtitle;
+
+  /// No description provided for @supportMealTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bir öğün'**
+  String get supportMealTitle;
+
+  /// No description provided for @supportMealSubtitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Geliştirmeyi destekle'**
+  String get supportMealSubtitle;
+
+  /// No description provided for @supportGenerousTitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Cömert destek'**
+  String get supportGenerousTitle;
+
+  /// No description provided for @supportGenerousSubtitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ekstra teşekkürler'**
+  String get supportGenerousSubtitle;
+
+  /// No description provided for @supportThankYou.
+  ///
+  /// In tr, this message translates to:
+  /// **'Desteğin için teşekkürler!'**
+  String get supportThankYou;
+
+  /// No description provided for @supportUnavailable.
+  ///
+  /// In tr, this message translates to:
+  /// **'Destek seçenekleri şu an kullanılamıyor. Daha sonra tekrar dene.'**
+  String get supportUnavailable;
+
+  /// No description provided for @supportProductsPending.
+  ///
+  /// In tr, this message translates to:
+  /// **'Satın alma, Play Console\'da ürünler etkinleştirildikten ve uygulama test kanalına yüklendikten sonra açılır.'**
+  String get supportProductsPending;
+
+  /// No description provided for @supportPricePending.
+  ///
+  /// In tr, this message translates to:
+  /// **'Yakında'**
+  String get supportPricePending;
+
+  /// No description provided for @supportPurchasing.
+  ///
+  /// In tr, this message translates to:
+  /// **'İşleniyor…'**
+  String get supportPurchasing;
+
+  /// No description provided for @supportPurchaseFailed.
+  ///
+  /// In tr, this message translates to:
+  /// **'Satın alma tamamlanamadı. Lütfen tekrar dene.'**
+  String get supportPurchaseFailed;
+
+  /// No description provided for @homeSupportCta.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bir kahve ısmarla'**
+  String get homeSupportCta;
+
+  /// No description provided for @homeSupportHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Gönüllü destek · Reklamsız uygulama'**
+  String get homeSupportHint;
 }
 
 class _AppLocalizationsDelegate

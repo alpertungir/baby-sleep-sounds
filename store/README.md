@@ -27,7 +27,18 @@ Google Play ve App Store listeleri için hazır metinler, gizlilik politikası v
 1. **Destek e-postası:** alperttungir@gmail.com
 2. **Gizlilik URL:** `https://alpertungir.github.io/baby-sleep-sounds/privacy-policy.html`
 3. **Android imzalama:** `cd app && ./scripts/setup-android-signing.sh`
-4. **iOS imzalama:** `cd app && ./scripts/setup-ios-signing.sh` (macOS)
+4. **Firebase Android uygulaması:** Paket `com.tngrstudio.babysleepsounds` — aşağıdaki adımlar
+5. **iOS imzalama:** `cd app && ./scripts/setup-ios-signing.sh` (macOS)
+
+### Firebase (yeni paket adı)
+
+Eski `com.alfaapps.BabySleepSounds` kaydını silmek zorunda değilsin; yeni Android uygulaması ekle:
+
+1. [Firebase Console](https://console.firebase.google.com/) → proje `baby-sleep-sounds-482b5`
+2. **Add app → Android** → paket: `com.tngrstudio.babysleepsounds`
+3. SHA-1 (release): `keytool -list -v -keystore app/android/upload-keystore.jks -alias upload`
+4. İndirilen `google-services.json` → `app/android/app/google-services.json` (üzerine yaz)
+5. Storage kurallarını tekrar **Publish** et (`firebase/storage.rules`)
 
 ## Gizlilik politikasını yayınlama (GitHub Pages)
 
@@ -51,7 +62,7 @@ cd app && ./scripts/build-ios-release.sh      # App Store (macOS)
 
 | Platform | Kimlik |
 |----------|--------|
-| Android | `com.alfaapps.BabySleepSounds` |
-| iOS | `com.babysleep.babySleepSounds` (Xcode'da ayarlayın) |
+| Android | `com.tngrstudio.babysleepsounds` |
+| iOS | `com.tngrstudio.babysleepsounds` |
 | Sürüm | 2.0.0 (build 1) |
 | Görünen ad | Bebek Uyku Sesleri |

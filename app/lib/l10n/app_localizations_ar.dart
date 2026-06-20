@@ -68,7 +68,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get homeHeaderSubtitle => 'نوم هادئ، أحلام جميلة';
 
   @override
-  String get developedBy => 'Tngr';
+  String get developedBy => 'Tngr Studio';
 
   @override
   String versionLabel(String version) {
@@ -121,4 +121,61 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get pausedStatus => 'متوقف مؤقتًا';
+
+  @override
+  String get supportMenu => 'ادعم التطوير';
+
+  @override
+  String get supportLink => 'ادعم التطوير';
+
+  @override
+  String get supportTitle => 'دعم اختياري';
+
+  @override
+  String get supportBody =>
+      'هذا التطبيق مجاني وبدون إعلانات. إذا أعجبك، يمكنك دعم التطوير بشكل اختياري. لا توجد ميزات مقفلة.';
+
+  @override
+  String get supportCoffeeTitle => 'فنجان قهوة';
+
+  @override
+  String get supportCoffeeSubtitle => 'شكر بسيط';
+
+  @override
+  String get supportMealTitle => 'وجبة';
+
+  @override
+  String get supportMealSubtitle => 'ادعم التطوير';
+
+  @override
+  String get supportGenerousTitle => 'دعم سخي';
+
+  @override
+  String get supportGenerousSubtitle => 'شكر إضافي';
+
+  @override
+  String get supportThankYou => 'شكرًا لدعمك!';
+
+  @override
+  String get supportUnavailable =>
+      'خيارات الدعم غير متاحة حاليًا. حاول لاحقًا.';
+
+  @override
+  String get supportProductsPending =>
+      'تتوفر المشتريات بعد تفعيل المنتجات في Play Console.';
+
+  @override
+  String get supportPricePending => 'قريبًا';
+
+  @override
+  String get supportPurchasing => 'جارٍ المعالجة…';
+
+  @override
+  String get supportPurchaseFailed => 'تعذّر إتمام الشراء. حاول مرة أخرى.';
+
+  @override
+  String get homeSupportCta => 'ادعمني بقهوة';
+
+  @override
+  String get homeSupportHint => 'دعم اختياري · بدون إعلانات';
 }

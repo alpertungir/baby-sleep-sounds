@@ -38,7 +38,7 @@ Ninni · Beyaz Gürültü · Zamanlayıcı
 
 Arka plan: `#2D1B69` (uygulama teması). Hazır dosya: `store/play-store/graphics/feature-graphic-1024x500.png`
 
-Marka: **Tngr**
+Marka: **Tngr Studio**
 
 ---
 

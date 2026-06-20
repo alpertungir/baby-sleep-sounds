@@ -68,7 +68,7 @@ class AppLocalizationsTr extends AppLocalizations {
   String get homeHeaderSubtitle => 'Huzurlu uykular için';
 
   @override
-  String get developedBy => 'Tngr';
+  String get developedBy => 'Tngr Studio';
 
   @override
   String versionLabel(String version) {
@@ -122,4 +122,62 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get pausedStatus => 'Duraklatıldı';
+
+  @override
+  String get supportMenu => 'Gönüllü destek';
+
+  @override
+  String get supportLink => 'Geliştirmeyi destekle';
+
+  @override
+  String get supportTitle => 'Gönüllü destek';
+
+  @override
+  String get supportBody =>
+      'Bu uygulama reklamsız ve tamamen ücretsiz. Beğendiysen geliştirmeyi gönüllü olarak destekleyebilirsin. Hiçbir özellik kilitli değildir.';
+
+  @override
+  String get supportCoffeeTitle => 'Bir kahve';
+
+  @override
+  String get supportCoffeeSubtitle => 'Küçük bir teşekkür';
+
+  @override
+  String get supportMealTitle => 'Bir öğün';
+
+  @override
+  String get supportMealSubtitle => 'Geliştirmeyi destekle';
+
+  @override
+  String get supportGenerousTitle => 'Cömert destek';
+
+  @override
+  String get supportGenerousSubtitle => 'Ekstra teşekkürler';
+
+  @override
+  String get supportThankYou => 'Desteğin için teşekkürler!';
+
+  @override
+  String get supportUnavailable =>
+      'Destek seçenekleri şu an kullanılamıyor. Daha sonra tekrar dene.';
+
+  @override
+  String get supportProductsPending =>
+      'Satın alma, Play Console\'da ürünler etkinleştirildikten ve uygulama test kanalına yüklendikten sonra açılır.';
+
+  @override
+  String get supportPricePending => 'Yakında';
+
+  @override
+  String get supportPurchasing => 'İşleniyor…';
+
+  @override
+  String get supportPurchaseFailed =>
+      'Satın alma tamamlanamadı. Lütfen tekrar dene.';
+
+  @override
+  String get homeSupportCta => 'Bir kahve ısmarla';
+
+  @override
+  String get homeSupportHint => 'Gönüllü destek · Reklamsız uygulama';
 }

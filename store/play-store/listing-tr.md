@@ -4,7 +4,7 @@ Bebeğinizin huzurla uykuya dalması için tasarlanmış sade ve kullanışlı b
 
 Bebek Uyku Sesleri; beyaz gürültü, ninniler, rahatlatıcı sesler ve uyku müziklerini tek bir uygulamada bir araya getirir. Mor tonlu, göz yormayan arayüzü gece kullanımına uygundur.
 
-**Tngr** tarafından geliştirilmiştir.
+**Tngr Studio** tarafından geliştirilmiştir.
 
 ## Öne çıkan özellikler
 
@@ -36,4 +36,4 @@ Uygulama kişisel veri toplamaz. Favoriler yalnızca cihazınızda tutulur. Hesa
 
 ---
 
-Geliştirici: **Tngr** · Sorularınız için: alperttungir@gmail.com
+Geliştirici: **Tngr Studio** · Sorularınız için: alperttungir@gmail.com

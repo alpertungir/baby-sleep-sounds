@@ -55,7 +55,7 @@ def _feature_graphic() -> None:
 
     title_font = _load_font(52, bold=True)
     sub_font = _load_font(28)
-    brand_font = _load_font(22, bold=True)
+    brand_font = _load_font(18, bold=True)
     tag_font = _load_font(20)
 
     draw.text((320, 130), "Bebek Uyku Sesleri", font=title_font, fill=TEXT)
@@ -63,10 +63,11 @@ def _feature_graphic() -> None:
     draw.text((320, 252), "Ninni  ·  Beyaz Gürültü  ·  Zamanlayıcı", font=tag_font, fill=ACCENT)
     draw.text((320, 300), "50+ ses  ·  8 dil  ·  Reklamsız", font=tag_font, fill=TEXT)
 
-    draw.rounded_rectangle((780, 408, 968, 452), radius=18, fill=ACCENT)
-    bbox = draw.textbbox((0, 0), "Tngr", font=brand_font)
+    brand = "Tngr Studio"
+    draw.rounded_rectangle((720, 400, 968, 458), radius=18, fill=ACCENT)
+    bbox = draw.textbbox((0, 0), brand, font=brand_font)
     tw, th = bbox[2] - bbox[0], bbox[3] - bbox[1]
-    draw.text((874 - tw // 2, 430 - th // 2), "Tngr", font=brand_font, fill=(0x3E, 0x27, 0x23))
+    draw.text((844 - tw // 2, 429 - th // 2), brand, font=brand_font, fill=(0x3E, 0x27, 0x23))
 
     for i, (x, y, r) in enumerate([(900, 80, 3), (950, 120, 2), (880, 160, 2), (960, 200, 3)]):
         fill = ACCENT if i % 2 == 0 else MUTED

@@ -2,7 +2,7 @@
 # Son güncelleme: 2.0.0
 
 app:
-  bundle_id: com.babysleep.babySleepSounds  # Xcode'da eşleştirin
+  bundle_id: com.tngrstudio.babysleepsounds
   sku: baby-sleep-sounds-001
   primary_language: Turkish
 

@@ -5,10 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 
+import 'config/app_identity.dart';
 import 'l10n/app_locales.dart';
 import 'l10n/app_localizations.dart';
 import 'providers/app_state.dart';
 import 'providers/locale_provider.dart';
+import 'providers/support_purchase_provider.dart';
 import 'screens/app_root.dart';
 import 'services/audio_player_service.dart';
 import 'services/favorites_service.dart';
@@ -36,7 +38,7 @@ Future<void> main() async {
     handler = await AudioService.init(
       builder: () => SleepAudioHandler(downloadService),
       config: const AudioServiceConfig(
-        androidNotificationChannelId: 'com.alfaapps.BabySleepSounds.audio',
+        androidNotificationChannelId: AppIdentity.androidNotificationChannelId,
         androidNotificationChannelName: 'Bebek Uyku Sesleri',
         androidNotificationOngoing: true,
       ),
@@ -51,6 +53,7 @@ Future<void> main() async {
   final localeProvider = LocaleProvider(
     systemLocale: WidgetsBinding.instance.platformDispatcher.locale,
   );
+  final supportPurchaseProvider = SupportPurchaseProvider();
   final appState = AppState(
     audioService: audioService,
     favoritesService: favoritesService,
@@ -59,12 +62,16 @@ Future<void> main() async {
   );
 
   await localeProvider.load();
+  if (_mobilePlatform) {
+    await supportPurchaseProvider.initialize();
+  }
   await appState.initialize();
 
   runApp(
     MultiProvider(
       providers: [
         ChangeNotifierProvider.value(value: localeProvider),
+        ChangeNotifierProvider.value(value: supportPurchaseProvider),
         ChangeNotifierProvider.value(value: appState),
       ],
       child: const BabySleepApp(),
@@ -79,11 +86,14 @@ class BabySleepApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final localeProvider = context.watch<LocaleProvider>();
 
+    final locale = localeProvider.effectiveLocale;
+
     return MaterialApp(
+      key: ValueKey(locale.languageCode),
       title: 'Baby Sleep Sounds',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.dark(),
-      locale: localeProvider.effectiveLocale,
+      locale: locale,
       localeResolutionCallback: (locale, supported) {
         if (locale != null && AppLocales.isSupported(locale.languageCode)) {
           return Locale(locale.languageCode);

@@ -9,7 +9,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:162932344385:android:ff263f18984f5c107d28c0",
         "android_client_info": {
-          "package_name": "com.alfaapps.BabySleepSounds"
+          "package_name": "com.tngrstudio.babysleepsounds"
         }
       },
       "oauth_client": [
@@ -17,7 +17,7 @@
           "client_id": "162932344385-uofmm7jhrp39d6su5fqed1por0tj0blb.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.alfaapps.BabySleepSounds",
+            "package_name": "com.tngrstudio.babysleepsounds",
             "certificate_hash": "8c9388b29219292da7a5830bfce9fe7fa9518766"
           }
         },

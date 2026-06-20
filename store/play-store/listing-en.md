@@ -4,7 +4,7 @@ A simple, calming sleep sound app designed to help your baby drift off peacefull
 
 Baby Sleep Sounds brings together white noise, lullabies, relaxing sounds, and gentle sleep music in one ad-free app with a dark, night-friendly interface.
 
-Developed by **Tngr**.
+Developed by **Tngr Studio**.
 
 ## Highlights
 
@@ -36,4 +36,4 @@ The app does not collect personal data. Favorites are stored locally on your dev
 
 ---
 
-Developer: **Tngr** · Questions: alperttungir@gmail.com
+Developer: **Tngr Studio** · Questions: alperttungir@gmail.com

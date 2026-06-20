@@ -68,7 +68,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get homeHeaderSubtitle => 'Спокойный сон, сладкие сны';
 
   @override
-  String get developedBy => 'Tngr';
+  String get developedBy => 'Tngr Studio';
 
   @override
   String versionLabel(String version) {
@@ -123,4 +123,62 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get pausedStatus => 'Пауза';
+
+  @override
+  String get supportMenu => 'Поддержать разработку';
+
+  @override
+  String get supportLink => 'Поддержать разработку';
+
+  @override
+  String get supportTitle => 'Добровольная поддержка';
+
+  @override
+  String get supportBody =>
+      'Это приложение бесплатное и без рекламы. Если оно вам нравится, вы можете добровольно поддержать разработку. Ничего не заблокировано.';
+
+  @override
+  String get supportCoffeeTitle => 'Кофе';
+
+  @override
+  String get supportCoffeeSubtitle => 'Небольшая благодарность';
+
+  @override
+  String get supportMealTitle => 'Обед';
+
+  @override
+  String get supportMealSubtitle => 'Поддержать разработку';
+
+  @override
+  String get supportGenerousTitle => 'Щедрая поддержка';
+
+  @override
+  String get supportGenerousSubtitle => 'Особая благодарность';
+
+  @override
+  String get supportThankYou => 'Спасибо за поддержку!';
+
+  @override
+  String get supportUnavailable =>
+      'Варианты поддержки сейчас недоступны. Попробуйте позже.';
+
+  @override
+  String get supportProductsPending =>
+      'Покупки станут доступны после активации продуктов в Play Console.';
+
+  @override
+  String get supportPricePending => 'Скоро';
+
+  @override
+  String get supportPurchasing => 'Обработка…';
+
+  @override
+  String get supportPurchaseFailed =>
+      'Не удалось завершить покупку. Попробуйте снова.';
+
+  @override
+  String get homeSupportCta => 'Угостите кофе';
+
+  @override
+  String get homeSupportHint => 'Добровольная поддержка · Без рекламы';
 }

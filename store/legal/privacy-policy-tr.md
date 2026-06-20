@@ -2,7 +2,7 @@
 
 **Son güncelleme:** 20 Haziran 2026  
 **Uygulama:** Bebek Uyku Sesleri  
-**Geliştirici:** [Adınız / Şirket Adınız]  
+**Geliştirici:** Tngr Studio  
 **İletişim:** alperttungir@gmail.com
 
 ## Özet
@@ -11,7 +11,7 @@ Bebek Uyku Sesleri, bebeğinizin uykuya dalmasına yardımcı olmak için ses ç
 
 ## Topladığımız veriler
 
-Uygulama **kişisel veri toplamaz**. Ad, e-posta, konum, cihaz kimliği veya kullanım analitiği toplanmaz.
+Uygulama **kişisel veri toplamaz**. Ad, e-posta, konum, reklam kimliği veya kullanım analitiği toplanmaz.
 
 ## Cihazda saklanan veriler
 
@@ -20,13 +20,19 @@ Uygulama yalnızca aşağıdaki bilgileri **cihazınızda yerel olarak** saklar:
 | Veri | Amaç | Konum |
 |------|------|-------|
 | Favori ses listesi | Favorilerinizi hatırlamak | Cihaz (SharedPreferences) |
-| Ses seviyesi tercihi | Son kullanılan ayarı saklamak | Cihaz belleği (oturum) |
+| Dil tercihi | Seçtiğiniz arayüz dilini hatırlamak | Cihaz (SharedPreferences) |
+| İndirilen ses dosyaları | Çevrimdışı dinleme | Cihaz önbelleği |
 
 Bu veriler sunucularımıza gönderilmez ve üçüncü taraflarla paylaşılmaz.
 
 ## Üçüncü taraf hizmetler
 
-Mevcut sürümde reklam, analitik, sosyal medya veya bulut senkronizasyon SDK'sı **kullanılmamaktadır**.
+| Hizmet | Amaç | Veri |
+|--------|------|------|
+| Firebase Storage (Google) | Ses dosyalarını indirmek | Kişisel veri gönderilmez; yalnızca genel ses dosyası isteği |
+| Google Play faturalandırma | İsteğe bağlı gönüllü destek satın alımları | Ödeme Google tarafından işlenir; uygulama kişisel veri toplamaz |
+
+Reklam, analitik veya sosyal medya SDK'sı **kullanılmamaktadır**.
 
 ## Çocukların gizliliği
 
@@ -34,11 +40,11 @@ Uygulama ebeveynler ve bebek bakımı için tasarlanmıştır. Bilerek 13 yaş a
 
 ## İnternet erişimi
 
-Uygulama temel işlevleri için internet bağlantısı **gerektirmez**. Ses dosyaları uygulama içinde paketlenmiştir.
+Bazı sesler ilk dinlemede Firebase Storage üzerinden indirilir. Beyaz gürültü ve Türk ninnelerinin bir kısmı uygulama içinde paketlenmiştir; internet olmadan da kullanılabilir.
 
 ## Veri güvenliği
 
-Toplanan veri olmadığı için sunucu tarafında saklama yapılmaz. Cihazınızdaki favori listesi, cihazınızın güvenlik ayarlarına tabidir.
+Toplanan kişisel veri olmadığı için sunucu tarafında profil saklanmaz. Cihazınızdaki favori listesi, cihazınızın güvenlik ayarlarına tabidir.
 
 ## Haklarınız
 
@@ -51,7 +57,3 @@ Bu politika güncellenebilir. Önemli değişiklikler uygulama mağazası listes
 ## İletişim
 
 Sorularınız için: **alperttungir@gmail.com**
-
----
-
-*İletişim: alperttungir@gmail.com*

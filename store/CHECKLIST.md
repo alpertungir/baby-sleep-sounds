@@ -24,7 +24,8 @@ Detay: [`docs/github-pages.md`](docs/github-pages.md)
 ## Google Play
 
 - [ ] Google Play Console hesabı ($25 tek seferlik)
-- [ ] Uygulama oluşturuldu: `com.alfaapps.BabySleepSounds`
+- [ ] Firebase'e Android uygulaması eklendi: `com.tngrstudio.babysleepsounds` + yeni `google-services.json`
+- [ ] Uygulama oluşturuldu: `com.tngrstudio.babysleepsounds`
 - [ ] **Store listing** — TR (+ isteğe bağlı EN) metinler yapıştırıldı
 - [ ] **Kısa açıklama** (80 karakter): `Bebeğiniz için ninni, beyaz gürültü ve rahatlatıcı sesler.`
 - [ ] **Kategori:** Parenting (Ebeveynlik)
@@ -52,7 +53,7 @@ Detay: [`docs/android-signing.md`](docs/android-signing.md)
 ## App Store
 
 - [ ] Apple Developer Program ($99/yıl)
-- [ ] Bundle ID: `com.babysleep.babySleepSounds` (Developer Console + Xcode)
+- [ ] Bundle ID: `com.tngrstudio.babysleepsounds` (Developer Console + Xcode)
 - [ ] **iOS imzalama** yapılandırıldı (aşağıya bakın)
 - [ ] **App Information:** birincil kategori Health & Fitness veya Lifestyle
 - [ ] **Pricing:** Free

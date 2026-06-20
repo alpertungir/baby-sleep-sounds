@@ -39,7 +39,7 @@ alwaysApply: true
 | Dinamik katalog | Firebase `sounds/catalog.json`; fallback `app/assets/catalog_fallback.json` |
 | Yerel sesler | `app/assets/sounds/{whitenoise,lullaby,turkish_lullaby}/` |
 | Upload script | `app/scripts/upload_firebase_sounds.py` |
-| Android paket | `com.alfaapps.BabySleepSounds` |
+| Android paket | `com.tngrstudio.babysleepsounds` |
 | i18n | `app/lib/l10n/app_tr.arb`, `app_en.arb` |
 
 ## Kaçın

@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../l10n/app_localizations.dart';
 import '../providers/app_state.dart';
+import '../widgets/language_menu_button.dart';
 import '../widgets/mini_player_bar.dart';
 import '../widgets/screen_insets.dart';
 import '../widgets/sound_tile.dart';
@@ -15,7 +16,10 @@ class FavoritesScreen extends StatelessWidget {
     final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
-      appBar: AppBar(title: Text(l10n.favorites)),
+      appBar: AppBar(
+        title: Text(l10n.favorites),
+        actions: const [LanguageMenuButton()],
+      ),
       body: Stack(
         children: [
           Consumer<AppState>(

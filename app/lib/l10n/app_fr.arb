@@ -24,7 +24,7 @@
   "categoryRelaxing": "Relaxant",
   "categoryMusic": "Musique",
   "homeHeaderSubtitle": "Dodo paisible, doux rêves",
-  "developedBy": "Tngr",
+  "developedBy": "Tngr Studio",
   "versionLabel": "Version {version}",
   "@versionLabel": {
     "placeholders": {
@@ -63,5 +63,23 @@
       "time": { "type": "String" }
     }
   },
-  "pausedStatus": "En pause"
+  "pausedStatus": "En pause",
+  "supportMenu": "Soutenir le développement",
+  "supportLink": "Soutenir le développement",
+  "supportTitle": "Soutien volontaire",
+  "supportBody": "Cette app est gratuite et sans publicité. Si elle vous plaît, vous pouvez soutenir le développement de façon volontaire. Aucune fonction n'est bloquée.",
+  "supportCoffeeTitle": "Un café",
+  "supportCoffeeSubtitle": "Un petit merci",
+  "supportMealTitle": "Un repas",
+  "supportMealSubtitle": "Soutenir le développement",
+  "supportGenerousTitle": "Soutien généreux",
+  "supportGenerousSubtitle": "Merci supplémentaire",
+  "supportThankYou": "Merci pour votre soutien !",
+  "supportUnavailable": "Les options de soutien ne sont pas disponibles pour le moment. Réessayez plus tard.",
+  "supportProductsPending": "Les achats seront disponibles une fois les produits activés dans Play Console.",
+  "supportPricePending": "Bientôt",
+  "supportPurchasing": "Traitement…",
+  "supportPurchaseFailed": "L'achat n'a pas pu être finalisé. Veuillez réessayer.",
+  "homeSupportCta": "Offrir un café",
+  "homeSupportHint": "Soutien volontaire · App sans pub"
 }

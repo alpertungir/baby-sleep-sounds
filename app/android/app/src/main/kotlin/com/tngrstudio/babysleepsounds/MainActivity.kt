@@ -1,4 +1,4 @@
-package com.alfaapps.BabySleepSounds
+package com.tngrstudio.babysleepsounds
 
 import com.ryanheise.audioservice.AudioServiceActivity
 

@@ -68,7 +68,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get homeHeaderSubtitle => 'Ruhiger Schlaf, süße Träume';
 
   @override
-  String get developedBy => 'Tngr';
+  String get developedBy => 'Tngr Studio';
 
   @override
   String versionLabel(String version) {
@@ -124,4 +124,62 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get pausedStatus => 'Pausiert';
+
+  @override
+  String get supportMenu => 'Entwicklung unterstützen';
+
+  @override
+  String get supportLink => 'Entwicklung unterstützen';
+
+  @override
+  String get supportTitle => 'Freiwillige Unterstützung';
+
+  @override
+  String get supportBody =>
+      'Diese App ist kostenlos und werbefrei. Wenn sie dir gefällt, kannst du die Entwicklung freiwillig unterstützen. Keine Funktionen sind gesperrt.';
+
+  @override
+  String get supportCoffeeTitle => 'Ein Kaffee';
+
+  @override
+  String get supportCoffeeSubtitle => 'Ein kleines Dankeschön';
+
+  @override
+  String get supportMealTitle => 'Eine Mahlzeit';
+
+  @override
+  String get supportMealSubtitle => 'Entwicklung unterstützen';
+
+  @override
+  String get supportGenerousTitle => 'Großzügige Unterstützung';
+
+  @override
+  String get supportGenerousSubtitle => 'Extra Dank';
+
+  @override
+  String get supportThankYou => 'Danke für deine Unterstützung!';
+
+  @override
+  String get supportUnavailable =>
+      'Unterstützungsoptionen sind derzeit nicht verfügbar. Bitte später erneut versuchen.';
+
+  @override
+  String get supportProductsPending =>
+      'Käufe sind verfügbar, sobald die Produkte in Play Console aktiv sind.';
+
+  @override
+  String get supportPricePending => 'Bald';
+
+  @override
+  String get supportPurchasing => 'Wird verarbeitet…';
+
+  @override
+  String get supportPurchaseFailed =>
+      'Kauf konnte nicht abgeschlossen werden. Bitte erneut versuchen.';
+
+  @override
+  String get homeSupportCta => 'Spendier einen Kaffee';
+
+  @override
+  String get homeSupportHint => 'Freiwillige Unterstützung · Werbefrei';
 }

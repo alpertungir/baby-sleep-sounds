@@ -8,7 +8,7 @@ App Store'a yüklemek için Apple Developer hesabı, macOS ve Xcode gerekir.
 |------------|-----|
 | Apple Developer Program | $99/yıl |
 | macOS + Xcode | Son stable sürüm |
-| Bundle ID | `com.babysleep.babySleepSounds` |
+| Bundle ID | `com.tngrstudio.babysleepsounds` |
 | Team ID | 10 karakterlik Apple Team ID |
 
 ---
@@ -37,7 +37,7 @@ Bu dosyalar **Git'e eklenmez** (Team ID içerir).
 
 1. [developer.apple.com](https://developer.apple.com/account) → **Certificates, Identifiers & Profiles**
 2. **Identifiers → +** → App IDs → App
-3. Bundle ID: `com.babysleep.babySleepSounds`
+3. Bundle ID: `com.tngrstudio.babysleepsounds`
 4. Description: `Bebek Uyku Sesleri`
 5. Capabilities: özel capability gerekmez (arka plan sesi Info.plist'te tanımlı)
 
@@ -53,7 +53,7 @@ open ios/Runner.xcworkspace
 1. Sol panel → **Runner** projesi
 2. **Signing & Capabilities**
 3. **Team:** Apple Developer hesabınız
-4. **Bundle Identifier:** `com.babysleep.babySleepSounds`
+4. **Bundle Identifier:** `com.tngrstudio.babysleepsounds`
 5. **Automatically manage signing:** işaretli
 6. Release scheme ile gerçek cihazda bir kez çalıştırın (opsiyonel test)
 
@@ -140,7 +140,7 @@ xcrun altool --upload-app \
 1. [appstoreconnect.apple.com](https://appstoreconnect.apple.com) → **My Apps → +**
 2. Platform: iOS
 3. Name: **Bebek Uyku Sesleri**
-4. Bundle ID: `com.babysleep.babySleepSounds`
+4. Bundle ID: `com.tngrstudio.babysleepsounds`
 5. SKU: `baby-sleep-sounds-001`
 6. Listing metinleri: [`../app-store/listing-tr.md`](../app-store/listing-tr.md)
 7. Privacy Policy URL: GitHub Pages linkiniz

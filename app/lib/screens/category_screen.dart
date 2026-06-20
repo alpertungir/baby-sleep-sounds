@@ -7,6 +7,7 @@ import '../models/sound_category.dart';
 import '../providers/app_state.dart';
 import '../widgets/category_header.dart';
 import '../widgets/decorative_background.dart';
+import '../widgets/language_menu_button.dart';
 import '../widgets/mini_player_bar.dart';
 import '../widgets/screen_insets.dart';
 import '../widgets/sleep_timer_sheet.dart';
@@ -66,6 +67,7 @@ class CategoryScreen extends StatelessWidget {
                     foregroundColor: Colors.white,
                     title: Text(category.id.label(l10n)),
                     actions: [
+                      LanguageMenuButton(color: Colors.white),
                       IconButton(
                         tooltip: l10n.sleepTimer,
                         onPressed: () => showSleepTimerSheet(context),

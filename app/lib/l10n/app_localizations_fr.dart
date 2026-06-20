@@ -68,7 +68,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get homeHeaderSubtitle => 'Dodo paisible, doux rêves';
 
   @override
-  String get developedBy => 'Tngr';
+  String get developedBy => 'Tngr Studio';
 
   @override
   String versionLabel(String version) {
@@ -123,4 +123,62 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get pausedStatus => 'En pause';
+
+  @override
+  String get supportMenu => 'Soutenir le développement';
+
+  @override
+  String get supportLink => 'Soutenir le développement';
+
+  @override
+  String get supportTitle => 'Soutien volontaire';
+
+  @override
+  String get supportBody =>
+      'Cette app est gratuite et sans publicité. Si elle vous plaît, vous pouvez soutenir le développement de façon volontaire. Aucune fonction n\'est bloquée.';
+
+  @override
+  String get supportCoffeeTitle => 'Un café';
+
+  @override
+  String get supportCoffeeSubtitle => 'Un petit merci';
+
+  @override
+  String get supportMealTitle => 'Un repas';
+
+  @override
+  String get supportMealSubtitle => 'Soutenir le développement';
+
+  @override
+  String get supportGenerousTitle => 'Soutien généreux';
+
+  @override
+  String get supportGenerousSubtitle => 'Merci supplémentaire';
+
+  @override
+  String get supportThankYou => 'Merci pour votre soutien !';
+
+  @override
+  String get supportUnavailable =>
+      'Les options de soutien ne sont pas disponibles pour le moment. Réessayez plus tard.';
+
+  @override
+  String get supportProductsPending =>
+      'Les achats seront disponibles une fois les produits activés dans Play Console.';
+
+  @override
+  String get supportPricePending => 'Bientôt';
+
+  @override
+  String get supportPurchasing => 'Traitement…';
+
+  @override
+  String get supportPurchaseFailed =>
+      'L\'achat n\'a pas pu être finalisé. Veuillez réessayer.';
+
+  @override
+  String get homeSupportCta => 'Offrir un café';
+
+  @override
+  String get homeSupportHint => 'Soutien volontaire · App sans pub';
 }

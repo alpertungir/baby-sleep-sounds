@@ -24,7 +24,7 @@
   "categoryRelaxing": "Расслабляющие",
   "categoryMusic": "Музыка",
   "homeHeaderSubtitle": "Спокойный сон, сладкие сны",
-  "developedBy": "Tngr",
+  "developedBy": "Tngr Studio",
   "versionLabel": "Версия {version}",
   "@versionLabel": {
     "placeholders": {
@@ -63,5 +63,23 @@
       "time": { "type": "String" }
     }
   },
-  "pausedStatus": "Пауза"
+  "pausedStatus": "Пауза",
+  "supportMenu": "Поддержать разработку",
+  "supportLink": "Поддержать разработку",
+  "supportTitle": "Добровольная поддержка",
+  "supportBody": "Это приложение бесплатное и без рекламы. Если оно вам нравится, вы можете добровольно поддержать разработку. Ничего не заблокировано.",
+  "supportCoffeeTitle": "Кофе",
+  "supportCoffeeSubtitle": "Небольшая благодарность",
+  "supportMealTitle": "Обед",
+  "supportMealSubtitle": "Поддержать разработку",
+  "supportGenerousTitle": "Щедрая поддержка",
+  "supportGenerousSubtitle": "Особая благодарность",
+  "supportThankYou": "Спасибо за поддержку!",
+  "supportUnavailable": "Варианты поддержки сейчас недоступны. Попробуйте позже.",
+  "supportProductsPending": "Покупки станут доступны после активации продуктов в Play Console.",
+  "supportPricePending": "Скоро",
+  "supportPurchasing": "Обработка…",
+  "supportPurchaseFailed": "Не удалось завершить покупку. Попробуйте снова.",
+  "homeSupportCta": "Угостите кофе",
+  "homeSupportHint": "Добровольная поддержка · Без рекламы"
 }

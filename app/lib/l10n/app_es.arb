@@ -24,7 +24,7 @@
   "categoryRelaxing": "Relajante",
   "categoryMusic": "Música",
   "homeHeaderSubtitle": "Sueños tranquilos y dulces",
-  "developedBy": "Tngr",
+  "developedBy": "Tngr Studio",
   "versionLabel": "Versión {version}",
   "@versionLabel": {
     "placeholders": {
@@ -63,5 +63,23 @@
       "time": { "type": "String" }
     }
   },
-  "pausedStatus": "En pausa"
+  "pausedStatus": "En pausa",
+  "supportMenu": "Apoyar el desarrollo",
+  "supportLink": "Apoyar el desarrollo",
+  "supportTitle": "Apoyo voluntario",
+  "supportBody": "Esta app es gratuita y sin anuncios. Si te gusta, puedes apoyar el desarrollo de forma voluntaria. Ninguna función está bloqueada.",
+  "supportCoffeeTitle": "Un café",
+  "supportCoffeeSubtitle": "Un pequeño agradecimiento",
+  "supportMealTitle": "Una comida",
+  "supportMealSubtitle": "Apoya el desarrollo",
+  "supportGenerousTitle": "Apoyo generoso",
+  "supportGenerousSubtitle": "Un extra de gratitud",
+  "supportThankYou": "¡Gracias por tu apoyo!",
+  "supportUnavailable": "Las opciones de apoyo no están disponibles ahora. Inténtalo más tarde.",
+  "supportProductsPending": "Las compras estarán disponibles cuando los productos estén activos en Play Console.",
+  "supportPricePending": "Pronto",
+  "supportPurchasing": "Procesando…",
+  "supportPurchaseFailed": "No se pudo completar la compra. Inténtalo de nuevo.",
+  "homeSupportCta": "Invítame un café",
+  "homeSupportHint": "Apoyo voluntario · App sin anuncios"
 }

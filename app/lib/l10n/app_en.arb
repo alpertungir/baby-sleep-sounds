@@ -24,7 +24,7 @@
   "categoryRelaxing": "Relaxing",
   "categoryMusic": "Music",
   "homeHeaderSubtitle": "Peaceful sleep, sweet dreams",
-  "developedBy": "Tngr",
+  "developedBy": "Tngr Studio",
   "versionLabel": "Version {version}",
   "@versionLabel": {
     "placeholders": {
@@ -43,5 +43,23 @@
   "cancelTimer": "Cancel timer",
   "timerRemaining": "Remaining: {time}",
   "playingStatus": "Playing · {time}",
-  "pausedStatus": "Paused"
+  "pausedStatus": "Paused",
+  "supportMenu": "Support development",
+  "supportLink": "Support development",
+  "supportTitle": "Voluntary support",
+  "supportBody": "This app is free and ad-free. If you enjoy it, you can voluntarily support development. No features are locked.",
+  "supportCoffeeTitle": "Buy a coffee",
+  "supportCoffeeSubtitle": "A small thank-you",
+  "supportMealTitle": "Buy a meal",
+  "supportMealSubtitle": "Support development",
+  "supportGenerousTitle": "Generous support",
+  "supportGenerousSubtitle": "Extra thanks",
+  "supportThankYou": "Thank you for your support!",
+  "supportUnavailable": "Support options are not available right now. Please try again later.",
+  "supportProductsPending": "Purchases unlock after in-app products are active in Play Console and the app is on a test track.",
+  "supportPricePending": "Soon",
+  "supportPurchasing": "Processing…",
+  "supportPurchaseFailed": "Purchase could not be completed. Please try again.",
+  "homeSupportCta": "Buy a coffee",
+  "homeSupportHint": "Voluntary support · Ad-free app"
 }
