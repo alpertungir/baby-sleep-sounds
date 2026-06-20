@@ -1,8 +1,8 @@
-Yeni sürüm — tamamen yeniden yazıldı!
+Tamamen yenilendi!
 
-• 7 kategori, 71 ses
-• Türk ninneleri eklendi
+• Yeni arayüz ve animasyonlu açılış
+• 4 kategori, 50+ ses
+• 8 dil desteği
 • Uyku zamanlayıcısı ve favoriler
-• Karanlık, sade arayüz
-• Reklamsız deneyim
-• Çevrimdışı çalışma
+• Beyaz gürültü ve Türk ninneleri çevrimdışı
+• Reklamsız

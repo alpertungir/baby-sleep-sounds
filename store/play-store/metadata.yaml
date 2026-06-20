@@ -1,5 +1,10 @@
 # Google Play Console — kopyala-yapıştır alanları
-# Son güncelleme: 2.0.0
+# Son güncelleme: 2.0.0 — Tngr
+
+developer:
+  name: Tngr
+  contact_email: alperttungir@gmail.com
+  brand_file: developer-brand.md
 
 app:
   package_name: com.alfaapps.BabySleepSounds
@@ -8,7 +13,7 @@ app:
 listing:
   tr:
     title: "Bebek Uyku Sesleri"
-    short_description: "Bebeğiniz için ninni, beyaz gürültü ve rahatlatıcı sesler."
+    short_description: "Bebeğiniz için ninni, beyaz gürültü ve rahatlatıcı sesler. Reklamsız."
     full_description_file: listing-tr.md
     category: PARENTING
     tags:
@@ -19,7 +24,7 @@ listing:
       - Rahatlatıcı sesler
   en:
     title: "Baby Sleep Sounds"
-    short_description: "Lullabies, white noise and calming sounds for your baby."
+    short_description: "Lullabies, white noise and calming sounds for your baby. Ad-free."
     full_description_file: listing-en.md
     category: PARENTING
 
@@ -46,11 +51,11 @@ contact:
   privacy_policy_url: "https://alpertungir.github.io/baby-sleep-sounds/privacy-policy.html"
 
 graphics:
-  icon: 512x512 PNG (32-bit, alpha OK)
-  feature_graphic: 1024x500 PNG/JPEG
-  phone_screenshots: "1080x1920 veya 1440x2560, en az 2, en fazla 8"
-  seven_inch_tablet: "1200x1920 (isteğe bağlı)"
-  ten_inch_tablet: "1600x2560 (isteğe bağlı)"
+  icon: store/play-store/graphics/icon-512.png
+  feature_graphic: store/play-store/graphics/feature-graphic-1024x500.png
+  phone_screenshots_dir: store/screenshots/android/
+  screenshot_plan: screenshot-plan.md
+  generate_script: app/tools/generate_play_store_graphics.py
 
 release:
   version_name: "2.0.0"

@@ -1,8 +1,8 @@
-New release — fully rebuilt!
+Fully redesigned!
 
-• 7 categories, 71 sounds
-• Turkish lullabies added
+• New UI and animated splash
+• 4 categories, 50+ sounds
+• 8 languages
 • Sleep timer and favorites
-• Dark, simple interface
-• Ad-free experience
-• Works offline
+• White noise and Turkish lullabies offline
+• Ad-free

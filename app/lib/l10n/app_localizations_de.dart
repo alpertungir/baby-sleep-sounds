@@ -68,7 +68,7 @@ class AppLocalizationsDe extends AppLocalizations {
   String get homeHeaderSubtitle => 'Ruhiger Schlaf, süße Träume';
 
   @override
-  String get developedBy => 'Alfa Apps';
+  String get developedBy => 'Tngr';
 
   @override
   String versionLabel(String version) {

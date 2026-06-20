@@ -68,7 +68,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get homeHeaderSubtitle => 'نوم هادئ، أحلام جميلة';
 
   @override
-  String get developedBy => 'Alfa Apps';
+  String get developedBy => 'Tngr';
 
   @override
   String versionLabel(String version) {

@@ -227,7 +227,7 @@ abstract class AppLocalizations {
   /// No description provided for @developedBy.
   ///
   /// In tr, this message translates to:
-  /// **'Alfa Apps'**
+  /// **'Tngr'**
   String get developedBy;
 
   /// No description provided for @versionLabel.

@@ -68,7 +68,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get homeHeaderSubtitle => 'Sueños tranquilos y dulces';
 
   @override
-  String get developedBy => 'Alfa Apps';
+  String get developedBy => 'Tngr';
 
   @override
   String versionLabel(String version) {

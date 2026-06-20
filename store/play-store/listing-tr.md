@@ -2,27 +2,27 @@
 
 Bebeğinizin huzurla uykuya dalması için tasarlanmış sade ve kullanışlı bir uyku sesi uygulaması.
 
-Bebek Uyku Sesleri; beyaz gürültü, Türk ninneleri, klasik ninni, rahatlatıcı doğa sesleri ve dünya ninnelerini tek bir uygulamada bir araya getirir. Karanlık, göz yormayan arayüzü sayesinde gece kullanımına uygundur.
+Bebek Uyku Sesleri; beyaz gürültü, ninniler, rahatlatıcı sesler ve uyku müziklerini tek bir uygulamada bir araya getirir. Mor tonlu, göz yormayan arayüzü gece kullanımına uygundur.
+
+**Tngr** tarafından geliştirilmiştir.
 
 ## Öne çıkan özellikler
 
-• 7 kategori, 71 ses
+• 4 kategori, 50+ ses
+• Beyaz gürültü ve Türk ninneleri çevrimdışı çalışır
 • Döngüsel (sürekli) ses çalma
-• Ses seviyesi kontrolü
+• Ses seviyesi kontrolü ve mini oynatıcı
 • Uyku zamanlayıcısı (15, 30, 45, 60, 120 dakika veya sınırsız)
 • Favori sesler — cihazınızda saklanır
+• 8 dil desteği (TR, EN, ES, FR, DE, IT, RU, AR)
 • Reklamsız, sade deneyim
-• İnternet bağlantısı olmadan çalışır
 
 ## Kategoriler
 
-• Beyaz Gürültü — fan, yağmur, okyanus, fırtına ve daha fazlası
-• Türk Ninneleri — Uyusun da Büyüsün, Dandini Dandini Dastana, Eşekli Ninni…
-• Ninni — klasik uyku melodileri
-• Klasik — sakinleştirici klasik parçalar
-• Rahatlatıcı — orman, gece, rüzgar çanları
-• Arka Plan — ambient ve piyano
-• Dünya Ninneleri — farklı dillerden ninni seçkisi
+• **Beyaz Gürültü** — fan, yağmur, okyanus, fırtına ve daha fazlası (çevrimdışı)
+• **Ninniler** — Türk ninneleri ve dünya ninnileri
+• **Rahatlatıcı** — ambient, piyano, doğa hissi veren sesler
+• **Müzik** — hafif arka plan melodileri
 
 ## Kimler için?
 
@@ -36,4 +36,4 @@ Uygulama kişisel veri toplamaz. Favoriler yalnızca cihazınızda tutulur. Hesa
 
 ---
 
-Sorularınız için: alperttungir@gmail.com
+Geliştirici: **Tngr** · Sorularınız için: alperttungir@gmail.com

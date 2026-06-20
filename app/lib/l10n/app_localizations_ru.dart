@@ -68,7 +68,7 @@ class AppLocalizationsRu extends AppLocalizations {
   String get homeHeaderSubtitle => 'Спокойный сон, сладкие сны';
 
   @override
-  String get developedBy => 'Alfa Apps';
+  String get developedBy => 'Tngr';
 
   @override
   String versionLabel(String version) {

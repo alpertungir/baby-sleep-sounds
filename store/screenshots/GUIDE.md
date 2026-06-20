@@ -6,11 +6,11 @@ Mağaza listelerinde en az **4, en iyi sonuç için 6–8** ekran görüntüsü 
 
 | # | Ekran | Mesaj (overlay metni önerisi) |
 |---|--------|-------------------------------|
-| 1 | Ana sayfa — kategori grid | "7 kategori, 71 sakinleştirici ses" |
+| 1 | Ana sayfa — 4 kategori grid | "4 kategori, 50+ sakinleştirici ses" |
 | 2 | Beyaz Gürültü listesi | "Fan, yağmur, okyanus ve daha fazlası" |
-| 3 | Oynatıcı — ses çalıyor | "Döngüsel çalma ve ses kontrolü" |
-| 4 | Uyku zamanlayıcısı sheet | "15–120 dk uyku zamanlayıcısı" |
-| 5 | Türk Ninneleri listesi | "Sevilen Türk ninneleri" |
+| 3 | Ninniler listesi | "Türk ve dünya ninneleri" |
+| 4 | Oynatıcı — ses çalıyor | "Döngüsel çalma ve mini oynatıcı" |
+| 5 | Uyku zamanlayıcısı sheet | "15–120 dk uyku zamanlayıcısı" |
 | 6 | Favoriler | "Favorilerinizi kaydedin" |
 
 Overlay metinleri isteğe bağlıdır; Figma/Canva ile PNG üzerine eklenebilir.
@@ -36,7 +36,9 @@ Bebek Uyku Sesleri
 Ninni · Beyaz Gürültü · Zamanlayıcı
 ```
 
-Arka plan: `#0F1419` (uygulama teması), ikon ortada veya solda.
+Arka plan: `#2D1B69` (uygulama teması). Hazır dosya: `store/play-store/graphics/feature-graphic-1024x500.png`
+
+Marka: **Tngr**
 
 ---
 
