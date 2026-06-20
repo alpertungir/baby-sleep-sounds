@@ -1,0 +1,11 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Public read for sound library + catalog; writes only via admin SDK / console.
+    match /sounds/{path=**} {
+      allow read: if true;
+      allow write: if false;
+    }
+  }
+}
