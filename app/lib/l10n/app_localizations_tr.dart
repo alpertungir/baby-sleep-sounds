@@ -38,22 +38,13 @@ class AppLocalizationsTr extends AppLocalizations {
   String get categoryWhiteNoise => 'Beyaz Gürültü';
 
   @override
-  String get categoryTurkishLullaby => 'Türk Ninneleri';
-
-  @override
-  String get categoryLullaby => 'Ninni';
-
-  @override
-  String get categoryClassic => 'Klasik';
+  String get categoryLullaby => 'Ninniler';
 
   @override
   String get categoryRelaxing => 'Rahatlatıcı';
 
   @override
-  String get categoryBackground => 'Arka Plan';
-
-  @override
-  String get categoryNational => 'Dünya Ninneleri';
+  String get categoryMusic => 'Müzik';
 
   @override
   String get favoritesEmptyTitle => 'Henüz favori yok';
@@ -102,4 +93,18 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get pausedStatus => 'Duraklatıldı';
+
+  @override
+  String get backToHome => 'Ana sayfa';
+
+  @override
+  String get homeHeaderSubtitle => 'Huzurlu uykular için';
+
+  @override
+  String get developedBy => 'Alfa Apps';
+
+  @override
+  String versionLabel(String version) {
+    return 'Sürüm $version';
+  }
 }

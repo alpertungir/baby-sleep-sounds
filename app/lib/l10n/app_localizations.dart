@@ -152,23 +152,11 @@ abstract class AppLocalizations {
   /// **'Beyaz Gürültü'**
   String get categoryWhiteNoise;
 
-  /// No description provided for @categoryTurkishLullaby.
-  ///
-  /// In tr, this message translates to:
-  /// **'Türk Ninneleri'**
-  String get categoryTurkishLullaby;
-
   /// No description provided for @categoryLullaby.
   ///
   /// In tr, this message translates to:
-  /// **'Ninni'**
+  /// **'Ninniler'**
   String get categoryLullaby;
-
-  /// No description provided for @categoryClassic.
-  ///
-  /// In tr, this message translates to:
-  /// **'Klasik'**
-  String get categoryClassic;
 
   /// No description provided for @categoryRelaxing.
   ///
@@ -176,17 +164,11 @@ abstract class AppLocalizations {
   /// **'Rahatlatıcı'**
   String get categoryRelaxing;
 
-  /// No description provided for @categoryBackground.
+  /// No description provided for @categoryMusic.
   ///
   /// In tr, this message translates to:
-  /// **'Arka Plan'**
-  String get categoryBackground;
-
-  /// No description provided for @categoryNational.
-  ///
-  /// In tr, this message translates to:
-  /// **'Dünya Ninneleri'**
-  String get categoryNational;
+  /// **'Müzik'**
+  String get categoryMusic;
 
   /// No description provided for @favoritesEmptyTitle.
   ///
@@ -265,6 +247,30 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Duraklatıldı'**
   String get pausedStatus;
+
+  /// No description provided for @backToHome.
+  ///
+  /// In tr, this message translates to:
+  /// **'Ana sayfa'**
+  String get backToHome;
+
+  /// No description provided for @homeHeaderSubtitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Huzurlu uykular için'**
+  String get homeHeaderSubtitle;
+
+  /// No description provided for @developedBy.
+  ///
+  /// In tr, this message translates to:
+  /// **'Alfa Apps'**
+  String get developedBy;
+
+  /// No description provided for @versionLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sürüm {version}'**
+  String versionLabel(String version);
 }
 
 class _AppLocalizationsDelegate

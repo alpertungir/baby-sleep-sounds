@@ -38,22 +38,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get categoryWhiteNoise => 'White Noise';
 
   @override
-  String get categoryTurkishLullaby => 'Turkish Lullabies';
-
-  @override
   String get categoryLullaby => 'Lullabies';
-
-  @override
-  String get categoryClassic => 'Classical';
 
   @override
   String get categoryRelaxing => 'Relaxing';
 
   @override
-  String get categoryBackground => 'Background';
-
-  @override
-  String get categoryNational => 'World Lullabies';
+  String get categoryMusic => 'Music';
 
   @override
   String get favoritesEmptyTitle => 'No favorites yet';
@@ -101,4 +92,18 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get pausedStatus => 'Paused';
+
+  @override
+  String get backToHome => 'Home';
+
+  @override
+  String get homeHeaderSubtitle => 'Peaceful sleep, sweet dreams';
+
+  @override
+  String get developedBy => 'Alfa Apps';
+
+  @override
+  String versionLabel(String version) {
+    return 'Version $version';
+  }
 }
