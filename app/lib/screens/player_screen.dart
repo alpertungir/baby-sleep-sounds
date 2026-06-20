@@ -33,7 +33,7 @@ class PlayerScreen extends StatelessWidget {
       showDragHandle: true,
       builder: (context) {
         return SafeArea(
-          child: Padding(
+          child: SingleChildScrollView(
             padding: const EdgeInsets.fromLTRB(8, 0, 8, 16),
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -96,64 +96,77 @@ class PlayerScreen extends StatelessWidget {
               ),
             ],
           ),
-          body: Padding(
-            padding: const EdgeInsets.all(24),
-            child: Column(
-              children: [
-                const Spacer(),
-                Icon(Icons.music_note, size: 72, color: Theme.of(context).colorScheme.primary),
-                const SizedBox(height: 24),
-                Text(sound.name, textAlign: TextAlign.center, style: Theme.of(context).textTheme.headlineSmall),
-                const Spacer(),
-                Row(
-                  children: [
-                    const Icon(Icons.volume_down),
-                    Expanded(
-                      child: Slider(
-                        value: state.volume,
-                        onChanged: (value) => state.setVolume(value),
-                      ),
+          body: SafeArea(
+            child: LayoutBuilder(
+              builder: (context, constraints) {
+                return SingleChildScrollView(
+                  padding: const EdgeInsets.all(24),
+                  child: ConstrainedBox(
+                    constraints: BoxConstraints(minHeight: constraints.maxHeight - 48),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Icon(Icons.music_note, size: 72, color: Theme.of(context).colorScheme.primary),
+                        const SizedBox(height: 24),
+                        Text(
+                          sound.name,
+                          textAlign: TextAlign.center,
+                          style: Theme.of(context).textTheme.headlineSmall,
+                        ),
+                        const SizedBox(height: 32),
+                        Row(
+                          children: [
+                            const Icon(Icons.volume_down),
+                            Expanded(
+                              child: Slider(
+                                value: state.volume,
+                                onChanged: (value) => state.setVolume(value),
+                              ),
+                            ),
+                            const Icon(Icons.volume_up),
+                          ],
+                        ),
+                        if (state.hasActiveTimer)
+                          Padding(
+                            padding: const EdgeInsets.only(bottom: 12),
+                            child: Text(l10n.timerRemaining(_format(state.timerRemaining!))),
+                          ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            IconButton(
+                              onPressed: () => _showTimerSheet(context),
+                              icon: const Icon(Icons.timer_outlined),
+                            ),
+                            const SizedBox(width: 16),
+                            IconButton(
+                              onPressed: () {
+                                if (playing) {
+                                  state.pause();
+                                } else {
+                                  state.playSound(sound);
+                                }
+                              },
+                              icon: Icon(
+                                playing ? Icons.pause_circle_filled : Icons.play_circle_filled,
+                                size: 64,
+                                color: Theme.of(context).colorScheme.primary,
+                              ),
+                            ),
+                            const SizedBox(width: 16),
+                            IconButton(
+                              onPressed: () => state.toggleFavorite(sound.id),
+                              icon: Icon(
+                                state.isFavorite(sound.id) ? Icons.favorite : Icons.favorite_border,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
-                    const Icon(Icons.volume_up),
-                  ],
-                ),
-                if (state.hasActiveTimer)
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 12),
-                    child: Text(l10n.timerRemaining(_format(state.timerRemaining!))),
                   ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    IconButton(
-                      onPressed: () => _showTimerSheet(context),
-                      icon: const Icon(Icons.timer_outlined),
-                    ),
-                    const SizedBox(width: 16),
-                    IconButton(
-                      onPressed: () {
-                        if (playing) {
-                          state.pause();
-                        } else {
-                          state.playSound(sound);
-                        }
-                      },
-                      icon: Icon(
-                        playing ? Icons.pause_circle_filled : Icons.play_circle_filled,
-                        size: 64,
-                        color: Theme.of(context).colorScheme.primary,
-                      ),
-                    ),
-                    const SizedBox(width: 16),
-                    IconButton(
-                      onPressed: () => state.toggleFavorite(sound.id),
-                      icon: Icon(
-                        state.isFavorite(sound.id) ? Icons.favorite : Icons.favorite_border,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
+                );
+              },
             ),
           ),
         );

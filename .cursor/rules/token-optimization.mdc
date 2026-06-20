@@ -1,0 +1,49 @@
+---
+description: Token kullanımını azalt — araç seçimi, okuma kapsamı, yanıt stili
+alwaysApply: true
+---
+
+# Token optimizasyonu
+
+## Okuma
+
+- Önce `Grep` / `Glob`; tüm dosyayı okumadan işe başlama.
+- Büyük/üretilmiş dosyaları okuma: `app/build/`, `app/.dart_tool/`, `upload-source/**/*.mp3`, `app/lib/l10n/app_localizations*.dart` (kaynak: `app/lib/l10n/*.arb`).
+- Ses katalogları: `app/assets/catalog_fallback.json` veya `app/tools/firebase_sound_manifest.json` yeterli; tüm `*_sounds.dart` dosyalarını birden okuma.
+- Gizli dosyalar: `upload-source/firebase-key.json`, `app/android/key.properties`, `*.jks` — içeriğini okuma.
+
+## Komutlar
+
+- Tam build (`flutter build apk/appbundle`) yalnızca kullanıcı isterse. Doğrulama: `dart analyze lib/`, `flutter test`, gerekirse `flutter run -d linux`.
+- Gradle bellek zaten düşük; ağır paralel build deneme.
+- `git log` / geniş `git diff` yalnızca commit/PR öncesi; tek dosya değişikliğinde `git diff -- path` kullan.
+
+## Kod değişikliği
+
+- Minimal diff; istenmeyen refactor, ekstra test veya doküman ekleme.
+- UI metinleri: `.arb` dosyalarını düzenle, `flutter gen-l10n` çalıştır; generated Dart'a elle yazma.
+- Yeni ses (Firebase): MP3 + `catalog.json`; uygulama sürümü gerekmez.
+- Commit/push yalnızca kullanıcı açıkça isterse.
+
+## Yanıtlar
+
+- Kısa ve doğrudan; aynı bilgiyi tekrarlama.
+- Büyük tablo/dump yerine özet + gerekirse tek kod bloğu.
+- Tamamlanan adımları madde madde uzun özetleme.
+
+## Proje kısa referans
+
+| Konu | Yol |
+|------|-----|
+| Flutter uygulama | `app/` |
+| Dinamik katalog | Firebase `sounds/catalog.json`; fallback `app/assets/catalog_fallback.json` |
+| Yerel sesler | `app/assets/sounds/{whitenoise,lullaby,turkish_lullaby}/` |
+| Upload script | `app/scripts/upload_firebase_sounds.py` |
+| Android paket | `com.alfaapps.BabySleepSounds` |
+| i18n | `app/lib/l10n/app_tr.arb`, `app_en.arb` |
+
+## Kaçın
+
+- Task/explore agent’ı dar sorularda kullanma; doğrudan grep/read yeterli.
+- Aynı komutu art arda tekrarlama; önceki terminal çıktısını kullan.
+- Kullanıcı sormadan GitHub push, büyük refactor veya README yazma.
