@@ -48,9 +48,9 @@
   "supportLink": "Support development",
   "supportTitle": "Voluntary support",
   "supportBody": "This app is free and ad-free. If you enjoy it, you can voluntarily support development. No features are locked.",
-  "supportCoffeeTitle": "Buy a coffee",
+  "supportCoffeeTitle": "Buy me a coffee",
   "supportCoffeeSubtitle": "A small thank-you",
-  "supportMealTitle": "Buy a meal",
+  "supportMealTitle": "Buy me a meal",
   "supportMealSubtitle": "Support development",
   "supportGenerousTitle": "Generous support",
   "supportGenerousSubtitle": "Extra thanks",
@@ -60,6 +60,6 @@
   "supportPricePending": "Soon",
   "supportPurchasing": "Processing…",
   "supportPurchaseFailed": "Purchase could not be completed. Please try again.",
-  "homeSupportCta": "Buy a coffee",
+  "homeSupportCta": "Buy me a coffee",
   "homeSupportHint": "Voluntary support · Ad-free app"
 }

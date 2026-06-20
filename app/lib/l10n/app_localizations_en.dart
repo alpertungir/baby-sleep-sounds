@@ -136,13 +136,13 @@ class AppLocalizationsEn extends AppLocalizations {
       'This app is free and ad-free. If you enjoy it, you can voluntarily support development. No features are locked.';
 
   @override
-  String get supportCoffeeTitle => 'Buy a coffee';
+  String get supportCoffeeTitle => 'Buy me a coffee';
 
   @override
   String get supportCoffeeSubtitle => 'A small thank-you';
 
   @override
-  String get supportMealTitle => 'Buy a meal';
+  String get supportMealTitle => 'Buy me a meal';
 
   @override
   String get supportMealSubtitle => 'Support development';
@@ -175,7 +175,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'Purchase could not be completed. Please try again.';
 
   @override
-  String get homeSupportCta => 'Buy a coffee';
+  String get homeSupportCta => 'Buy me a coffee';
 
   @override
   String get homeSupportHint => 'Voluntary support · Ad-free app';
