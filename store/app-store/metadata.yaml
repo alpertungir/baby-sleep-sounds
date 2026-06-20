@@ -1,5 +1,5 @@
 # App Store Connect — kopyala-yapıştır alanları
-# Son güncelleme: 2.0.0
+# Son güncelleme: 1.0.0
 
 app:
   bundle_id: com.tngrstudio.babysleepsounds
@@ -46,6 +46,6 @@ screenshots:
   ipad_12_9: "2048 x 2732 px (iPad Pro, isteğe bağlı)"
 
 release:
-  version: "2.0.0"
+  version: "1.0.0"
   build: "1"
-  whats_new_file: ../release-notes/2.0.0-tr.txt
+  whats_new_file: ../release-notes/1.0.0-tr.txt

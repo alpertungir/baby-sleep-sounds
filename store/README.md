@@ -9,7 +9,7 @@ Google Play ve App Store listeleri için hazır metinler, gizlilik politikası v
 | Google Play TR/EN açıklama | [`play-store/listing-tr.md`](play-store/listing-tr.md) |
 | App Store TR/EN açıklama | [`app-store/listing-tr.md`](app-store/listing-tr.md) |
 | Kısa alanlar (başlık, anahtar kelime) | [`play-store/metadata.yaml`](play-store/metadata.yaml), [`app-store/metadata.yaml`](app-store/metadata.yaml) |
-| Sürüm notları 2.0.0 | [`release-notes/2.0.0-tr.txt`](release-notes/2.0.0-tr.txt) |
+| Sürüm notları 1.0.0 | [`release-notes/1.0.0-tr.txt`](release-notes/1.0.0-tr.txt) |
 | Gizlilik politikası | [`legal/privacy-policy-tr.md`](legal/privacy-policy-tr.md) |
 | Ekran görüntüsü boyutları | [`screenshots/GUIDE.md`](screenshots/GUIDE.md) |
 | Yayın kontrol listesi | [`CHECKLIST.md`](CHECKLIST.md) |
@@ -64,5 +64,5 @@ cd app && ./scripts/build-ios-release.sh      # App Store (macOS)
 |----------|--------|
 | Android | `com.tngrstudio.babysleepsounds` |
 | iOS | `com.tngrstudio.babysleepsounds` |
-| Sürüm | 2.0.0 (build 1) |
+| Sürüm | 1.0.0 (build 1) |
 | Görünen ad | Bebek Uyku Sesleri |

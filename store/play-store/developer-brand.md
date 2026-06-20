@@ -10,7 +10,9 @@ Play Console → **Geliştirici hesabı** / **Store presence** / **Developer pag
 Tngr Studio
 ```
 
-**Stüdyo ikonu:** `store/tngr-studio/icon-512.png` (Play geliştirici profili / mağaza)
+**Stüdyo ikonu:** `store/tngr-studio/icon-512.png` — sade wordmark (512×512, opak PNG — Play geliştirici profili)
+
+**Kapak görseli:** `store/tngr-studio/developer-header-4096x2304.png` — Play geliştirici sayfası header
 
 > Play Console → Ayarlar → Geliştirici hesabı → Geliştirici profili
 
@@ -19,7 +21,7 @@ Tngr Studio
 ## Geliştirici açıklaması — Türkçe
 
 ```
-Tngr Studio, Alper Tungir tarafından kurulan bağımsız bir mobil uygulama stüdyosudur.
+Tngr Studio, Alper Tıngır tarafından kurulan bağımsız bir mobil uygulama stüdyosudur.
 
 Aileler ve ebeveynler için sade, reklamsız ve gizlilik odaklı uygulamalar geliştiriyoruz. İlk odak alanımız bebek uyku rutini: ninni, beyaz gürültü ve rahatlatıcı sesler.
 
@@ -31,7 +33,7 @@ Bebek Uyku Sesleri uygulamamız kişisel veri toplamaz; favoriler yalnızca ciha
 ## Developer description — English
 
 ```
-Tngr Studio is an independent mobile app studio founded by Alper Tungir.
+Tngr Studio is an independent mobile app studio founded by Alper Tıngır.
 
 We build simple, ad-free, privacy-focused apps for families and parents. Our first focus is bedtime routines for babies: lullabies, white noise, and calming sounds.
 
@@ -72,32 +74,28 @@ Lullabies, white noise and calming sounds for your baby. Ad-free.
 
 ---
 
-## Sürüm notları — 2.0.0 (TR)
+## Sürüm notları — 1.0.0 (TR)
 
 ```
-Tamamen yenilendi!
+İlk sürüm!
 
-• Yeni arayüz ve animasyonlu açılış
-• 4 kategori, 50+ ses
+• 4 kategori, 50+ rahatlatıcı ses
 • 8 dil desteği
 • Uyku zamanlayıcısı ve favoriler
 • Beyaz gürültü ve Türk ninneleri çevrimdışı
-• Reklamsız
-• Tngr Studio markası
+• Reklamsız, gizlilik odaklı
 ```
 
 ---
 
-## Release notes — 2.0.0 (EN)
+## Release notes — 1.0.0 (EN)
 
 ```
-Fully redesigned!
+First release!
 
-• New UI and animated splash
-• 4 categories, 50+ sounds
+• 4 categories, 50+ calming sounds
 • 8 languages
 • Sleep timer and favorites
 • White noise and Turkish lullabies offline
-• Ad-free
-• Tngr Studio branding
+• Ad-free and privacy-focused
 ```
