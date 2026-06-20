@@ -14,7 +14,7 @@ Yayınlamadan önce tüm maddeleri tamamlayın.
 - [ ] Repo GitHub'a push edildi
 - [ ] **Settings → Pages → Source:** GitHub Actions
 - [ ] `main` branch'e push sonrası workflow yeşil
-- [ ] URL açılıyor: `https://KULLANICI.github.io/REPO/privacy-policy.html`
+- [ ] URL açılıyor: `https://alpertungir.github.io/baby-sleep-sounds/privacy-policy.html`
 - [ ] Mağaza formlarına bu URL girildi
 
 Detay: [`docs/github-pages.md`](docs/github-pages.md)

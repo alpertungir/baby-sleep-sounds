@@ -7,7 +7,7 @@ Gizlilik politikasını ücretsiz statik hosting ile yayınlamak için GitHub Ac
 Repo adı `baby-sleep-sounds`, kullanıcı `KULLANICI` ise:
 
 ```
-https://KULLANICI.github.io/baby-sleep-sounds/privacy-policy.html
+https://alpertungir.github.io/baby-sleep-sounds/privacy-policy.html
 ```
 
 App Store **Privacy Policy URL** ve Play Console **Privacy policy** alanına bu linki girin.
@@ -59,8 +59,8 @@ Settings → Pages → Custom domain → DNS CNAME kaydı ekleyin.
 `store/play-store/metadata.yaml` ve `store/app-store/metadata.yaml` içinde:
 
 ```yaml
-privacy_policy_url: "https://KULLANICI.github.io/baby-sleep-sounds/privacy-policy.html"
-support_url: "https://KULLANICI.github.io/baby-sleep-sounds/"
+privacy_policy_url: "https://alpertungir.github.io/baby-sleep-sounds/privacy-policy.html"
+support_url: "https://alpertungir.github.io/baby-sleep-sounds/"
 ```
 
-`KULLANICI` ve repo adını kendi değerlerinizle değiştirin.
+Repo: `alpertungir/baby-sleep-sounds` — URL'ler buna göre ayarlandı.

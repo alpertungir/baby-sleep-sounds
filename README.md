@@ -2,6 +2,9 @@
 
 Bebek uyku sesleri Flutter uygulaması.
 
+**GitHub:** [github.com/alpertungir/baby-sleep-sounds](https://github.com/alpertungir/baby-sleep-sounds)  
+**Gizlilik (Pages):** [alpertungir.github.io/baby-sleep-sounds/privacy-policy.html](https://alpertungir.github.io/baby-sleep-sounds/privacy-policy.html)
+
 Kaynak kod: [`app/`](app/)
 
 ```bash

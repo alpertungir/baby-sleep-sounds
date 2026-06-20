@@ -25,7 +25,7 @@ Google Play ve App Store listeleri için hazır metinler, gizlilik politikası v
 ## Yayınlamadan önce güncelleyin
 
 1. **Destek e-postası:** alperttungir@gmail.com
-2. **Gizlilik URL:** `https://KULLANICI.github.io/REPO/privacy-policy.html`
+2. **Gizlilik URL:** `https://alpertungir.github.io/baby-sleep-sounds/privacy-policy.html`
 3. **Android imzalama:** `cd app && ./scripts/setup-android-signing.sh`
 4. **iOS imzalama:** `cd app && ./scripts/setup-ios-signing.sh` (macOS)
 
