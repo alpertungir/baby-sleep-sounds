@@ -1,0 +1,54 @@
+{
+  "@@locale": "tr",
+  "appTitle": "Bebek Uyku Sesleri",
+  "favorites": "Favoriler",
+  "refreshCatalog": "Katalogu yenile",
+  "language": "Dil",
+  "turkish": "Türkçe",
+  "english": "English",
+  "soundCount": "{count} ses",
+  "@soundCount": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "categoryWhiteNoise": "Beyaz Gürültü",
+  "categoryTurkishLullaby": "Türk Ninneleri",
+  "categoryLullaby": "Ninni",
+  "categoryClassic": "Klasik",
+  "categoryRelaxing": "Rahatlatıcı",
+  "categoryBackground": "Arka Plan",
+  "categoryNational": "Dünya Ninneleri",
+  "favoritesEmptyTitle": "Henüz favori yok",
+  "favoritesEmptyBody": "Ses listesindeki kalbe dokunarak ekleyebilirsin.",
+  "emptyCategory": "Bu kategoride ses yok",
+  "downloadOnFirstPlay": "İlk dinlemede indirilir",
+  "downloadFailed": "Ses indirilemedi: {error}",
+  "@downloadFailed": {
+    "placeholders": {
+      "error": { "type": "String" }
+    }
+  },
+  "sleepTimer": "Uyku Zamanlayıcısı",
+  "minutesOption": "{count} dakika",
+  "@minutesOption": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "unlimited": "Sınırsız",
+  "cancelTimer": "Zamanlayıcıyı iptal et",
+  "timerRemaining": "Kalan: {time}",
+  "@timerRemaining": {
+    "placeholders": {
+      "time": { "type": "String" }
+    }
+  },
+  "playingStatus": "Çalıyor · {time}",
+  "@playingStatus": {
+    "placeholders": {
+      "time": { "type": "String" }
+    }
+  },
+  "pausedStatus": "Duraklatıldı"
+}

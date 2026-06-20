@@ -1,27 +1,39 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
-  static const _seed = Color(0xFF7B9ACC);
-
   static ThemeData dark() {
-    final scheme = ColorScheme.fromSeed(
-      seedColor: _seed,
-      brightness: Brightness.dark,
+    const background = Color(0xFF121212);
+    const surface = Color(0xFF1E1E1E);
+
+    final scheme = ColorScheme.dark(
+      primary: const Color(0xFF8AB4F8),
+      surface: surface,
+      onSurface: const Color(0xFFE8E8E8),
     );
 
     return ThemeData(
       useMaterial3: true,
       colorScheme: scheme,
-      scaffoldBackgroundColor: const Color(0xFF0F1419),
+      scaffoldBackgroundColor: background,
       appBarTheme: const AppBarTheme(
-        centerTitle: true,
-        backgroundColor: Colors.transparent,
+        centerTitle: false,
+        backgroundColor: background,
         elevation: 0,
+        scrolledUnderElevation: 0,
+      ),
+      listTileTheme: const ListTileThemeData(
+        contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 2),
+      ),
+      dividerTheme: DividerThemeData(
+        color: Colors.white.withValues(alpha: 0.08),
+        space: 1,
+        thickness: 1,
       ),
       cardTheme: CardThemeData(
-        color: scheme.surfaceContainerHighest.withValues(alpha: 0.55),
+        color: surface,
         elevation: 0,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+        margin: EdgeInsets.zero,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
       sliderTheme: SliderThemeData(
         activeTrackColor: scheme.primary,

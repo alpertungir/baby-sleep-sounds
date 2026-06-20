@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../l10n/app_localizations.dart';
 import '../providers/app_state.dart';
-import '../widgets/category_card.dart';
+import '../providers/locale_provider.dart';
+import '../widgets/category_tile.dart';
 import '../widgets/mini_player_bar.dart';
 import 'category_screen.dart';
 import 'favorites_screen.dart';
@@ -10,76 +12,97 @@ import 'favorites_screen.dart';
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
+  void _showLanguageMenu(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final localeProvider = context.read<LocaleProvider>();
+
+    showModalBottomSheet<void>(
+      context: context,
+      showDragHandle: true,
+      builder: (context) {
+        return SafeArea(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              ListTile(
+                title: Text(l10n.turkish),
+                trailing: localeProvider.locale?.languageCode == 'tr'
+                    ? const Icon(Icons.check)
+                    : null,
+                onTap: () {
+                  localeProvider.setLocale(const Locale('tr'));
+                  Navigator.pop(context);
+                },
+              ),
+              ListTile(
+                title: Text(l10n.english),
+                trailing: localeProvider.locale?.languageCode == 'en'
+                    ? const Icon(Icons.check)
+                    : null,
+                onTap: () {
+                  localeProvider.setLocale(const Locale('en'));
+                  Navigator.pop(context);
+                },
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final state = context.watch<AppState>();
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Bebek Uyku Sesleri'),
+        title: Text(l10n.appTitle),
         actions: [
           IconButton(
-            tooltip: 'Favoriler',
+            tooltip: l10n.language,
+            onPressed: () => _showLanguageMenu(context),
+            icon: const Icon(Icons.language),
+          ),
+          IconButton(
+            tooltip: l10n.refreshCatalog,
+            onPressed: () => state.refreshRemoteCatalog(),
+            icon: const Icon(Icons.refresh),
+          ),
+          IconButton(
+            tooltip: l10n.favorites,
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(builder: (_) => const FavoritesScreen()),
               );
             },
-            icon: Badge(
-              isLabelVisible: state.favoriteSounds.isNotEmpty,
-              label: Text('${state.favoriteSounds.length}'),
-              child: const Icon(Icons.favorite_outline),
-            ),
+            icon: const Icon(Icons.favorite_outline),
           ),
         ],
       ),
       body: Stack(
         children: [
-          ListView(
-            padding: const EdgeInsets.fromLTRB(20, 8, 20, 120),
-            children: [
-              Text(
-                'Sakin bir gece için ses seç',
-                style: Theme.of(context).textTheme.headlineSmall?.copyWith(
-                      fontWeight: FontWeight.w700,
-                    ),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                'Kategorilere dokun, sesi başlat ve uyku zamanlayıcısını ayarla.',
-                style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                      color: Theme.of(context).colorScheme.onSurface.withValues(alpha: 0.7),
-                    ),
-              ),
-              const SizedBox(height: 24),
-              GridView.builder(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                itemCount: state.categories.length,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 16,
-                  mainAxisSpacing: 16,
-                  childAspectRatio: 0.95,
-                ),
-                itemBuilder: (context, index) {
-                  final category = state.categories[index];
-                  final count = state.soundsFor(category.id).length;
+          ListView.separated(
+            padding: const EdgeInsets.fromLTRB(0, 0, 0, 96),
+            itemCount: state.categories.length,
+            separatorBuilder: (_, __) => const Divider(height: 1),
+            itemBuilder: (context, index) {
+              final category = state.categories[index];
+              final count = state.soundsFor(category.id).length;
 
-                  return CategoryCard(
-                    category: category,
-                    soundCount: count,
-                    onTap: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (_) => CategoryScreen(category: category),
-                        ),
-                      );
-                    },
+              return CategoryTile(
+                category: category,
+                soundCount: count,
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (_) => CategoryScreen(category: category),
+                    ),
                   );
                 },
-              ),
-            ],
+              );
+            },
           ),
           const Align(
             alignment: Alignment.bottomCenter,

@@ -1,32 +1,40 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:baby_sleep_sounds/models/sound_category.dart';
 import 'package:baby_sleep_sounds/data/sound_catalog.dart';
 import 'package:baby_sleep_sounds/models/sound_category.dart';
 
 void main() {
-  test('catalog has sounds for every category', () {
-    for (final category in SoundCatalog.categories) {
+  test('bundled sounds exist for offline categories', () {
+    for (final categoryId in [
+      SoundCategoryId.whiteNoise,
+      SoundCategoryId.turkishLullaby,
+      SoundCategoryId.lullaby,
+    ]) {
       expect(
-        SoundCatalog.soundsFor(category.id),
+        SoundCatalog.soundsFor(SoundCatalog.bundledSounds, categoryId),
         isNotEmpty,
-        reason: category.name,
+        reason: categoryId.name,
       );
     }
   });
 
-  test('sound ids are unique', () {
-    final ids = SoundCatalog.sounds.map((sound) => sound.id).toList();
+  test('bundled sound ids are unique', () {
+    final ids = SoundCatalog.bundledSounds.map((sound) => sound.id).toList();
     expect(ids.length, ids.toSet().length);
   });
 
   test('favorite lookup works', () {
-    final sound = SoundCatalog.sounds.first;
-    expect(SoundCatalog.findById(sound.id), sound);
-    expect(SoundCatalog.findById('missing'), isNull);
+    final sound = SoundCatalog.bundledSounds.first;
+    expect(SoundCatalog.findById(SoundCatalog.bundledSounds, sound.id), sound);
+    expect(SoundCatalog.findById(SoundCatalog.bundledSounds, 'missing'), isNull);
   });
 
   test('turkish lullaby category exists', () {
     expect(
-      SoundCatalog.soundsFor(SoundCategoryId.turkishLullaby).length,
+      SoundCatalog.soundsFor(
+        SoundCatalog.bundledSounds,
+        SoundCategoryId.turkishLullaby,
+      ).length,
       greaterThanOrEqualTo(5),
     );
   });

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../l10n/app_localizations.dart';
 import '../models/sound_item.dart';
 
 class SoundTile extends StatelessWidget {
@@ -24,70 +25,41 @@ class SoundTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final theme = Theme.of(context);
 
-    return Card(
-      child: ListTile(
-        contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 4),
-        leading: ClipRRect(
-          borderRadius: BorderRadius.circular(12),
-          child: Image.asset(
-            sound.imagePath,
-            width: 52,
-            height: 52,
-            fit: BoxFit.cover,
-            errorBuilder: (context, error, stackTrace) => Container(
-              width: 52,
-              height: 52,
-              color: theme.colorScheme.primaryContainer,
-              child: Icon(Icons.music_note, color: theme.colorScheme.primary),
+    return ListTile(
+      title: Text(sound.name),
+      subtitle: sound.isRemote && !isCached ? Text(l10n.downloadOnFirstPlay) : null,
+      trailing: Row(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          if (sound.isRemote && !isCached)
+            Icon(Icons.cloud_download_outlined, color: theme.colorScheme.primary, size: 20),
+          IconButton(
+            onPressed: onFavoriteTap,
+            icon: Icon(
+              isFavorite ? Icons.favorite : Icons.favorite_border,
+              color: isFavorite ? Colors.pinkAccent : null,
             ),
           ),
-        ),
-        title: Text(
-          sound.name,
-          style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),
-        ),
-        subtitle: sound.isRemote && !isCached
-            ? Text(
-                'İlk dinlemede indirilir',
-                style: theme.textTheme.bodySmall,
-              )
-            : null,
-        trailing: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            if (sound.isRemote && !isCached)
-              Icon(Icons.cloud_download_outlined, color: theme.colorScheme.primary, size: 20),
-            IconButton(
-              onPressed: onFavoriteTap,
-              icon: Icon(
-                isFavorite ? Icons.favorite : Icons.favorite_border,
-                color: isFavorite ? Colors.pinkAccent : null,
-              ),
-            ),
-            CircleAvatar(
-              backgroundColor: isPlaying
-                  ? theme.colorScheme.primary
-                  : theme.colorScheme.surfaceContainerHighest,
-              child: isLoading
-                  ? SizedBox(
-                      width: 22,
-                      height: 22,
-                      child: CircularProgressIndicator(
-                        strokeWidth: 2,
-                        color: theme.colorScheme.onSurface,
-                      ),
-                    )
-                  : Icon(
-                      isPlaying ? Icons.pause : Icons.play_arrow,
-                      color: isPlaying ? theme.colorScheme.onPrimary : theme.colorScheme.onSurface,
-                    ),
-            ),
-          ],
-        ),
-        onTap: isLoading ? null : onTap,
+          IconButton(
+            onPressed: isLoading ? null : onTap,
+            icon: isLoading
+                ? SizedBox(
+                    width: 22,
+                    height: 22,
+                    child: CircularProgressIndicator(strokeWidth: 2, color: theme.colorScheme.primary),
+                  )
+                : Icon(
+                    isPlaying ? Icons.pause_circle_filled : Icons.play_circle_filled,
+                    size: 32,
+                    color: theme.colorScheme.primary,
+                  ),
+          ),
+        ],
       ),
+      onTap: isLoading ? null : onTap,
     );
   }
 }

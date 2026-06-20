@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../l10n/app_localizations.dart';
 import '../providers/app_state.dart';
 import '../widgets/mini_player_bar.dart';
 import '../widgets/sound_tile.dart';
@@ -11,8 +12,10 @@ class FavoritesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return Scaffold(
-      appBar: AppBar(title: const Text('Favoriler')),
+      appBar: AppBar(title: Text(l10n.favorites)),
       body: Stack(
         children: [
           Consumer<AppState>(
@@ -28,19 +31,15 @@ class FavoritesScreen extends StatelessWidget {
                       children: [
                         Icon(
                           Icons.favorite_border,
-                          size: 56,
+                          size: 48,
                           color: Theme.of(context).colorScheme.primary,
                         ),
                         const SizedBox(height: 16),
-                        Text(
-                          'Henüz favori ses yok',
-                          style: Theme.of(context).textTheme.titleLarge,
-                        ),
+                        Text(l10n.favoritesEmptyTitle),
                         const SizedBox(height: 8),
                         Text(
-                          'Ses listesindeki kalp simgesine dokunarak favorilere ekleyebilirsin.',
+                          l10n.favoritesEmptyBody,
                           textAlign: TextAlign.center,
-                          style: Theme.of(context).textTheme.bodyMedium,
                         ),
                       ],
                     ),
@@ -49,9 +48,9 @@ class FavoritesScreen extends StatelessWidget {
               }
 
               return ListView.separated(
-                padding: const EdgeInsets.fromLTRB(16, 8, 16, 120),
+                padding: const EdgeInsets.fromLTRB(0, 0, 0, 96),
                 itemCount: favorites.length,
-                separatorBuilder: (_, __) => const SizedBox(height: 8),
+                separatorBuilder: (_, __) => const Divider(height: 1),
                 itemBuilder: (context, index) {
                   final sound = favorites[index];
                   final isPlaying =
@@ -70,7 +69,7 @@ class FavoritesScreen extends StatelessWidget {
                       } catch (error) {
                         if (!context.mounted) return;
                         ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text('Ses indirilemedi: $error')),
+                          SnackBar(content: Text(l10n.downloadFailed('$error'))),
                         );
                         return;
                       }

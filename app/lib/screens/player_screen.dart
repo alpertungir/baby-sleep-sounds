@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../l10n/app_localizations.dart';
 import '../models/sound_item.dart';
 import '../providers/app_state.dart';
 
@@ -10,16 +11,13 @@ class PlayerScreen extends StatelessWidget {
   final SoundItem sound;
 
   String _format(Duration duration) {
-    final hours = duration.inHours;
     final minutes = duration.inMinutes.remainder(60).toString().padLeft(2, '0');
     final seconds = duration.inSeconds.remainder(60).toString().padLeft(2, '0');
-    if (hours > 0) {
-      return '${hours.toString().padLeft(2, '0')}:$minutes:$seconds';
-    }
     return '$minutes:$seconds';
   }
 
   Future<void> _showTimerSheet(BuildContext context) async {
+    final l10n = AppLocalizations.of(context)!;
     final state = context.read<AppState>();
     final options = <Duration?>[
       const Duration(minutes: 15),
@@ -36,24 +34,19 @@ class PlayerScreen extends StatelessWidget {
       builder: (context) {
         return SafeArea(
           child: Padding(
-            padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
+            padding: const EdgeInsets.fromLTRB(8, 0, 8, 16),
             child: Column(
               mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Text(
-                  'Uyku Zamanlayıcısı',
-                  style: Theme.of(context).textTheme.titleLarge,
+                Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: Text(l10n.sleepTimer, style: Theme.of(context).textTheme.titleMedium),
                 ),
-                const SizedBox(height: 12),
                 ...options.map((duration) {
                   final label = duration == null
-                      ? 'Sınırsız'
-                      : '${duration.inMinutes} dakika';
+                      ? l10n.unlimited
+                      : l10n.minutesOption(duration.inMinutes);
                   return ListTile(
-                    leading: Icon(
-                      duration == null ? Icons.all_inclusive : Icons.timer_outlined,
-                    ),
                     title: Text(label),
                     onTap: () {
                       if (duration == null) {
@@ -66,12 +59,12 @@ class PlayerScreen extends StatelessWidget {
                   );
                 }),
                 if (state.hasActiveTimer)
-                  FilledButton.tonal(
-                    onPressed: () {
+                  ListTile(
+                    title: Text(l10n.cancelTimer),
+                    onTap: () {
                       state.cancelSleepTimer();
                       Navigator.pop(context);
                     },
-                    child: const Text('Zamanlayıcıyı İptal Et'),
                   ),
               ],
             ),
@@ -83,7 +76,7 @@ class PlayerScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+    final l10n = AppLocalizations.of(context)!;
 
     return Consumer<AppState>(
       builder: (context, state, _) {
@@ -107,69 +100,11 @@ class PlayerScreen extends StatelessWidget {
             padding: const EdgeInsets.all(24),
             child: Column(
               children: [
-                Expanded(
-                  child: Center(
-                    child: AspectRatio(
-                      aspectRatio: 1,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(32),
-                        child: Image.asset(
-                          sound.imagePath,
-                          fit: BoxFit.cover,
-                          errorBuilder: (_, __, ___) => Container(
-                            color: theme.colorScheme.primaryContainer,
-                            child: Icon(
-                              Icons.music_note,
-                              size: 72,
-                              color: theme.colorScheme.primary,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+                const Spacer(),
+                Icon(Icons.music_note, size: 72, color: Theme.of(context).colorScheme.primary),
                 const SizedBox(height: 24),
-                StreamBuilder<Duration>(
-                  stream: state.positionStream,
-                  builder: (context, positionSnapshot) {
-                    return StreamBuilder<Duration?>(
-                      stream: state.durationStream,
-                      builder: (context, durationSnapshot) {
-                        final position = isCurrent
-                            ? (positionSnapshot.data ?? Duration.zero)
-                            : Duration.zero;
-                        final total = isCurrent
-                            ? (durationSnapshot.data ?? Duration.zero)
-                            : Duration.zero;
-
-                        return Column(
-                          children: [
-                            Slider(
-                              value: total.inMilliseconds == 0
-                                  ? 0
-                                  : position.inMilliseconds
-                                      .clamp(0, total.inMilliseconds)
-                                      .toDouble(),
-                              max: total.inMilliseconds == 0
-                                  ? 1
-                                  : total.inMilliseconds.toDouble(),
-                              onChanged: null,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(_format(position)),
-                                Text(_format(total)),
-                              ],
-                            ),
-                          ],
-                        );
-                      },
-                    );
-                  },
-                ),
-                const SizedBox(height: 16),
+                Text(sound.name, textAlign: TextAlign.center, style: Theme.of(context).textTheme.headlineSmall),
+                const Spacer(),
                 Row(
                   children: [
                     const Icon(Icons.volume_down),
@@ -182,23 +117,20 @@ class PlayerScreen extends StatelessWidget {
                     const Icon(Icons.volume_up),
                   ],
                 ),
-                const SizedBox(height: 8),
                 if (state.hasActiveTimer)
-                  Chip(
-                    avatar: const Icon(Icons.timer, size: 18),
-                    label: Text('Kalan: ${_format(state.timerRemaining!)}'),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 12),
+                    child: Text(l10n.timerRemaining(_format(state.timerRemaining!))),
                   ),
-                const SizedBox(height: 16),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    IconButton.filledTonal(
+                    IconButton(
                       onPressed: () => _showTimerSheet(context),
-                      iconSize: 28,
                       icon: const Icon(Icons.timer_outlined),
                     ),
-                    const SizedBox(width: 24),
-                    FilledButton(
+                    const SizedBox(width: 16),
+                    IconButton(
                       onPressed: () {
                         if (playing) {
                           state.pause();
@@ -206,23 +138,17 @@ class PlayerScreen extends StatelessWidget {
                           state.playSound(sound);
                         }
                       },
-                      style: FilledButton.styleFrom(
-                        padding: const EdgeInsets.all(20),
-                        shape: const CircleBorder(),
-                      ),
-                      child: Icon(
-                        playing ? Icons.pause : Icons.play_arrow,
-                        size: 36,
+                      icon: Icon(
+                        playing ? Icons.pause_circle_filled : Icons.play_circle_filled,
+                        size: 64,
+                        color: Theme.of(context).colorScheme.primary,
                       ),
                     ),
-                    const SizedBox(width: 24),
-                    IconButton.filledTonal(
+                    const SizedBox(width: 16),
+                    IconButton(
                       onPressed: () => state.toggleFavorite(sound.id),
-                      iconSize: 28,
                       icon: Icon(
-                        state.isFavorite(sound.id)
-                            ? Icons.favorite
-                            : Icons.favorite_border,
+                        state.isFavorite(sound.id) ? Icons.favorite : Icons.favorite_border,
                       ),
                     ),
                   ],

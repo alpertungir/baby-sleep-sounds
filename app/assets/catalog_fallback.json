@@ -1,0 +1,391 @@
+{
+  "version": 1,
+  "updatedAt": "2026-06-20T09:40:37Z",
+  "sounds": [
+    {
+      "id": "bg_after_midnight",
+      "name": "After midnight",
+      "category": "background",
+      "storagePath": "sounds/background/After-midnight.mp3",
+      "imagePath": "assets/images/app/background-music.png"
+    },
+    {
+      "id": "bg_ambient_background_music",
+      "name": "Ambient background music",
+      "category": "background",
+      "storagePath": "sounds/background/Ambient-background-music.mp3",
+      "imagePath": "assets/images/app/background-music.png"
+    },
+    {
+      "id": "bg_ambient_tension",
+      "name": "Ambient tension",
+      "category": "background",
+      "storagePath": "sounds/background/Ambient-tension.mp3",
+      "imagePath": "assets/images/app/background-music.png"
+    },
+    {
+      "id": "bg_autumn_day",
+      "name": "Autumn day",
+      "category": "background",
+      "storagePath": "sounds/background/Autumn-day.mp3",
+      "imagePath": "assets/images/app/background-music.png"
+    },
+    {
+      "id": "bg_bossa_nova_game",
+      "name": "Bossa nova game",
+      "category": "background",
+      "storagePath": "sounds/background/Bossa-nova-game.mp3",
+      "imagePath": "assets/images/app/background-music.png"
+    },
+    {
+      "id": "bg_casual_friday_electronic_beat",
+      "name": "Casual friday electronic beat",
+      "category": "background",
+      "storagePath": "sounds/background/Casual-friday-electronic-beat.mp3",
+      "imagePath": "assets/images/app/background-music.png"
+    },
+    {
+      "id": "bg_cheerful_marimba",
+      "name": "Cheerful marimba",
+      "category": "background",
+      "storagePath": "sounds/background/Cheerful-marimba.mp3",
+      "imagePath": "assets/images/app/background-music.png"
+    },
+    {
+      "id": "bg_choir_singing",
+      "name": "Choir singing",
+      "category": "background",
+      "storagePath": "sounds/background/Choir-singing.mp3",
+      "imagePath": "assets/images/app/background-music.png"
+    },
+    {
+      "id": "bg_computer_melody_80s_style",
+      "name": "Computer melody 80s style",
+      "category": "background",
+      "storagePath": "sounds/background/Computer-melody-80s-style.mp3",
+      "imagePath": "assets/images/app/background-music.png"
+    },
+    {
+      "id": "bg_creepy_doll_music",
+      "name": "Creepy doll music",
+      "category": "background",
+      "storagePath": "sounds/background/Creepy-doll-music.mp3",
+      "imagePath": "assets/images/app/background-music.png"
+    },
+    {
+      "id": "bg_dreamy_ambient",
+      "name": "Dreamy ambient",
+      "category": "background",
+      "storagePath": "sounds/background/Dreamy-ambient.mp3",
+      "imagePath": "assets/images/app/background-music.png"
+    },
+    {
+      "id": "bg_dynamic_good",
+      "name": "Dynamic good",
+      "category": "background",
+      "storagePath": "sounds/background/Dynamic-good.mp3",
+      "imagePath": "assets/images/app/background-music.png"
+    },
+    {
+      "id": "bg_electro_punk_action",
+      "name": "Electro punk action",
+      "category": "background",
+      "storagePath": "sounds/background/Electro-punk-action.mp3",
+      "imagePath": "assets/images/app/background-music.png"
+    },
+    {
+      "id": "bg_electro_session_ambient",
+      "name": "Electro session ambient",
+      "category": "background",
+      "storagePath": "sounds/background/Electro-session-ambient.mp3",
+      "imagePath": "assets/images/app/background-music.png"
+    },
+    {
+      "id": "bg_electron_breeze_downtempo",
+      "name": "Electron breeze downtempo",
+      "category": "background",
+      "storagePath": "sounds/background/Electron-breeze-downtempo.mp3",
+      "imagePath": "assets/images/app/background-music.png"
+    },
+    {
+      "id": "bg_elevator_music",
+      "name": "Elevator music",
+      "category": "background",
+      "storagePath": "sounds/background/Elevator-music.mp3",
+      "imagePath": "assets/images/app/background-music.png"
+    },
+    {
+      "id": "bg_free_bluegrass_music",
+      "name": "Free bluegrass music",
+      "category": "background",
+      "storagePath": "sounds/background/Free-bluegrass-music.mp3",
+      "imagePath": "assets/images/app/background-music.png"
+    },
+    {
+      "id": "bg_free_music_for_games_and_videos",
+      "name": "Free music for games and videos",
+      "category": "background",
+      "storagePath": "sounds/background/Free-music-for-games-and-videos.mp3",
+      "imagePath": "assets/images/app/background-music.png"
+    },
+    {
+      "id": "bg_fur_elise_music_box",
+      "name": "Fur elise music box",
+      "category": "background",
+      "storagePath": "sounds/background/Fur-elise-music-box.mp3",
+      "imagePath": "assets/images/app/background-music.png"
+    },
+    {
+      "id": "bg_futuristic_music",
+      "name": "Futuristic music",
+      "category": "background",
+      "storagePath": "sounds/background/Futuristic-music.mp3",
+      "imagePath": "assets/images/app/background-music.png"
+    },
+    {
+      "id": "bg_groovy_day_infomercial_music",
+      "name": "Groovy day infomercial music",
+      "category": "background",
+      "storagePath": "sounds/background/Groovy-day-infomercial-music.mp3",
+      "imagePath": "assets/images/app/background-music.png"
+    },
+    {
+      "id": "bg_happy_electronic_music",
+      "name": "Happy electronic music",
+      "category": "background",
+      "storagePath": "sounds/background/Happy-electronic-music.mp3",
+      "imagePath": "assets/images/app/background-music.png"
+    },
+    {
+      "id": "bg_jason_shaw_acoustic_guitar",
+      "name": "Jason shaw Acoustic guitar",
+      "category": "background",
+      "storagePath": "sounds/background/Jason-shaw-Acoustic-guitar.mp3",
+      "imagePath": "assets/images/app/background-music.png"
+    },
+    {
+      "id": "bg_lounge_deep_house_chillout",
+      "name": "Lounge deep house chillout",
+      "category": "background",
+      "storagePath": "sounds/background/Lounge-deep-house-chillout.mp3",
+      "imagePath": "assets/images/app/background-music.png"
+    },
+    {
+      "id": "bg_lounge_deep_house",
+      "name": "Lounge deep house",
+      "category": "background",
+      "storagePath": "sounds/background/Lounge-deep-house.mp3",
+      "imagePath": "assets/images/app/background-music.png"
+    },
+    {
+      "id": "bg_lounge_deep",
+      "name": "Lounge deep",
+      "category": "background",
+      "storagePath": "sounds/background/Lounge-deep.mp3",
+      "imagePath": "assets/images/app/background-music.png"
+    },
+    {
+      "id": "bg_magical_path_melodic_upbeat",
+      "name": "Magical path melodic upbeat",
+      "category": "background",
+      "storagePath": "sounds/background/Magical-path-melodic-upbeat.mp3",
+      "imagePath": "assets/images/app/background-music.png"
+    },
+    {
+      "id": "bg_marimba_tune",
+      "name": "Marimba tune",
+      "category": "background",
+      "storagePath": "sounds/background/Marimba-tune.mp3",
+      "imagePath": "assets/images/app/background-music.png"
+    },
+    {
+      "id": "bg_motivational_upbeat",
+      "name": "Motivational upbeat",
+      "category": "background",
+      "storagePath": "sounds/background/Motivational-upbeat.mp3",
+      "imagePath": "assets/images/app/background-music.png"
+    },
+    {
+      "id": "bg_mysterious_synth_pad",
+      "name": "Mysterious synth pad",
+      "category": "background",
+      "storagePath": "sounds/background/Mysterious-synth-pad.mp3",
+      "imagePath": "assets/images/app/background-music.png"
+    },
+    {
+      "id": "bg_mystic_dream_piano",
+      "name": "Mystic dream piano",
+      "category": "background",
+      "storagePath": "sounds/background/Mystic-dream-piano.mp3",
+      "imagePath": "assets/images/app/background-music.png"
+    },
+    {
+      "id": "bg_piano_melody_free",
+      "name": "Piano melody free",
+      "category": "background",
+      "storagePath": "sounds/background/Piano-melody-free.mp3",
+      "imagePath": "assets/images/app/background-music.png"
+    },
+    {
+      "id": "bg_pink_panther_theme_music_box",
+      "name": "Pink panther theme music box",
+      "category": "background",
+      "storagePath": "sounds/background/Pink-panther-theme-music-box.mp3",
+      "imagePath": "assets/images/app/background-music.png"
+    },
+    {
+      "id": "bg_psychedelic_trip",
+      "name": "Psychedelic trip",
+      "category": "background",
+      "storagePath": "sounds/background/Psychedelic-trip.mp3",
+      "imagePath": "assets/images/app/background-music.png"
+    },
+    {
+      "id": "bg_relaxing_thinking_time",
+      "name": "Relaxing thinking time",
+      "category": "background",
+      "storagePath": "sounds/background/Relaxing-thinking-time.mp3",
+      "imagePath": "assets/images/app/background-music.png"
+    },
+    {
+      "id": "bg_rues_whistle_piano",
+      "name": "Rues whistle piano",
+      "category": "background",
+      "storagePath": "sounds/background/Rues-whistle-piano.mp3",
+      "imagePath": "assets/images/app/background-music.png"
+    },
+    {
+      "id": "bg_short_electronic_background_music",
+      "name": "Short electronic background music",
+      "category": "background",
+      "storagePath": "sounds/background/Short-electronic-background-music.mp3",
+      "imagePath": "assets/images/app/background-music.png"
+    },
+    {
+      "id": "bg_simple_peaceful_piano_melody",
+      "name": "Simple peaceful piano melody",
+      "category": "background",
+      "storagePath": "sounds/background/Simple-peaceful-piano-melody.mp3",
+      "imagePath": "assets/images/app/background-music.png"
+    },
+    {
+      "id": "bg_snowing_holiday_music",
+      "name": "Snowing holiday music",
+      "category": "background",
+      "storagePath": "sounds/background/Snowing-holiday music.mp3",
+      "imagePath": "assets/images/app/background-music.png"
+    },
+    {
+      "id": "bg_terra_incognita_instrumental",
+      "name": "Terra incognita instrumental",
+      "category": "background",
+      "storagePath": "sounds/background/Terra-incognita-instrumental.mp3",
+      "imagePath": "assets/images/app/background-music.png"
+    },
+    {
+      "id": "bg_trap_music_instrumental",
+      "name": "Trap music instrumental",
+      "category": "background",
+      "storagePath": "sounds/background/Trap-music-instrumental.mp3",
+      "imagePath": "assets/images/app/background-music.png"
+    },
+    {
+      "id": "na_en_abcsong",
+      "name": "EN ABCSong",
+      "category": "national",
+      "storagePath": "sounds/national/EN_ABCSong.mp3",
+      "imagePath": "assets/images/app/national-music.png"
+    },
+    {
+      "id": "na_en_goodirish",
+      "name": "EN GoodIrish",
+      "category": "national",
+      "storagePath": "sounds/national/EN_GoodIrish.mp3",
+      "imagePath": "assets/images/app/national-music.png"
+    },
+    {
+      "id": "na_en_hushlittlebaby",
+      "name": "EN HushLittleBaby",
+      "category": "national",
+      "storagePath": "sounds/national/EN_HushLittleBaby.mp3",
+      "imagePath": "assets/images/app/national-music.png"
+    },
+    {
+      "id": "na_es_alapuertadelcielo",
+      "name": "ES ALaPuertaDelCielo",
+      "category": "national",
+      "storagePath": "sounds/national/ES_ALaPuertaDelCielo.mp3",
+      "imagePath": "assets/images/app/national-music.png"
+    },
+    {
+      "id": "na_es_alarurunino",
+      "name": "ES ALaRuRuNino",
+      "category": "national",
+      "storagePath": "sounds/national/ES_ALaRuRuNino.mp3",
+      "imagePath": "assets/images/app/national-music.png"
+    },
+    {
+      "id": "na_fr_celinedion",
+      "name": "FR CelineDion",
+      "category": "national",
+      "storagePath": "sounds/national/FR_CelineDion.mp3",
+      "imagePath": "assets/images/app/national-music.png"
+    },
+    {
+      "id": "na_it_dormibelbambin",
+      "name": "IT DormiBelBambin",
+      "category": "national",
+      "storagePath": "sounds/national/IT_DormiBelBambin.mp3",
+      "imagePath": "assets/images/app/national-music.png"
+    },
+    {
+      "id": "na_it_littlestar",
+      "name": "IT LittleStar",
+      "category": "national",
+      "storagePath": "sounds/national/IT_LittleStar.mp3",
+      "imagePath": "assets/images/app/national-music.png"
+    },
+    {
+      "id": "na_it_ninnanannaninnaoh",
+      "name": "IT NinnaNannaNinnaOh",
+      "category": "national",
+      "storagePath": "sounds/national/IT_NinnaNannaNinnaOh.mp3",
+      "imagePath": "assets/images/app/national-music.png"
+    },
+    {
+      "id": "na_ru_ancientrussian",
+      "name": "RU AncientRussian",
+      "category": "national",
+      "storagePath": "sounds/national/RU_AncientRussian.mp3",
+      "imagePath": "assets/images/app/national-music.png"
+    },
+    {
+      "id": "na_ru_cossack",
+      "name": "RU Cossack",
+      "category": "national",
+      "storagePath": "sounds/national/RU_Cossack.mp3",
+      "imagePath": "assets/images/app/national-music.png"
+    },
+    {
+      "id": "na_ru_tilitilibom",
+      "name": "RU TiliTiliBom",
+      "category": "national",
+      "storagePath": "sounds/national/RU_TiliTiliBom.mp3",
+      "imagePath": "assets/images/app/national-music.png"
+    },
+    {
+      "id": "re_airplane_ambience_sound_effect",
+      "name": "Airplane ambience sound effect",
+      "category": "relaxing",
+      "storagePath": "sounds/relaxing/Airplane-ambience-sound-effect.mp3",
+      "imagePath": "assets/images/app/relaxing-music.png"
+    },
+    {
+      "id": "re_serene_rainstick",
+      "name": "Serene rainstick",
+      "category": "relaxing",
+      "storagePath": "sounds/relaxing/Serene-rainstick.mp3",
+      "imagePath": "assets/images/app/relaxing-music.png"
+    }
+  ]
+}

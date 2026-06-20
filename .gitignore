@@ -9,6 +9,9 @@ Thumbs.db
 
 # Local source library + signing secrets (do not commit)
 files/
+upload-source/
+upload-source/**/*.json
+service-account*.json
 
 # Flutter / Dart (app/)
 app/.dart_tool/
