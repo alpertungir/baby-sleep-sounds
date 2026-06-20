@@ -96,11 +96,6 @@ class _SupportScreenState extends State<SupportScreen> {
                     color: theme.colorScheme.onSurface.withValues(alpha: 0.65),
                   ),
                 )
-              else if (provider.loadingProducts)
-                const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 24),
-                  child: Center(child: CircularProgressIndicator()),
-                )
               else ...[
                 if (!provider.hasPlayProducts)
                   Padding(
@@ -112,6 +107,11 @@ class _SupportScreenState extends State<SupportScreen> {
                         height: 1.4,
                       ),
                     ),
+                  ),
+                if (provider.loadingProducts && provider.tiers.isNotEmpty)
+                  const Padding(
+                    padding: EdgeInsets.only(bottom: 8),
+                    child: LinearProgressIndicator(minHeight: 2),
                   ),
                 ...provider.tiers.map(
                   (tier) => Padding(

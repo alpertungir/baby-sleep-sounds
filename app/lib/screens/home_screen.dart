@@ -3,11 +3,9 @@ import 'package:provider/provider.dart';
 
 import '../l10n/app_localizations.dart';
 import '../providers/app_state.dart';
-import '../widgets/app_info_footer.dart';
 import '../widgets/category_card.dart';
 import '../widgets/decorative_background.dart';
 import '../widgets/home_header.dart';
-import '../widgets/home_support_card.dart';
 import '../widgets/language_menu_button.dart';
 import '../widgets/mini_player_bar.dart';
 import '../widgets/screen_insets.dart';
@@ -112,7 +110,7 @@ class HomeScreen extends StatelessWidget {
                   _horizontalPadding,
                   8,
                   _horizontalPadding,
-                  0,
+                  ScreenInsets.listBottom(context, state),
                 ),
                 sliver: SliverGrid(
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -141,21 +139,6 @@ class HomeScreen extends StatelessWidget {
                     childCount: categories.length,
                   ),
                 ),
-              ),
-              SliverPadding(
-                padding: EdgeInsets.fromLTRB(
-                  _horizontalPadding,
-                  10,
-                  _horizontalPadding,
-                  0,
-                ),
-                sliver: const SliverToBoxAdapter(child: HomeSupportCard()),
-              ),
-              SliverPadding(
-                padding: EdgeInsets.only(
-                  bottom: ScreenInsets.listBottom(context, state),
-                ),
-                sliver: const SliverToBoxAdapter(child: AppInfoFooter()),
               ),
             ],
           ),

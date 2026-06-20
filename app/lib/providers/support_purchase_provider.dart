@@ -66,6 +66,7 @@ class SupportPurchaseProvider extends ChangeNotifier {
     if (!isSupported || _loadingProducts) return;
 
     _loadingProducts = true;
+    _tiers = _buildTiers(l10n, const {});
     notifyListeners();
 
     try {
@@ -75,13 +76,17 @@ class SupportPurchaseProvider extends ChangeNotifier {
 
       final byId = <String, ProductDetails>{};
       if (_billingAvailable) {
-        final response = await _service.queryProducts();
+        final response = await _service
+            .queryProducts()
+            .timeout(const Duration(seconds: 12));
         for (final product in response.productDetails) {
           byId[product.id] = product;
         }
       }
 
       _tiers = _buildTiers(l10n, byId);
+    } catch (_) {
+      _tiers = _buildTiers(l10n, const {});
     } finally {
       _loadingProducts = false;
       notifyListeners();

@@ -44,20 +44,50 @@ def _soft_background(size: int) -> Image.Image:
     return img
 
 
+def _fit_font(path: str, text: str, target_width: float, start_size: int) -> ImageFont.FreeTypeFont | ImageFont.ImageFont:
+    size = start_size
+    while size > 12:
+        font = _font(path, size)
+        probe = ImageDraw.Draw(Image.new("RGB", (4, 4)))
+        bbox = probe.textbbox((0, 0), text, font=font)
+        if bbox[2] - bbox[0] <= target_width:
+            return font
+        size -= 2
+    return _font(path, 12)
+
+
 def _draw_wordmark(
     draw: ImageDraw.ImageDraw,
     cx: float,
     cy: float,
-    scale: float,
+    canvas_size: float,
     *,
-    title_size: float,
-    subtitle_size: float,
+    icon: bool,
 ) -> None:
-    title_font = _font("/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf", int(scale * title_size))
-    sub_font = _font("/usr/share/fonts/truetype/liberation/LiberationSansNarrow-Regular.ttf", int(scale * subtitle_size))
-
     title = "Tngr"
     subtitle = "STUDIO"
+
+    if icon:
+        title_target = canvas_size * 0.78
+        title_font = _fit_font(
+            "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
+            title,
+            title_target,
+            int(canvas_size * 0.34),
+        )
+        sub_font = _font(
+            "/usr/share/fonts/truetype/liberation/LiberationSansNarrow-Regular.ttf",
+            max(14, int(canvas_size * 0.055)),
+        )
+    else:
+        title_font = _font(
+            "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf",
+            int(canvas_size * 0.12),
+        )
+        sub_font = _font(
+            "/usr/share/fonts/truetype/liberation/LiberationSansNarrow-Regular.ttf",
+            int(canvas_size * 0.038),
+        )
 
     title_bbox = draw.textbbox((0, 0), title, font=title_font)
     title_w = title_bbox[2] - title_bbox[0]
@@ -65,22 +95,20 @@ def _draw_wordmark(
 
     sub_bbox = draw.textbbox((0, 0), subtitle, font=sub_font)
     sub_w = sub_bbox[2] - sub_bbox[0]
+    sub_h = sub_bbox[3] - sub_bbox[1]
 
-    title_y = cy - scale * 0.10
+    block_h = title_h + sub_h + canvas_size * 0.03
+    title_y = cy - block_h / 2
     draw.text((cx - title_w / 2, title_y), title, font=title_font, fill=INK)
 
-    line_y = title_y + title_h + scale * 0.04
-    line_w = scale * 0.18
-    draw.line([(cx - line_w / 2, line_y), (cx + line_w / 2, line_y)], fill=ACCENT, width=max(2, int(scale * 0.008)))
-
-    sub_y = line_y + scale * 0.035
+    sub_y = title_y + title_h + canvas_size * 0.018
     draw.text((cx - sub_w / 2, sub_y), subtitle, font=sub_font, fill=INK_SOFT)
 
 
 def render_icon(size: int) -> Image.Image:
     img = _soft_background(size)
     draw = ImageDraw.Draw(img)
-    _draw_wordmark(draw, size * 0.5, size * 0.5, size * 0.55, title_size=0.18, subtitle_size=0.058)
+    _draw_wordmark(draw, size * 0.5, size * 0.5, size, icon=True)
     return img
 
 
@@ -105,8 +133,7 @@ def render_header(width: int, height: int) -> Image.Image:
         fill=BG_TOP,
     )
 
-    scale = height * 0.55
-    _draw_wordmark(draw, width * 0.22, height * 0.52, scale, title_size=0.22, subtitle_size=0.07)
+    _draw_wordmark(draw, width * 0.22, height * 0.52, height * 0.45, icon=False)
     return img
 
 
