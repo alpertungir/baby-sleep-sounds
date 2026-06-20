@@ -9,6 +9,8 @@ import '../widgets/mini_player_bar.dart';
 import 'category_screen.dart';
 import 'favorites_screen.dart';
 
+enum _HomeMenuAction { refreshCatalog }
+
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -67,17 +69,13 @@ class HomeScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text(l10n.appTitle),
         actions: [
           IconButton(
             tooltip: l10n.language,
             onPressed: () => _showLanguageMenu(context),
             icon: const Icon(Icons.language),
-          ),
-          IconButton(
-            tooltip: l10n.refreshCatalog,
-            onPressed: () => state.refreshRemoteCatalog(),
-            icon: const Icon(Icons.refresh),
           ),
           IconButton(
             tooltip: l10n.favorites,
@@ -87,6 +85,25 @@ class HomeScreen extends StatelessWidget {
               );
             },
             icon: const Icon(Icons.favorite_outline),
+          ),
+          PopupMenuButton<_HomeMenuAction>(
+            tooltip: l10n.refreshCatalog,
+            onSelected: (action) {
+              if (action == _HomeMenuAction.refreshCatalog) {
+                state.refreshRemoteCatalog();
+              }
+            },
+            itemBuilder: (context) => [
+              PopupMenuItem(
+                value: _HomeMenuAction.refreshCatalog,
+                child: ListTile(
+                  leading: const Icon(Icons.sync),
+                  title: Text(l10n.refreshCatalog),
+                  contentPadding: EdgeInsets.zero,
+                  dense: true,
+                ),
+              ),
+            ],
           ),
         ],
       ),
