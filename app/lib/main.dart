@@ -8,7 +8,7 @@ import 'package:provider/provider.dart';
 import 'l10n/app_localizations.dart';
 import 'providers/app_state.dart';
 import 'providers/locale_provider.dart';
-import 'screens/home_screen.dart';
+import 'screens/app_root.dart';
 import 'services/audio_player_service.dart';
 import 'services/favorites_service.dart';
 import 'services/remote_catalog_service.dart';
@@ -82,7 +82,7 @@ class BabySleepApp extends StatelessWidget {
       title: 'Baby Sleep Sounds',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.dark(),
-      locale: localeProvider.locale,
+      locale: localeProvider.effectiveLocale,
       localeResolutionCallback: (locale, supported) {
         if (locale == null) return const Locale('tr');
         for (final supportedLocale in supported) {
@@ -99,7 +99,7 @@ class BabySleepApp extends StatelessWidget {
         GlobalCupertinoLocalizations.delegate,
       ],
       supportedLocales: AppLocalizations.supportedLocales,
-      home: const HomeScreen(),
+      home: const AppRoot(),
     );
   }
 }

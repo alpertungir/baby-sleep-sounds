@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../l10n/app_localizations.dart';
 import '../providers/app_state.dart';
 import '../widgets/mini_player_bar.dart';
+import '../widgets/screen_insets.dart';
 import '../widgets/sound_tile.dart';
 
 class FavoritesScreen extends StatelessWidget {
@@ -46,10 +47,12 @@ class FavoritesScreen extends StatelessWidget {
                 );
               }
 
-              return ListView.separated(
-                padding: const EdgeInsets.fromLTRB(0, 0, 0, 96),
+              return ListView.builder(
+                padding: EdgeInsets.only(
+                  top: 8,
+                  bottom: ScreenInsets.listBottom(context, state),
+                ),
                 itemCount: favorites.length,
-                separatorBuilder: (_, __) => const Divider(height: 1),
                 itemBuilder: (context, index) {
                   final sound = favorites[index];
                   final isPlaying =

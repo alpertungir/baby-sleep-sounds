@@ -47,6 +47,17 @@ class AppLocalizationsTr extends AppLocalizations {
   String get categoryMusic => 'Müzik';
 
   @override
+  String get homeHeaderSubtitle => 'Huzurlu uykular için';
+
+  @override
+  String get developedBy => 'Alfa Apps';
+
+  @override
+  String versionLabel(String version) {
+    return 'Sürüm $version';
+  }
+
+  @override
   String get favoritesEmptyTitle => 'Henüz favori yok';
 
   @override
@@ -93,18 +104,4 @@ class AppLocalizationsTr extends AppLocalizations {
 
   @override
   String get pausedStatus => 'Duraklatıldı';
-
-  @override
-  String get backToHome => 'Ana sayfa';
-
-  @override
-  String get homeHeaderSubtitle => 'Huzurlu uykular için';
-
-  @override
-  String get developedBy => 'Alfa Apps';
-
-  @override
-  String versionLabel(String version) {
-    return 'Sürüm $version';
-  }
 }

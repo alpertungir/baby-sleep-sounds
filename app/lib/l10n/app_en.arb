@@ -8,13 +8,23 @@
   "turkish": "Türkçe",
   "english": "English",
   "soundCount": "{count} sounds",
+  "@soundCount": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
   "categoryWhiteNoise": "White Noise",
-  "categoryTurkishLullaby": "Turkish Lullabies",
   "categoryLullaby": "Lullabies",
-  "categoryClassic": "Classical",
   "categoryRelaxing": "Relaxing",
-  "categoryBackground": "Background",
-  "categoryNational": "World Lullabies",
+  "categoryMusic": "Music",
+  "homeHeaderSubtitle": "Peaceful sleep, sweet dreams",
+  "developedBy": "Alfa Apps",
+  "versionLabel": "Version {version}",
+  "@versionLabel": {
+    "placeholders": {
+      "version": { "type": "String" }
+    }
+  },
   "favoritesEmptyTitle": "No favorites yet",
   "favoritesEmptyBody": "Tap the heart on a sound to add it here.",
   "emptyCategory": "No sounds in this category",

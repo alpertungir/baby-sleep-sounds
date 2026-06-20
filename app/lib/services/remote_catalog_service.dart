@@ -90,7 +90,7 @@ class RemoteCatalogService {
       return null;
     }
 
-    final categoryId = _categoryFromString(category);
+    final categoryId = _resolveCategory(category, storagePath);
     if (categoryId == null) return null;
 
     return SoundItem(
@@ -102,12 +102,16 @@ class RemoteCatalogService {
     );
   }
 
-  SoundCategoryId? _categoryFromString(String value) {
-    return switch (value) {
-      'background' => SoundCategoryId.background,
-      'classic' => SoundCategoryId.classic,
-      'national' => SoundCategoryId.national,
+  SoundCategoryId? _resolveCategory(String category, String storagePath) {
+    if (storagePath.contains('/music/')) return SoundCategoryId.music;
+    if (storagePath.contains('/relaxing/')) return SoundCategoryId.relaxing;
+    if (storagePath.contains('/lullaby/')) return SoundCategoryId.lullaby;
+
+    return switch (category) {
+      'lullaby' || 'national' || 'classic' => SoundCategoryId.lullaby,
       'relaxing' => SoundCategoryId.relaxing,
+      'music' => SoundCategoryId.music,
+      'background' => SoundCategoryId.relaxing,
       _ => null,
     };
   }

@@ -7,7 +7,7 @@ class AppTheme {
   static ThemeData dark() {
     const scheme = ColorScheme.dark(
       primary: Color(0xFFFFB74D),
-      secondary: Color(0xFF81C784),
+      secondary: Color(0xFFCE93D8),
       tertiary: Color(0xFF64B5F6),
       surface: _surface,
       onPrimary: Color(0xFF3E2723),
@@ -19,11 +19,13 @@ class AppTheme {
       colorScheme: scheme,
       scaffoldBackgroundColor: _background,
       appBarTheme: const AppBarTheme(
-        centerTitle: true,
+        centerTitle: false,
         backgroundColor: _background,
         foregroundColor: Color(0xFFFFF8E1),
         elevation: 0,
         scrolledUnderElevation: 0,
+        leadingWidth: 56,
+        titleSpacing: 8,
       ),
       listTileTheme: const ListTileThemeData(
         iconColor: Color(0xFFFFF8E1),

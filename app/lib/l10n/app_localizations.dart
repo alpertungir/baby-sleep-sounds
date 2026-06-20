@@ -170,6 +170,24 @@ abstract class AppLocalizations {
   /// **'Müzik'**
   String get categoryMusic;
 
+  /// No description provided for @homeHeaderSubtitle.
+  ///
+  /// In tr, this message translates to:
+  /// **'Huzurlu uykular için'**
+  String get homeHeaderSubtitle;
+
+  /// No description provided for @developedBy.
+  ///
+  /// In tr, this message translates to:
+  /// **'Alfa Apps'**
+  String get developedBy;
+
+  /// No description provided for @versionLabel.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sürüm {version}'**
+  String versionLabel(String version);
+
   /// No description provided for @favoritesEmptyTitle.
   ///
   /// In tr, this message translates to:
@@ -247,30 +265,6 @@ abstract class AppLocalizations {
   /// In tr, this message translates to:
   /// **'Duraklatıldı'**
   String get pausedStatus;
-
-  /// No description provided for @backToHome.
-  ///
-  /// In tr, this message translates to:
-  /// **'Ana sayfa'**
-  String get backToHome;
-
-  /// No description provided for @homeHeaderSubtitle.
-  ///
-  /// In tr, this message translates to:
-  /// **'Huzurlu uykular için'**
-  String get homeHeaderSubtitle;
-
-  /// No description provided for @developedBy.
-  ///
-  /// In tr, this message translates to:
-  /// **'Alfa Apps'**
-  String get developedBy;
-
-  /// No description provided for @versionLabel.
-  ///
-  /// In tr, this message translates to:
-  /// **'Sürüm {version}'**
-  String versionLabel(String version);
 }
 
 class _AppLocalizationsDelegate

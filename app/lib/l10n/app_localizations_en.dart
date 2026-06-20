@@ -47,6 +47,17 @@ class AppLocalizationsEn extends AppLocalizations {
   String get categoryMusic => 'Music';
 
   @override
+  String get homeHeaderSubtitle => 'Peaceful sleep, sweet dreams';
+
+  @override
+  String get developedBy => 'Alfa Apps';
+
+  @override
+  String versionLabel(String version) {
+    return 'Version $version';
+  }
+
+  @override
   String get favoritesEmptyTitle => 'No favorites yet';
 
   @override
@@ -92,18 +103,4 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get pausedStatus => 'Paused';
-
-  @override
-  String get backToHome => 'Home';
-
-  @override
-  String get homeHeaderSubtitle => 'Peaceful sleep, sweet dreams';
-
-  @override
-  String get developedBy => 'Alfa Apps';
-
-  @override
-  String versionLabel(String version) {
-    return 'Version $version';
-  }
 }

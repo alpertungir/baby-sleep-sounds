@@ -14,12 +14,17 @@
     }
   },
   "categoryWhiteNoise": "Beyaz Gürültü",
-  "categoryTurkishLullaby": "Türk Ninneleri",
-  "categoryLullaby": "Ninni",
-  "categoryClassic": "Klasik",
+  "categoryLullaby": "Ninniler",
   "categoryRelaxing": "Rahatlatıcı",
-  "categoryBackground": "Arka Plan",
-  "categoryNational": "Dünya Ninneleri",
+  "categoryMusic": "Müzik",
+  "homeHeaderSubtitle": "Huzurlu uykular için",
+  "developedBy": "Alfa Apps",
+  "versionLabel": "Sürüm {version}",
+  "@versionLabel": {
+    "placeholders": {
+      "version": { "type": "String" }
+    }
+  },
   "favoritesEmptyTitle": "Henüz favori yok",
   "favoritesEmptyBody": "Ses listesindeki kalbe dokunarak ekleyebilirsin.",
   "emptyCategory": "Bu kategoride ses yok",

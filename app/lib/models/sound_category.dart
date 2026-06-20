@@ -3,11 +3,8 @@ import 'package:flutter/material.dart';
 enum SoundCategoryId {
   whiteNoise,
   lullaby,
-  turkishLullaby,
-  classic,
-  background,
-  national,
   relaxing,
+  music,
 }
 
 class SoundCategory {
