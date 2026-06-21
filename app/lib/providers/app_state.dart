@@ -274,6 +274,10 @@ class AppState extends ChangeNotifier {
         return;
       }
 
+      if (!_audioService.isPlaying) {
+        return;
+      }
+
       final next = _timerRemaining! - const Duration(seconds: 1);
       if (next <= Duration.zero) {
         _clearTimer();

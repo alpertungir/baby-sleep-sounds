@@ -99,28 +99,44 @@ class MiniPlayerBar extends StatelessWidget {
                               initialData: state.playbackElapsed,
                               builder: (context, snapshot) {
                                 final position = snapshot.data ?? Duration.zero;
-                                final subtitle = state.hasActiveTimer &&
-                                        state.timerRemaining != null
-                                    ? l10n.timerRemaining(
-                                        formatSleepTimerCountdown(
-                                          state.timerRemaining!,
+                                if (state.hasActiveTimer &&
+                                    state.timerRemaining != null) {
+                                  final timerColor = theme.colorScheme.primary;
+                                  final countdown = formatSleepTimerCountdown(
+                                    state.timerRemaining!,
+                                  );
+                                  return Row(
+                                    children: [
+                                      Icon(
+                                        Icons.timer_outlined,
+                                        size: 14,
+                                        color: timerColor,
+                                      ),
+                                      const SizedBox(width: 4),
+                                      Text(
+                                        countdown,
+                                        maxLines: 1,
+                                        style: theme.textTheme.bodySmall?.copyWith(
+                                          color: timerColor,
+                                          fontWeight: FontWeight.w600,
+                                          fontFeatures: const [
+                                            FontFeature.tabularFigures(),
+                                          ],
                                         ),
-                                      )
-                                    : state.isPlaying
-                                        ? l10n.playingStatus(_format(position))
-                                        : l10n.pausedStatus;
+                                      ),
+                                    ],
+                                  );
+                                }
+
                                 return Text(
-                                  subtitle,
+                                  state.isPlaying
+                                      ? l10n.playingStatus(_format(position))
+                                      : l10n.pausedStatus,
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
                                   style: theme.textTheme.bodySmall?.copyWith(
-                                    color: state.hasActiveTimer
-                                        ? theme.colorScheme.primary
-                                        : theme.colorScheme.onSurface
-                                            .withValues(alpha: 0.75),
-                                    fontWeight: state.hasActiveTimer
-                                        ? FontWeight.w600
-                                        : null,
+                                    color: theme.colorScheme.onSurface
+                                        .withValues(alpha: 0.75),
                                   ),
                                 );
                               },
