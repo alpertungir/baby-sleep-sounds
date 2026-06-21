@@ -10,8 +10,12 @@ import 'sound_download_service.dart';
 
 class SleepAudioHandler extends BaseAudioHandler with SeekHandler {
   SleepAudioHandler(this._downloadService) {
-    _player.playbackEventStream.listen(_broadcastState);
-    _player.playerStateStream.listen((_) => _broadcastState(_player.playbackEvent));
+    _player.playbackEventStream.listen((event) {
+      isPlaying = _player.playing;
+      onStateChanged?.call();
+      _publishState();
+    });
+    _player.playerStateStream.listen((_) => _syncElapsedTicker());
   }
 
   final SoundDownloadService _downloadService;
@@ -55,17 +59,16 @@ class SleepAudioHandler extends BaseAudioHandler with SeekHandler {
         await _player.setFilePath(file.path);
       }
       await _player.setLoopMode(LoopMode.one);
-      mediaItem.add(
-        MediaItem(
-          id: sound.id,
-          title: displayTitle ?? sound.name,
-          album: albumTitle ?? AppIdentity.mediaAlbumTitle,
-          artUri: Uri.parse('asset:///${sound.imagePath}'),
-        ),
+      final item = MediaItem(
+        id: sound.id,
+        title: displayTitle ?? sound.name,
+        album: albumTitle ?? AppIdentity.mediaAlbumTitle,
+        artUri: Uri.parse('asset:///${sound.imagePath}'),
       );
+      mediaItem.add(item);
+      queue.add([item]);
     }
-    await _player.play();
-    _syncElapsedTicker();
+    await play();
   }
 
   Future<void> toggle(
@@ -87,9 +90,6 @@ class SleepAudioHandler extends BaseAudioHandler with SeekHandler {
   Future<void> setVolume(double volume) => _player.setVolume(volume.clamp(0.0, 1.0));
 
   Future<void> stopPlayback() async {
-    await _player.stop();
-    currentSound = null;
-    _resetElapsed();
     await stop();
   }
 
@@ -119,7 +119,7 @@ class SleepAudioHandler extends BaseAudioHandler with SeekHandler {
   void updateSkipControls({required bool hasNext, required bool hasPrevious}) {
     _hasNext = hasNext;
     _hasPrevious = hasPrevious;
-    _broadcastState(_player.playbackEvent);
+    _publishState();
   }
 
   @override
@@ -128,10 +128,7 @@ class SleepAudioHandler extends BaseAudioHandler with SeekHandler {
   @override
   Future<void> skipToPrevious() => onSkipToPrevious?.call() ?? Future.value();
 
-  void _broadcastState(PlaybackEvent event) {
-    isPlaying = _player.playing;
-    onStateChanged?.call();
-
+  PlaybackState _transformEvent(PlaybackEvent event) {
     final controls = <MediaControl>[
       if (_hasPrevious) MediaControl.skipToPrevious,
       if (_player.playing) MediaControl.pause else MediaControl.play,
@@ -144,23 +141,29 @@ class SleepAudioHandler extends BaseAudioHandler with SeekHandler {
             ? const [0, 1]
             : const [0];
 
+    return PlaybackState(
+      controls: controls,
+      systemActions: const {MediaAction.stop},
+      androidCompactActionIndices: compactIndices,
+      processingState: const {
+        ProcessingState.idle: AudioProcessingState.idle,
+        ProcessingState.loading: AudioProcessingState.loading,
+        ProcessingState.buffering: AudioProcessingState.buffering,
+        ProcessingState.ready: AudioProcessingState.ready,
+        ProcessingState.completed: AudioProcessingState.completed,
+      }[_player.processingState]!,
+      playing: _player.playing,
+      updatePosition: _sessionPosition,
+      bufferedPosition: _player.bufferedPosition,
+      speed: _player.speed,
+      queueIndex: event.currentIndex,
+    );
+  }
+
+  void _publishState() {
     playbackState.add(
-      playbackState.value.copyWith(
-        controls: controls,
-        systemActions: const {MediaAction.stop},
-        androidCompactActionIndices: compactIndices,
-        processingState: const {
-          ProcessingState.idle: AudioProcessingState.idle,
-          ProcessingState.loading: AudioProcessingState.loading,
-          ProcessingState.buffering: AudioProcessingState.buffering,
-          ProcessingState.ready: AudioProcessingState.ready,
-          ProcessingState.completed: AudioProcessingState.completed,
-        }[_player.processingState]!,
-        playing: _player.playing,
+      _transformEvent(_player.playbackEvent).copyWith(
         updatePosition: _sessionPosition,
-        bufferedPosition: _player.bufferedPosition,
-        speed: _player.speed,
-        queueIndex: event.currentIndex,
       ),
     );
   }
@@ -171,9 +174,9 @@ class SleepAudioHandler extends BaseAudioHandler with SeekHandler {
         _elapsedStopwatch.start();
       }
       _stateTicker ??= Timer.periodic(const Duration(seconds: 1), (_) {
-        _broadcastState(_player.playbackEvent);
+        _publishState();
       });
-      _broadcastState(_player.playbackEvent);
+      _publishState();
       return;
     }
 
@@ -185,7 +188,7 @@ class SleepAudioHandler extends BaseAudioHandler with SeekHandler {
     }
     _stateTicker?.cancel();
     _stateTicker = null;
-    _broadcastState(_player.playbackEvent);
+    _publishState();
   }
 
   void _resetElapsed() {

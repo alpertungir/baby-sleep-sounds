@@ -39,7 +39,6 @@ class AppState extends ChangeNotifier {
   List<SoundItem> _remoteSounds = [];
   String? _loadingSoundId;
   bool _isRefreshingCatalog = false;
-  bool _notificationPermissionRequested = false;
   static const _keyLastSleepTimerMinutes = 'sleep_timer_last_duration_minutes';
 
   Timer? _sleepTimer;
@@ -245,8 +244,6 @@ class AppState extends ChangeNotifier {
   }
 
   Future<void> _ensurePlaybackPermission() async {
-    if (_notificationPermissionRequested) return;
-    _notificationPermissionRequested = true;
     await ensureNotificationPermission();
   }
 

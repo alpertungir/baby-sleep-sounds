@@ -3,11 +3,12 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-Future<void> ensureNotificationPermission() async {
-  if (kIsWeb || !Platform.isAndroid) return;
+Future<bool> ensureNotificationPermission() async {
+  if (kIsWeb || !Platform.isAndroid) return true;
 
-  final status = await Permission.notification.status;
-  if (status.isGranted || status.isLimited) return;
+  var status = await Permission.notification.status;
+  if (status.isGranted || status.isLimited) return true;
 
-  await Permission.notification.request();
+  status = await Permission.notification.request();
+  return status.isGranted || status.isLimited;
 }

@@ -130,13 +130,16 @@ class MiniPlayerBar extends StatelessWidget {
 
                                 return Text(
                                   state.isPlaying
-                                      ? l10n.playingStatus(_format(position))
+                                      ? _format(position)
                                       : l10n.pausedStatus,
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
                                   style: theme.textTheme.bodySmall?.copyWith(
                                     color: theme.colorScheme.onSurface
                                         .withValues(alpha: 0.75),
+                                    fontFeatures: state.isPlaying
+                                        ? const [FontFeature.tabularFigures()]
+                                        : null,
                                   ),
                                 );
                               },

@@ -70,6 +70,6 @@ graphics:
   generate_script: app/tools/generate_play_store_graphics.py
 
 release:
-  version_name: "1.0.0"
-  version_code: 1
-  release_notes_file: ../release-notes/1.0.0-tr.txt
+  version_name: "1.0.2"
+  version_code: 4
+  release_notes_file: ../release-notes/1.0.1-tr.txt
