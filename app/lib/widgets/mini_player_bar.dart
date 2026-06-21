@@ -95,7 +95,8 @@ class MiniPlayerBar extends StatelessWidget {
                               ),
                             ),
                             StreamBuilder<Duration>(
-                              stream: state.positionStream,
+                              stream: state.playbackTimerStream,
+                              initialData: state.playbackElapsed,
                               builder: (context, snapshot) {
                                 final position = snapshot.data ?? Duration.zero;
                                 return Text(

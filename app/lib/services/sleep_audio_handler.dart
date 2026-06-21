@@ -1,8 +1,8 @@
 import 'package:audio_service/audio_service.dart';
-import 'package:audio_session/audio_session.dart';
 import 'package:just_audio/just_audio.dart';
 
 import '../models/sound_item.dart';
+import 'audio_playback_config.dart';
 import 'sound_download_service.dart';
 
 class SleepAudioHandler extends BaseAudioHandler with SeekHandler {
@@ -23,8 +23,8 @@ class SleepAudioHandler extends BaseAudioHandler with SeekHandler {
   Stream<Duration?> get durationStream => _player.durationStream;
 
   Future<void> initSession() async {
-    final session = await AudioSession.instance;
-    await session.configure(const AudioSessionConfiguration.music());
+    await configureAudioSessionForPlayback();
+    await configurePlayerForPlayback(_player);
   }
 
   Future<void> playSound(SoundItem sound) async {

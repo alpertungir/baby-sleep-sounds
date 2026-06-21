@@ -1,7 +1,9 @@
-import 'package:audio_session/audio_session.dart';
+import 'dart:async';
+
 import 'package:just_audio/just_audio.dart';
 
 import '../models/sound_item.dart';
+import 'audio_playback_config.dart';
 import 'sleep_audio_handler.dart';
 import 'sound_download_service.dart';
 
@@ -17,13 +19,14 @@ class AudioPlayerService {
       _localPlayer = AudioPlayer();
       _localPlayer!.playerStateStream.listen((state) {
         isPlaying = state.playing;
+        _syncPlaybackTimer();
         onStateChanged?.call();
       });
-      _localPlayer!.positionStream.listen((_) => onStateChanged?.call());
     } else {
       _handler!.onStateChanged = () {
         isPlaying = _handler!.isPlaying;
         currentSound = _handler!.currentSound;
+        _syncPlaybackTimer();
         onStateChanged?.call();
       };
     }
@@ -32,13 +35,20 @@ class AudioPlayerService {
   final SoundDownloadService _downloadService;
   final SleepAudioHandler? _handler;
   AudioPlayer? _localPlayer;
+  final StreamController<Duration> _playbackTimerController =
+      StreamController<Duration>.broadcast();
+  final Stopwatch _playbackStopwatch = Stopwatch();
+  Timer? _playbackTicker;
+  Duration _elapsedBeforeCurrentRun = Duration.zero;
 
   SoundItem? currentSound;
   bool isPlaying = false;
   void Function()? onStateChanged;
 
-  Stream<Duration> get positionStream =>
-      _handler?.positionStream ?? _localPlayer!.positionStream;
+  Duration get playbackElapsed =>
+      _elapsedBeforeCurrentRun + _playbackStopwatch.elapsed;
+
+  Stream<Duration> get playbackTimerStream => _playbackTimerController.stream;
 
   Stream<Duration?> get durationStream =>
       _handler?.durationStream ?? _localPlayer!.durationStream;
@@ -49,20 +59,26 @@ class AudioPlayerService {
       return;
     }
     try {
-      final session = await AudioSession.instance;
-      await session.configure(const AudioSessionConfiguration.music());
+      await configureAudioSessionForPlayback();
+      await configurePlayerForPlayback(_localPlayer!);
     } catch (_) {}
   }
 
   Future<void> play(SoundItem sound) async {
+    final isNewSound = currentSound?.id != sound.id;
     if (_handler != null) {
+      if (isNewSound) {
+        _resetPlaybackTimer();
+      }
       await _handler!.playSound(sound);
       currentSound = _handler!.currentSound;
       isPlaying = _handler!.isPlaying;
+      _syncPlaybackTimer();
       return;
     }
 
-    if (currentSound?.id != sound.id) {
+    if (isNewSound) {
+      _resetPlaybackTimer();
       currentSound = sound;
       if (sound.isBundled) {
         await _localPlayer!.setAsset(sound.assetPath!);
@@ -74,6 +90,7 @@ class AudioPlayerService {
     }
     await _localPlayer!.play();
     isPlaying = true;
+    _syncPlaybackTimer();
   }
 
   Future<void> pause() async {
@@ -83,13 +100,19 @@ class AudioPlayerService {
       await _localPlayer!.pause();
     }
     isPlaying = false;
+    _syncPlaybackTimer();
   }
 
   Future<void> toggle(SoundItem sound) async {
+    final isNewSound = currentSound?.id != sound.id;
     if (_handler != null) {
+      if (isNewSound) {
+        _resetPlaybackTimer();
+      }
       await _handler!.toggle(sound);
       currentSound = _handler!.currentSound;
       isPlaying = _handler!.isPlaying;
+      _syncPlaybackTimer();
       return;
     }
     if (currentSound?.id == sound.id && isPlaying) {
@@ -110,15 +133,65 @@ class AudioPlayerService {
   Future<void> stop() async {
     if (_handler != null) {
       await _handler!.stopPlayback();
+      currentSound = _handler!.currentSound;
     } else {
       await _localPlayer!.stop();
       currentSound = null;
     }
     isPlaying = false;
+    _resetPlaybackTimer();
   }
 
   void dispose() {
+    _resetPlaybackTimer();
+    _playbackTimerController.close();
     _handler?.disposeHandler();
     _localPlayer?.dispose();
+  }
+
+  void _syncPlaybackTimer() {
+    if (currentSound != null && isPlaying) {
+      _startPlaybackTimer();
+    } else {
+      _pausePlaybackTimer();
+    }
+  }
+
+  void _startPlaybackTimer() {
+    if (!_playbackStopwatch.isRunning) {
+      _playbackStopwatch.start();
+    }
+    _playbackTicker ??= Timer.periodic(const Duration(seconds: 1), (_) {
+      _emitPlaybackElapsed();
+    });
+    _emitPlaybackElapsed();
+  }
+
+  void _pausePlaybackTimer() {
+    if (_playbackStopwatch.isRunning) {
+      _elapsedBeforeCurrentRun += _playbackStopwatch.elapsed;
+      _playbackStopwatch
+        ..stop()
+        ..reset();
+    }
+    _playbackTicker?.cancel();
+    _playbackTicker = null;
+    _emitPlaybackElapsed();
+  }
+
+  void _resetPlaybackTimer() {
+    _playbackTicker?.cancel();
+    _playbackTicker = null;
+    _playbackStopwatch
+      ..stop()
+      ..reset();
+    _elapsedBeforeCurrentRun = Duration.zero;
+    _emitPlaybackElapsed();
+  }
+
+  void _emitPlaybackElapsed() {
+    if (!_playbackTimerController.isClosed) {
+      _playbackTimerController.add(playbackElapsed);
+    }
   }
 }
