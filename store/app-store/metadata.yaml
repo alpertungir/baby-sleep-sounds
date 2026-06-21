@@ -10,8 +10,8 @@ listing:
   tr:
     name: "Bebek Uyku Sesleri"
     subtitle: "Ninni ve beyaz gürültü"
-    promotional_text: "71 sakinleştirici ses, uyku zamanlayıcısı ve favoriler — reklamsız, sade arayüz."
-    keywords: "bebek,ninni,uyku,beyaz gürültü,rahatlatıcı,ses,uyutma,anne,baba,çocuk"
+    promotional_text: "50+ sakinleştirici ses, uyku zamanlayıcısı, favoriler ve çalma listesi — reklamsız."
+    keywords: "bebek,uyku sesi,ninni,beyaz gürültü,rahatlatıcı,uyutma,bebek odası,anne,pembe gürültü"
     description_file: listing-tr.md
     support_url: "https://alpertungir.github.io/baby-sleep-sounds/"
     marketing_url: "https://alpertungir.github.io/baby-sleep-sounds/"
@@ -19,8 +19,8 @@ listing:
   en:
     name: "Baby Sleep Sounds"
     subtitle: "Lullabies & white noise"
-    promotional_text: "71 calming sounds, sleep timer and favorites — ad-free, simple dark UI."
-    keywords: "baby,lullaby,sleep,whitenoise,calm,sounds,infant,toddler,relax,nursery"
+    promotional_text: "50+ calming sounds, sleep timer, favorites and playlist — ad-free."
+    keywords: "baby,sleep sounds,lullaby,white noise,nursery,calm,infant,bedtime,pink noise"
     description_file: listing-en.md
 
 categories:

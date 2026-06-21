@@ -3,8 +3,10 @@ import 'package:provider/provider.dart';
 
 import '../l10n/app_localizations.dart';
 import '../providers/app_state.dart';
+import '../services/remote_catalog_service.dart';
 import '../widgets/category_card.dart';
 import '../widgets/decorative_background.dart';
+import '../widgets/favorites_app_bar_button.dart';
 import '../widgets/home_header.dart';
 import '../widgets/home_support_footer.dart';
 import '../widgets/language_menu_button.dart';
@@ -14,7 +16,7 @@ import 'category_screen.dart';
 import 'favorites_screen.dart';
 import 'support_screen.dart';
 
-enum _HomeMenuAction { refreshCatalog, support }
+enum _HomeMenuAction { favorites, refreshCatalog, support, rateApp }
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -60,26 +62,68 @@ class HomeScreen extends StatelessWidget {
                 title: Text(l10n.appTitle),
                 actions: [
                   const LanguageMenuButton(),
-                  IconButton(
-                    tooltip: l10n.favorites,
-                    onPressed: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(builder: (_) => const FavoritesScreen()),
-                      );
-                    },
-                    icon: const Icon(Icons.favorite_outline),
-                  ),
+                  const FavoritesAppBarButton(),
                   PopupMenuButton<_HomeMenuAction>(
                     tooltip: l10n.refreshCatalog,
-                    onSelected: (action) {
+                    icon: state.isRefreshingCatalog
+                        ? SizedBox(
+                            width: 22,
+                            height: 22,
+                            child: CircularProgressIndicator(
+                              strokeWidth: 2,
+                              color: Theme.of(context).colorScheme.onSurface,
+                            ),
+                          )
+                        : null,
+                    onSelected: (action) async {
                       switch (action) {
+                        case _HomeMenuAction.favorites:
+                          openFavoritesScreen(context);
                         case _HomeMenuAction.refreshCatalog:
-                          state.refreshRemoteCatalog();
+                          await _refreshCatalog(context, state);
                         case _HomeMenuAction.support:
                           openSupportScreen(context);
+                        case _HomeMenuAction.rateApp:
+                          final shown = await state.requestAppReview();
+                          if (!context.mounted) return;
+                          if (!shown) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text(l10n.rateAppUnavailable)),
+                            );
+                          }
                       }
                     },
                     itemBuilder: (context) => [
+                      PopupMenuItem(
+                        value: _HomeMenuAction.favorites,
+                        child: ListTile(
+                          leading: const Icon(Icons.queue_music_outlined),
+                          title: Text(l10n.playlist),
+                          contentPadding: EdgeInsets.zero,
+                          dense: true,
+                        ),
+                      ),
+                      PopupMenuItem(
+                        value: _HomeMenuAction.refreshCatalog,
+                        enabled: !state.isRefreshingCatalog,
+                        child: ListTile(
+                          leading: state.isRefreshingCatalog
+                              ? const SizedBox(
+                                  width: 24,
+                                  height: 24,
+                                  child: CircularProgressIndicator(strokeWidth: 2),
+                                )
+                              : const Icon(Icons.sync),
+                          title: Text(
+                            state.isRefreshingCatalog
+                                ? l10n.refreshCatalogInProgress
+                                : l10n.refreshCatalog,
+                          ),
+                          contentPadding: EdgeInsets.zero,
+                          dense: true,
+                        ),
+                      ),
+                      const PopupMenuDivider(),
                       PopupMenuItem(
                         value: _HomeMenuAction.support,
                         child: ListTile(
@@ -90,10 +134,10 @@ class HomeScreen extends StatelessWidget {
                         ),
                       ),
                       PopupMenuItem(
-                        value: _HomeMenuAction.refreshCatalog,
+                        value: _HomeMenuAction.rateApp,
                         child: ListTile(
-                          leading: const Icon(Icons.sync),
-                          title: Text(l10n.refreshCatalog),
+                          leading: const Icon(Icons.star_outline_rounded),
+                          title: Text(l10n.rateApp),
                           contentPadding: EdgeInsets.zero,
                           dense: true,
                         ),
@@ -152,5 +196,48 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  Future<void> _refreshCatalog(BuildContext context, AppState state) async {
+    final l10n = AppLocalizations.of(context)!;
+    final messenger = ScaffoldMessenger.of(context);
+    messenger.showSnackBar(
+      SnackBar(
+        behavior: SnackBarBehavior.floating,
+        content: Row(
+          children: [
+            const SizedBox(
+              width: 20,
+              height: 20,
+              child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white),
+            ),
+            const SizedBox(width: 12),
+            Expanded(child: Text(l10n.refreshCatalogInProgress)),
+          ],
+        ),
+        duration: const Duration(days: 1),
+      ),
+    );
+
+    final result = await state.refreshRemoteCatalog();
+    messenger.hideCurrentSnackBar();
+    if (!context.mounted || result == null) return;
+
+    messenger.showSnackBar(
+      SnackBar(
+        behavior: SnackBarBehavior.floating,
+        content: Text(_catalogRefreshMessage(l10n, result)),
+      ),
+    );
+  }
+
+  String _catalogRefreshMessage(AppLocalizations l10n, CatalogRefreshResult result) {
+    return switch (result.source) {
+      CatalogSource.remote when result.hasChanges =>
+        l10n.refreshCatalogUpdated(result.newCount),
+      CatalogSource.remote => l10n.refreshCatalogUpToDate,
+      CatalogSource.cache => l10n.refreshCatalogUsedCache(result.newCount),
+      CatalogSource.fallback => l10n.refreshCatalogOffline(result.newCount),
+    };
   }
 }

@@ -8,7 +8,7 @@ Mağaza listelerinde en az **4, en iyi sonuç için 6–8** ekran görüntüsü 
 |---|--------|-------------------------------|
 | 1 | Ana sayfa — 4 kategori grid | "4 kategori, 50+ sakinleştirici ses" |
 | 2 | Beyaz Gürültü listesi | "Fan, yağmur, okyanus ve daha fazlası" |
-| 3 | Ninniler listesi | "Türk ve dünya ninneleri" |
+| 3 | Ninniler listesi | "Türk ve dünya ninnileri" |
 | 4 | Oynatıcı — ses çalıyor | "Döngüsel çalma ve mini oynatıcı" |
 | 5 | Uyku zamanlayıcısı sheet | "15–120 dk uyku zamanlayıcısı" |
 | 6 | Favoriler | "Favorilerinizi kaydedin" |

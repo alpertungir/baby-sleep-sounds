@@ -12,10 +12,12 @@ Dosyalar: `store/screenshots/android/01-home.png` … `06-favorites.png`
 |-------|--------|------------|------------|
 | `01-home.png` | Ana sayfa — 4 kategori | 4 kategori, 50+ ses | 4 categories, 50+ sounds |
 | `02-white-noise.png` | Beyaz gürültü listesi | Fan, yağmur, okyanus… | Fan, rain, ocean… |
-| `03-lullaby.png` | Ninniler listesi | Türk ve dünya ninneleri | Turkish & world lullabies |
-| `04-player.png` | Ses çalıyor + mini player | Döngüsel çalma | Seamless loop playback |
+| `03-lullaby.png` | Ninniler listesi | Türk ve dünya ninnileri | Turkish & world lullabies |
+| `04-player.png` | Ses çalıyor + mini player | Kilit ekranından kontrol | Lock screen controls |
 | `05-timer.png` | Uyku zamanlayıcısı | 15–120 dk zamanlayıcı | 15–120 min sleep timer |
-| `06-favorites.png` | Favoriler | Favorilerinizi kaydedin | Save your favorites |
+| `06-favorites.png` | Favoriler + çalma listesi | Favoriler ve çalma listesi | Favorites & playlist |
+
+**ASO overlay anahtar kelimeleri (Canva):** bebek uyku sesi · ninni · beyaz gürültü · reklamsız · 50+ ses · çevrimdışı
 
 ---
 

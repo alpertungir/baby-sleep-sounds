@@ -9,7 +9,16 @@ const _androidPlaybackAttributes = audio_session.AndroidAudioAttributes(
 
 Future<void> configureAudioSessionForPlayback() async {
   final session = await audio_session.AudioSession.instance;
-  await session.configure(const audio_session.AudioSessionConfiguration.music());
+  await session.configure(
+    const audio_session.AudioSessionConfiguration(
+      avAudioSessionCategory: audio_session.AVAudioSessionCategory.playback,
+      avAudioSessionMode: audio_session.AVAudioSessionMode.defaultMode,
+      androidAudioAttributes: _androidPlaybackAttributes,
+      androidAudioFocusGainType:
+          audio_session.AndroidAudioFocusGainType.gain,
+      androidWillPauseWhenDucked: false,
+    ),
+  );
 }
 
 Future<void> configurePlayerForPlayback(AudioPlayer player) {

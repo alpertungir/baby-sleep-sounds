@@ -15,7 +15,44 @@ class AppLocalizationsRu extends AppLocalizations {
   String get favorites => 'Избранное';
 
   @override
+  String get playlist => 'Плейлист';
+
+  @override
+  String get playAll => 'Воспроизвести все';
+
+  @override
+  String get playlistHint =>
+      'Избранные звуки играют по порядку. Используйте следующий и предыдущий.';
+
+  @override
+  String get nextTrack => 'Следующий';
+
+  @override
+  String get previousTrack => 'Предыдущий';
+
+  @override
   String get refreshCatalog => 'Обновить каталог';
+
+  @override
+  String get refreshCatalogInProgress => 'Обновление каталога…';
+
+  @override
+  String refreshCatalogUpdated(int count) {
+    return 'Каталог обновлён · $count звуков';
+  }
+
+  @override
+  String get refreshCatalogUpToDate => 'Каталог уже актуален.';
+
+  @override
+  String refreshCatalogUsedCache(int count) {
+    return 'Сервер недоступен. Показан сохранённый каталог ($count звуков).';
+  }
+
+  @override
+  String refreshCatalogOffline(int count) {
+    return 'Офлайн. Локальный каталог ($count звуков).';
+  }
 
   @override
   String get language => 'Язык';
@@ -126,6 +163,13 @@ class AppLocalizationsRu extends AppLocalizations {
 
   @override
   String get supportMenu => 'Поддержать разработку';
+
+  @override
+  String get rateApp => 'Оценить приложение';
+
+  @override
+  String get rateAppUnavailable =>
+      'Оценка недоступна на этом устройстве. Попробуйте в Play Store.';
 
   @override
   String get supportLink => 'Поддержать разработку';

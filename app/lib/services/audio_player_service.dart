@@ -64,13 +64,17 @@ class AudioPlayerService {
     } catch (_) {}
   }
 
-  Future<void> play(SoundItem sound) async {
+  Future<void> play(SoundItem sound, {String? displayTitle, String? albumTitle}) async {
     final isNewSound = currentSound?.id != sound.id;
     if (_handler != null) {
       if (isNewSound) {
         _resetPlaybackTimer();
       }
-      await _handler!.playSound(sound);
+      await _handler!.playSound(
+        sound,
+        displayTitle: displayTitle,
+        albumTitle: albumTitle,
+      );
       currentSound = _handler!.currentSound;
       isPlaying = _handler!.isPlaying;
       _syncPlaybackTimer();
@@ -103,13 +107,21 @@ class AudioPlayerService {
     _syncPlaybackTimer();
   }
 
-  Future<void> toggle(SoundItem sound) async {
+  Future<void> toggle(
+    SoundItem sound, {
+    String? displayTitle,
+    String? albumTitle,
+  }) async {
     final isNewSound = currentSound?.id != sound.id;
     if (_handler != null) {
       if (isNewSound) {
         _resetPlaybackTimer();
       }
-      await _handler!.toggle(sound);
+      await _handler!.toggle(
+        sound,
+        displayTitle: displayTitle,
+        albumTitle: albumTitle,
+      );
       currentSound = _handler!.currentSound;
       isPlaying = _handler!.isPlaying;
       _syncPlaybackTimer();
@@ -140,6 +152,21 @@ class AudioPlayerService {
     }
     isPlaying = false;
     _resetPlaybackTimer();
+  }
+
+  void configureSkipHandlers({
+    Future<void> Function()? onNext,
+    Future<void> Function()? onPrevious,
+  }) {
+    _handler?.onSkipToNext = onNext;
+    _handler?.onSkipToPrevious = onPrevious;
+  }
+
+  void updatePlaylistControls({
+    required bool hasNext,
+    required bool hasPrevious,
+  }) {
+    _handler?.updateSkipControls(hasNext: hasNext, hasPrevious: hasPrevious);
   }
 
   void dispose() {

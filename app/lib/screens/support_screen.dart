@@ -4,6 +4,8 @@ import 'package:provider/provider.dart';
 import '../l10n/app_localizations.dart';
 import '../providers/support_purchase_provider.dart';
 import '../widgets/decorative_background.dart';
+import '../widgets/favorites_app_bar_button.dart';
+import '../widgets/language_menu_button.dart';
 
 class SupportScreen extends StatefulWidget {
   const SupportScreen({super.key});
@@ -68,7 +70,10 @@ class _SupportScreenState extends State<SupportScreen> {
     final provider = context.watch<SupportPurchaseProvider>();
 
     return Scaffold(
-      appBar: AppBar(title: Text(l10n.supportTitle)),
+      appBar: AppBar(
+        title: Text(l10n.supportTitle),
+        actions: const [FavoritesAppBarButton(), LanguageMenuButton()],
+      ),
       body: Stack(
         children: [
           const Positioned.fill(child: DecorativeBackground()),

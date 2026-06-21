@@ -15,7 +15,44 @@ class AppLocalizationsAr extends AppLocalizations {
   String get favorites => 'المفضلة';
 
   @override
+  String get playlist => 'قائمة التشغيل';
+
+  @override
+  String get playAll => 'تشغيل الكل';
+
+  @override
+  String get playlistHint =>
+      'تُشغَّل المفضلة بالترتيب. استخدم التالي والسابق للتنقل.';
+
+  @override
+  String get nextTrack => 'التالي';
+
+  @override
+  String get previousTrack => 'السابق';
+
+  @override
   String get refreshCatalog => 'تحديث الفهرس';
+
+  @override
+  String get refreshCatalogInProgress => 'جارٍ تحديث الفهرس…';
+
+  @override
+  String refreshCatalogUpdated(int count) {
+    return 'تم تحديث الفهرس · $count صوت';
+  }
+
+  @override
+  String get refreshCatalogUpToDate => 'الفهرس محدّث بالفعل.';
+
+  @override
+  String refreshCatalogUsedCache(int count) {
+    return 'تعذّر الاتصال بالخادم. يُعرض الفهرس المحفوظ ($count صوت).';
+  }
+
+  @override
+  String refreshCatalogOffline(int count) {
+    return 'غير متصل. يُستخدم الفهرس المحلي ($count صوت).';
+  }
 
   @override
   String get language => 'اللغة';
@@ -124,6 +161,13 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get supportMenu => 'ادعم التطوير';
+
+  @override
+  String get rateApp => 'قيّم التطبيق';
+
+  @override
+  String get rateAppUnavailable =>
+      'التقييم غير متاح على هذا الجهاز. جرّب من متجر Play.';
 
   @override
   String get supportLink => 'ادعم التطوير';

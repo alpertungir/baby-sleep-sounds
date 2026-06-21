@@ -40,7 +40,7 @@ Uygulama ebeveynler ve bebek bakımı için tasarlanmıştır. Bilerek 13 yaş a
 
 ## İnternet erişimi
 
-Bazı sesler ilk dinlemede Firebase Storage üzerinden indirilir. Beyaz gürültü ve Türk ninnelerinin bir kısmı uygulama içinde paketlenmiştir; internet olmadan da kullanılabilir.
+Bazı sesler ilk dinlemede Firebase Storage üzerinden indirilir. Beyaz gürültü ve Türk ninnilerinin bir kısmı uygulama içinde paketlenmiştir; internet olmadan da kullanılabilir.
 
 ## Veri güvenliği
 

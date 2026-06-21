@@ -1,22 +1,23 @@
 # App Store — Description (English)
 
-A simple sleep sound app to help your baby fall asleep peacefully.
+**Baby sleep sounds**, lullabies and white noise in one ad-free app for peaceful bedtime.
 
-Baby Sleep Sounds offers white noise, Turkish lullabies, classic lullabies, relaxing sounds, ambient music, and world lullabies in one ad-free app with a dark, night-friendly interface.
+Baby Sleep Sounds offers white noise, Turkish lullabies, relaxing tones and gentle sleep music in a dark, night-friendly interface. By **Tngr Studio**.
 
 FEATURES
-• 7 categories, 71 sounds
-• Loop playback
-• Volume control
-• Sleep timer
-• Favorites (stored on device)
+• 4 categories, 50+ sounds
+• White noise and Turkish lullabies offline
+• Loop playback and volume control
+• Sleep timer (15–120 min)
+• Favorites and playlist
+• Lock screen / notification controls
+• 8 languages
 • No ads
-• Works offline
 
 CATEGORIES
-White Noise · Turkish Lullabies · Lullabies · Classical · Relaxing · Background · World Lullabies
+White Noise · Lullabies · Relaxing · Music
 
 PRIVACY
-No personal data collected. No account required. Favorites stored locally on your device.
+No personal data collected. No account required. Favorites stored on your device.
 
 Support: alperttungir@gmail.com

@@ -1,39 +1,40 @@
 # Google Play — Full Description (English)
 
-A simple, calming sleep sound app designed to help your baby drift off peacefully.
+**Baby sleep sounds**, **lullabies**, **white noise** and calming nursery audio — one ad-free app to help your baby fall asleep peacefully. Dark, night-friendly interface.
 
-Baby Sleep Sounds brings together white noise, lullabies, relaxing sounds, and gentle sleep music in one ad-free app with a dark, night-friendly interface.
+Baby Sleep Sounds brings fan, rain, ocean, Turkish lullabies, ambient tones and gentle sleep music together for new parents and nursery bedtime routines. Developed by **Tngr Studio**.
 
-Developed by **Tngr Studio**.
+## Why Baby Sleep Sounds?
 
-## Highlights
-
-• 4 categories, 50+ sounds
-• White noise and Turkish lullabies work offline
-• Seamless loop playback
-• Volume control and mini player
-• Sleep timer (15, 30, 45, 60, 120 minutes, or unlimited)
-• Favorites saved on your device
-• 8 languages (TR, EN, ES, FR, DE, IT, RU, AR)
-• No ads, no clutter
+• **50+ sounds** — white noise, lullabies, relaxing tones and sleep music
+• **Offline** — white noise and Turkish lullabies work without internet
+• **Seamless loop** — continuous sleep sounds
+• **Sleep timer** — 15, 30, 45, 60, 120 minutes or unlimited
+• **Favorites & playlist** — save sounds and play them in order
+• **Lock screen controls** — pause/resume from notification while in background
+• **8 languages** — TR, EN, ES, FR, DE, IT, RU, AR
+• **Ad-free** — no distractions
 
 ## Categories
 
-• **White Noise** — fan, rain, ocean, storm, and more (offline)
+• **White Noise** — fan, rain, storm, ocean, pink noise (offline)
 • **Lullabies** — Turkish lullabies and lullabies from around the world
-• **Relaxing** — ambient, piano, and calming backgrounds
+• **Relaxing** — ambient, piano, nature-inspired calm
 • **Music** — soft background melodies for sleep
 
 ## Who is it for?
 
-• New parents
-• Families looking for nursery background sounds
-• Anyone building a bedtime routine
+• New moms and dads
+• Families building a bedtime routine
+• Parents who want nursery background sounds
+• Anyone soothing a baby at night
 
 ## Privacy
 
-The app does not collect personal data. Favorites are stored locally on your device. No account required.
+No personal data collected. No account required. Favorites stored on your device only.
 
 ---
 
-Developer: **Tngr Studio** · Questions: alperttungir@gmail.com
+**Keywords:** baby sleep sounds, lullaby, white noise, infant sleep, calming sounds, nursery, pink noise, rain sounds, bedtime
+
+Developer: **Tngr Studio** · alperttungir@gmail.com

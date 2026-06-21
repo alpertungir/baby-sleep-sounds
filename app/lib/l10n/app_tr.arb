@@ -2,7 +2,32 @@
   "@@locale": "tr",
   "appTitle": "Bebek Uyku Sesleri",
   "favorites": "Favoriler",
+  "playlist": "Çalma listesi",
+  "playAll": "Tümünü çal",
+  "playlistHint": "Favori sesler sırayla çalar. Sonraki ve önceki ile parça değiştirebilirsin.",
+  "nextTrack": "Sonraki parça",
+  "previousTrack": "Önceki parça",
   "refreshCatalog": "Katalogu yenile",
+  "refreshCatalogInProgress": "Katalog yenileniyor…",
+  "refreshCatalogUpdated": "Katalog güncellendi · {count} çevrimiçi ses",
+  "@refreshCatalogUpdated": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "refreshCatalogUpToDate": "Katalog zaten güncel.",
+  "refreshCatalogUsedCache": "Sunucuya ulaşılamadı. Kayıtlı katalog gösteriliyor ({count} ses).",
+  "@refreshCatalogUsedCache": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "refreshCatalogOffline": "Çevrimdışı. Yerel katalog kullanılıyor ({count} ses).",
+  "@refreshCatalogOffline": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
   "language": "Dil",
   "systemLanguage": "Telefon dili",
   "turkish": "Türkçe",
@@ -65,6 +90,8 @@
   },
   "pausedStatus": "Duraklatıldı",
   "supportMenu": "Gönüllü destek",
+  "rateApp": "Uygulamayı değerlendir",
+  "rateAppUnavailable": "Bu cihazda puanlama açılamadı. Play Store üzerinden deneyebilirsiniz.",
   "supportLink": "Geliştirmeyi destekle",
   "supportTitle": "Gönüllü destek",
   "supportBody": "Bu uygulama reklamsız ve tamamen ücretsiz. Beğendiysen geliştirmeyi gönüllü olarak destekleyebilirsin. Hiçbir özellik kilitli değildir.",

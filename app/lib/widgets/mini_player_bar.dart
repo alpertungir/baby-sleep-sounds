@@ -99,12 +99,47 @@ class MiniPlayerBar extends StatelessWidget {
                               initialData: state.playbackElapsed,
                               builder: (context, snapshot) {
                                 final position = snapshot.data ?? Duration.zero;
+                                if (state.hasActiveTimer &&
+                                    state.timerRemaining != null) {
+                                  final timerColor = theme.colorScheme.primary;
+                                  final countdown = formatSleepTimerCountdown(
+                                    state.timerRemaining!,
+                                  );
+                                  return Row(
+                                    children: [
+                                      Icon(
+                                        Icons.timer_outlined,
+                                        size: 14,
+                                        color: timerColor,
+                                      ),
+                                      const SizedBox(width: 4),
+                                      Text(
+                                        countdown,
+                                        maxLines: 1,
+                                        style: theme.textTheme.bodySmall?.copyWith(
+                                          color: timerColor,
+                                          fontWeight: FontWeight.w600,
+                                          fontFeatures: const [
+                                            FontFeature.tabularFigures(),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  );
+                                }
+
                                 return Text(
                                   state.isPlaying
-                                      ? l10n.playingStatus(_format(position))
+                                      ? _format(position)
                                       : l10n.pausedStatus,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
                                   style: theme.textTheme.bodySmall?.copyWith(
-                                    color: theme.colorScheme.onSurface.withValues(alpha: 0.75),
+                                    color: theme.colorScheme.onSurface
+                                        .withValues(alpha: 0.75),
+                                    fontFeatures: state.isPlaying
+                                        ? const [FontFeature.tabularFigures()]
+                                        : null,
                                   ),
                                 );
                               },
@@ -113,7 +148,11 @@ class MiniPlayerBar extends StatelessWidget {
                         ),
                       ),
                       IconButton(
-                        tooltip: l10n.sleepTimer,
+                        tooltip: state.hasActiveTimer && state.timerRemaining != null
+                            ? l10n.timerRemaining(
+                                formatSleepTimerCountdown(state.timerRemaining!),
+                              )
+                            : l10n.sleepTimer,
                         onPressed: () => showSleepTimerSheet(context),
                         icon: Icon(
                           state.hasActiveTimer ? Icons.timer_rounded : Icons.timer_outlined,
@@ -122,12 +161,43 @@ class MiniPlayerBar extends StatelessWidget {
                               : theme.colorScheme.onSurface.withValues(alpha: 0.75),
                         ),
                       ),
+                      if (state.hasPlaylistNavigation) ...[
+                        IconButton(
+                          tooltip: l10n.previousTrack,
+                          onPressed: state.canSkipToPrevious
+                              ? () {
+                                  final previous =
+                                      state.playlist[state.playlistIndex - 1];
+                                  state.skipToPreviousTrack(
+                                    displayTitle: previous.localizedNameOf(context),
+                                  );
+                                }
+                              : null,
+                          icon: const Icon(Icons.skip_previous_rounded),
+                        ),
+                      ],
                       PlayControlButton(
                         isPlaying: state.isPlaying,
                         isLoading: false,
                         size: 44,
-                        onPressed: () => state.togglePlayback(sound),
+                        onPressed: () => state.togglePlayback(
+                          sound,
+                          displayTitle: sound.localizedNameOf(context),
+                        ),
                       ),
+                      if (state.hasPlaylistNavigation)
+                        IconButton(
+                          tooltip: l10n.nextTrack,
+                          onPressed: state.canSkipToNext
+                              ? () {
+                                  final next = state.playlist[state.playlistIndex + 1];
+                                  state.skipToNextTrack(
+                                    displayTitle: next.localizedNameOf(context),
+                                  );
+                                }
+                              : null,
+                          icon: const Icon(Icons.skip_next_rounded),
+                        ),
                     ],
                   ),
                 ),
