@@ -8,6 +8,15 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../models/sound_category.dart';
 import '../models/sound_item.dart';
 
+enum CatalogSource { remote, cache, fallback }
+
+class CatalogLoadResult {
+  const CatalogLoadResult({required this.sounds, required this.source});
+
+  final List<SoundItem> sounds;
+  final CatalogSource source;
+}
+
 class RemoteCatalogService {
   RemoteCatalogService({FirebaseStorage? storage}) : _storage = storage;
 
@@ -26,20 +35,34 @@ class RemoteCatalogService {
   }
 
   Future<List<SoundItem>> load() async {
+    final result = await loadWithStatus();
+    return result.sounds;
+  }
+
+  Future<CatalogLoadResult> loadWithStatus() async {
     if (Firebase.apps.isNotEmpty) {
       try {
         final jsonText = await _fetchFromStorage();
         await _saveCache(jsonText);
-        return _parse(jsonText);
+        return CatalogLoadResult(
+          sounds: _parse(jsonText),
+          source: CatalogSource.remote,
+        );
       } catch (_) {
         final cached = await _loadCache();
         if (cached != null) {
-          return _parse(cached);
+          return CatalogLoadResult(
+            sounds: _parse(cached),
+            source: CatalogSource.cache,
+          );
         }
       }
     }
 
-    return _loadFallback();
+    return CatalogLoadResult(
+      sounds: await _loadFallback(),
+      source: CatalogSource.fallback,
+    );
   }
 
   Future<String> _fetchFromStorage() async {

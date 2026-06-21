@@ -15,7 +15,44 @@ class AppLocalizationsTr extends AppLocalizations {
   String get favorites => 'Favoriler';
 
   @override
+  String get playlist => 'Çalma listesi';
+
+  @override
+  String get playAll => 'Tümünü çal';
+
+  @override
+  String get playlistHint =>
+      'Favori sesler sırayla çalar. Sonraki ve önceki ile parça değiştirebilirsin.';
+
+  @override
+  String get nextTrack => 'Sonraki parça';
+
+  @override
+  String get previousTrack => 'Önceki parça';
+
+  @override
   String get refreshCatalog => 'Katalogu yenile';
+
+  @override
+  String get refreshCatalogInProgress => 'Katalog yenileniyor…';
+
+  @override
+  String refreshCatalogUpdated(int count) {
+    return 'Katalog güncellendi · $count çevrimiçi ses';
+  }
+
+  @override
+  String get refreshCatalogUpToDate => 'Katalog zaten güncel.';
+
+  @override
+  String refreshCatalogUsedCache(int count) {
+    return 'Sunucuya ulaşılamadı. Kayıtlı katalog gösteriliyor ($count ses).';
+  }
+
+  @override
+  String refreshCatalogOffline(int count) {
+    return 'Çevrimdışı. Yerel katalog kullanılıyor ($count ses).';
+  }
 
   @override
   String get language => 'Dil';

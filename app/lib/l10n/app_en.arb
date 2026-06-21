@@ -2,7 +2,32 @@
   "@@locale": "en",
   "appTitle": "Baby Sleep Sounds",
   "favorites": "Favorites",
+  "playlist": "Playlist",
+  "playAll": "Play all",
+  "playlistHint": "Favorite sounds play in order. Skip tracks with next and previous.",
+  "nextTrack": "Next track",
+  "previousTrack": "Previous track",
   "refreshCatalog": "Refresh catalog",
+  "refreshCatalogInProgress": "Refreshing catalog…",
+  "refreshCatalogUpdated": "Catalog updated · {count} sounds",
+  "@refreshCatalogUpdated": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "refreshCatalogUpToDate": "Catalog is already up to date.",
+  "refreshCatalogUsedCache": "Could not reach server. Showing saved catalog ({count} sounds).",
+  "@refreshCatalogUsedCache": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "refreshCatalogOffline": "Offline. Using bundled catalog ({count} sounds).",
+  "@refreshCatalogOffline": {
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
   "language": "Language",
   "systemLanguage": "System language",
   "turkish": "Türkçe",

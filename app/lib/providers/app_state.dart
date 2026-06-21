@@ -7,6 +7,7 @@ import '../models/sound_category.dart';
 import '../models/sound_item.dart';
 import '../services/audio_player_service.dart';
 import '../services/favorites_service.dart';
+import '../services/notification_permission.dart';
 import '../services/remote_catalog_service.dart';
 import '../services/sound_download_service.dart';
 
@@ -32,9 +33,13 @@ class AppState extends ChangeNotifier {
   final Set<String> _cachedRemoteIds = {};
   List<SoundItem> _remoteSounds = [];
   String? _loadingSoundId;
+  bool _isRefreshingCatalog = false;
   Timer? _sleepTimer;
   Duration? _timerRemaining;
   double _volume = 0.8;
+
+  List<SoundItem> _playlist = [];
+  int _playlistIndex = 0;
 
   List<SoundCategory> get categories => SoundCatalog.categories;
 
@@ -49,22 +54,52 @@ class AppState extends ChangeNotifier {
   Duration? get timerRemaining => _timerRemaining;
   bool get hasActiveTimer => _timerRemaining != null;
   String? get loadingSoundId => _loadingSoundId;
+  bool get isRefreshingCatalog => _isRefreshingCatalog;
   Duration get playbackElapsed => _audioService.playbackElapsed;
 
   Stream<Duration> get playbackTimerStream => _audioService.playbackTimerStream;
   Stream<Duration?> get durationStream => _audioService.durationStream;
 
+  List<SoundItem> get playlist => List.unmodifiable(_playlist);
+  int get playlistIndex => _playlistIndex;
+  bool get hasPlaylistNavigation => _playlist.length > 1;
+  bool get canSkipToNext =>
+      hasPlaylistNavigation && _playlistIndex < _playlist.length - 1;
+  bool get canSkipToPrevious => hasPlaylistNavigation && _playlistIndex > 0;
+
   Future<void> initialize() async {
+    await ensureNotificationPermission();
     await _audioService.initSession();
+    _audioService.configureSkipHandlers(
+      onNext: () => skipToNextTrack(),
+      onPrevious: () => skipToPreviousTrack(),
+    );
     await _audioService.setVolume(_volume);
     _favoriteIds = await _favoritesService.loadFavorites();
     await refreshRemoteCatalog();
   }
 
-  Future<void> refreshRemoteCatalog() async {
-    _remoteSounds = await _remoteCatalogService.load();
-    await _refreshCachedRemoteIds();
+  Future<CatalogRefreshResult?> refreshRemoteCatalog() async {
+    if (_isRefreshingCatalog) return null;
+
+    _isRefreshingCatalog = true;
     notifyListeners();
+
+    try {
+      final previousCount = _remoteSounds.length;
+      final loadResult = await _remoteCatalogService.loadWithStatus();
+      _remoteSounds = loadResult.sounds;
+      await _refreshCachedRemoteIds();
+      notifyListeners();
+      return CatalogRefreshResult(
+        source: loadResult.source,
+        previousCount: previousCount,
+        newCount: _remoteSounds.length,
+      );
+    } finally {
+      _isRefreshingCatalog = false;
+      notifyListeners();
+    }
   }
 
   Future<void> _refreshCachedRemoteIds() async {
@@ -102,11 +137,22 @@ class AppState extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> playSound(SoundItem sound) async {
+  Future<void> playSound(
+    SoundItem sound, {
+    String? displayTitle,
+    List<SoundItem>? playlist,
+  }) async {
+    if (playlist != null && playlist.isNotEmpty) {
+      _setPlaylist(playlist, sound.id);
+    } else {
+      _setPlaylist([sound], sound.id);
+    }
+    _syncPlaylistControls();
+
     _loadingSoundId = sound.id;
     notifyListeners();
     try {
-      await _audioService.play(sound);
+      await _audioService.play(sound, displayTitle: displayTitle);
       if (sound.isRemote) {
         _cachedRemoteIds.add(sound.id);
       }
@@ -118,7 +164,57 @@ class AppState extends ChangeNotifier {
     }
   }
 
-  Future<void> togglePlayback(SoundItem sound) => _audioService.toggle(sound);
+  Future<void> playPlaylist(List<SoundItem> sounds, {int startIndex = 0}) async {
+    if (sounds.isEmpty) return;
+    final index = startIndex.clamp(0, sounds.length - 1);
+    await playSound(sounds[index], playlist: sounds);
+  }
+
+  Future<void> skipToNextTrack({String? displayTitle}) async {
+    if (!canSkipToNext) return;
+    _playlistIndex++;
+    await _playPlaylistItem(displayTitle);
+  }
+
+  Future<void> skipToPreviousTrack({String? displayTitle}) async {
+    if (!canSkipToPrevious) return;
+    _playlistIndex--;
+    await _playPlaylistItem(displayTitle);
+  }
+
+  Future<void> _playPlaylistItem(String? displayTitle) async {
+    final sound = _playlist[_playlistIndex];
+    _loadingSoundId = sound.id;
+    _syncPlaylistControls();
+    notifyListeners();
+    try {
+      await _audioService.play(sound, displayTitle: displayTitle ?? sound.name);
+      if (sound.isRemote) {
+        _cachedRemoteIds.add(sound.id);
+      }
+    } finally {
+      if (_loadingSoundId == sound.id) {
+        _loadingSoundId = null;
+      }
+      notifyListeners();
+    }
+  }
+
+  void _setPlaylist(List<SoundItem> sounds, String activeSoundId) {
+    _playlist = List<SoundItem>.from(sounds);
+    final index = _playlist.indexWhere((sound) => sound.id == activeSoundId);
+    _playlistIndex = index >= 0 ? index : 0;
+  }
+
+  void _syncPlaylistControls() {
+    _audioService.updatePlaylistControls(
+      hasNext: canSkipToNext,
+      hasPrevious: canSkipToPrevious,
+    );
+  }
+
+  Future<void> togglePlayback(SoundItem sound, {String? displayTitle}) =>
+      _audioService.toggle(sound, displayTitle: displayTitle);
 
   Future<void> pause() => _audioService.pause();
 
@@ -169,4 +265,18 @@ class AppState extends ChangeNotifier {
     _audioService.dispose();
     super.dispose();
   }
+}
+
+class CatalogRefreshResult {
+  const CatalogRefreshResult({
+    required this.source,
+    required this.previousCount,
+    required this.newCount,
+  });
+
+  final CatalogSource source;
+  final int previousCount;
+  final int newCount;
+
+  bool get hasChanges => previousCount != newCount;
 }

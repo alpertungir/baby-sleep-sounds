@@ -3,10 +3,12 @@ import 'package:provider/provider.dart';
 
 import '../l10n/app_localizations.dart';
 import '../l10n/category_l10n.dart';
+import '../l10n/sound_l10n.dart';
 import '../models/sound_category.dart';
 import '../providers/app_state.dart';
 import '../widgets/category_header.dart';
 import '../widgets/decorative_background.dart';
+import '../widgets/favorites_app_bar_button.dart';
 import '../widgets/language_menu_button.dart';
 import '../widgets/mini_player_bar.dart';
 import '../widgets/screen_insets.dart';
@@ -40,6 +42,10 @@ class CategoryScreen extends StatelessWidget {
                       backgroundColor: category.color,
                       foregroundColor: Colors.white,
                       title: Text(category.id.label(l10n)),
+                      actions: const [
+                        FavoritesAppBarButton(color: Colors.white),
+                        LanguageMenuButton(color: Colors.white),
+                      ],
                     ),
                     SliverFillRemaining(
                       hasScrollBody: false,
@@ -67,6 +73,7 @@ class CategoryScreen extends StatelessWidget {
                     foregroundColor: Colors.white,
                     title: Text(category.id.label(l10n)),
                     actions: [
+                      const FavoritesAppBarButton(color: Colors.white),
                       LanguageMenuButton(color: Colors.white),
                       IconButton(
                         tooltip: l10n.sleepTimer,
@@ -100,7 +107,11 @@ class CategoryScreen extends StatelessWidget {
                           onFavoriteTap: () => state.toggleFavorite(sound.id),
                           onTap: () async {
                             try {
-                              await state.playSound(sound);
+                              await state.playSound(
+                                sound,
+                                displayTitle: sound.localizedNameOf(context),
+                                playlist: sounds,
+                              );
                             } catch (error) {
                               if (!context.mounted) return;
                               ScaffoldMessenger.of(context).showSnackBar(

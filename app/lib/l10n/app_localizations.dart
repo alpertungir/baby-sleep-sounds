@@ -122,11 +122,71 @@ abstract class AppLocalizations {
   /// **'Favoriler'**
   String get favorites;
 
+  /// No description provided for @playlist.
+  ///
+  /// In tr, this message translates to:
+  /// **'Çalma listesi'**
+  String get playlist;
+
+  /// No description provided for @playAll.
+  ///
+  /// In tr, this message translates to:
+  /// **'Tümünü çal'**
+  String get playAll;
+
+  /// No description provided for @playlistHint.
+  ///
+  /// In tr, this message translates to:
+  /// **'Favori sesler sırayla çalar. Sonraki ve önceki ile parça değiştirebilirsin.'**
+  String get playlistHint;
+
+  /// No description provided for @nextTrack.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sonraki parça'**
+  String get nextTrack;
+
+  /// No description provided for @previousTrack.
+  ///
+  /// In tr, this message translates to:
+  /// **'Önceki parça'**
+  String get previousTrack;
+
   /// No description provided for @refreshCatalog.
   ///
   /// In tr, this message translates to:
   /// **'Katalogu yenile'**
   String get refreshCatalog;
+
+  /// No description provided for @refreshCatalogInProgress.
+  ///
+  /// In tr, this message translates to:
+  /// **'Katalog yenileniyor…'**
+  String get refreshCatalogInProgress;
+
+  /// No description provided for @refreshCatalogUpdated.
+  ///
+  /// In tr, this message translates to:
+  /// **'Katalog güncellendi · {count} çevrimiçi ses'**
+  String refreshCatalogUpdated(int count);
+
+  /// No description provided for @refreshCatalogUpToDate.
+  ///
+  /// In tr, this message translates to:
+  /// **'Katalog zaten güncel.'**
+  String get refreshCatalogUpToDate;
+
+  /// No description provided for @refreshCatalogUsedCache.
+  ///
+  /// In tr, this message translates to:
+  /// **'Sunucuya ulaşılamadı. Kayıtlı katalog gösteriliyor ({count} ses).'**
+  String refreshCatalogUsedCache(int count);
+
+  /// No description provided for @refreshCatalogOffline.
+  ///
+  /// In tr, this message translates to:
+  /// **'Çevrimdışı. Yerel katalog kullanılıyor ({count} ses).'**
+  String refreshCatalogOffline(int count);
 
   /// No description provided for @language.
   ///

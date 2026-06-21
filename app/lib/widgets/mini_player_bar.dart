@@ -122,12 +122,43 @@ class MiniPlayerBar extends StatelessWidget {
                               : theme.colorScheme.onSurface.withValues(alpha: 0.75),
                         ),
                       ),
+                      if (state.hasPlaylistNavigation) ...[
+                        IconButton(
+                          tooltip: l10n.previousTrack,
+                          onPressed: state.canSkipToPrevious
+                              ? () {
+                                  final previous =
+                                      state.playlist[state.playlistIndex - 1];
+                                  state.skipToPreviousTrack(
+                                    displayTitle: previous.localizedNameOf(context),
+                                  );
+                                }
+                              : null,
+                          icon: const Icon(Icons.skip_previous_rounded),
+                        ),
+                      ],
                       PlayControlButton(
                         isPlaying: state.isPlaying,
                         isLoading: false,
                         size: 44,
-                        onPressed: () => state.togglePlayback(sound),
+                        onPressed: () => state.togglePlayback(
+                          sound,
+                          displayTitle: sound.localizedNameOf(context),
+                        ),
                       ),
+                      if (state.hasPlaylistNavigation)
+                        IconButton(
+                          tooltip: l10n.nextTrack,
+                          onPressed: state.canSkipToNext
+                              ? () {
+                                  final next = state.playlist[state.playlistIndex + 1];
+                                  state.skipToNextTrack(
+                                    displayTitle: next.localizedNameOf(context),
+                                  );
+                                }
+                              : null,
+                          icon: const Icon(Icons.skip_next_rounded),
+                        ),
                     ],
                   ),
                 ),

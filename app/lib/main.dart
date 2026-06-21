@@ -39,8 +39,14 @@ Future<void> main() async {
       builder: () => SleepAudioHandler(downloadService),
       config: const AudioServiceConfig(
         androidNotificationChannelId: AppIdentity.androidNotificationChannelId,
-        androidNotificationChannelName: 'Bebek Uyku Sesleri',
+        androidNotificationChannelName: AppIdentity.mediaAlbumTitle,
+        androidNotificationChannelDescription: 'Çalan ses kontrolleri',
         androidNotificationOngoing: true,
+        androidStopForegroundOnPause: false,
+        androidNotificationIcon: 'drawable/ic_notification',
+        androidNotificationClickStartsActivity: true,
+        androidShowNotificationBadge: false,
+        preloadArtwork: true,
       ),
     ) as SleepAudioHandler;
   }
