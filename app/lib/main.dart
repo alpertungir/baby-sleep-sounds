@@ -40,6 +40,7 @@ Future<void> main() async {
       config: const AudioServiceConfig(
         androidNotificationChannelId: AppIdentity.androidNotificationChannelId,
         androidNotificationChannelName: 'Bebek Uyku Sesleri',
+        androidNotificationIcon: 'drawable/ic_stat_audio',
         androidNotificationOngoing: true,
       ),
     ) as SleepAudioHandler;
