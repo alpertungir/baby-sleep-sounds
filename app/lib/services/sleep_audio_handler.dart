@@ -106,6 +106,11 @@ class SleepAudioHandler extends BaseAudioHandler with SeekHandler {
   }
 
   @override
+  Future<void> onTaskRemoved() async {
+    // Keep playback alive when the app is swiped away from recents.
+  }
+
+  @override
   Future<void> stop() async {
     await _player.stop();
     currentSound = null;

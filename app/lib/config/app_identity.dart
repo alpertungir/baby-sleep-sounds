@@ -2,7 +2,7 @@
 abstract final class AppIdentity {
   static const androidPackage = 'com.tngrstudio.babysleepsounds';
   static const iosBundleId = 'com.tngrstudio.babysleepsounds';
-  static const androidNotificationChannelId = '$androidPackage.audio';
+  static const androidNotificationChannelId = '$androidPackage.media.v2';
   static const studioName = 'Tngr Studio';
   static const mediaAlbumTitle = 'Bebek Uyku Sesleri';
 }

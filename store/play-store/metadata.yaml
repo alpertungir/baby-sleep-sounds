@@ -71,5 +71,5 @@ graphics:
 
 release:
   version_name: "1.0.2"
-  version_code: 4
+  version_code: 5
   release_notes_file: ../release-notes/1.0.1-tr.txt

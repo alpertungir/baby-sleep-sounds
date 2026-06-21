@@ -86,6 +86,7 @@ class AppState extends ChangeNotifier {
     }
 
     await _audioService.initSession();
+    await _ensurePlaybackPermission();
     _audioService.configureSkipHandlers(
       onNext: () => skipToNextTrack(),
       onPrevious: () => skipToPreviousTrack(),
