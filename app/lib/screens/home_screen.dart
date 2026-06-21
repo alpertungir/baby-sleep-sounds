@@ -16,7 +16,7 @@ import 'category_screen.dart';
 import 'favorites_screen.dart';
 import 'support_screen.dart';
 
-enum _HomeMenuAction { favorites, refreshCatalog, support }
+enum _HomeMenuAction { favorites, refreshCatalog, support, rateApp }
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -83,6 +83,8 @@ class HomeScreen extends StatelessWidget {
                           await _refreshCatalog(context, state);
                         case _HomeMenuAction.support:
                           openSupportScreen(context);
+                        case _HomeMenuAction.rateApp:
+                          await state.openStoreListing();
                       }
                     },
                     itemBuilder: (context) => [
@@ -100,6 +102,15 @@ class HomeScreen extends StatelessWidget {
                         child: ListTile(
                           leading: const Icon(Icons.volunteer_activism_outlined),
                           title: Text(l10n.supportMenu),
+                          contentPadding: EdgeInsets.zero,
+                          dense: true,
+                        ),
+                      ),
+                      PopupMenuItem(
+                        value: _HomeMenuAction.rateApp,
+                        child: ListTile(
+                          leading: const Icon(Icons.star_outline_rounded),
+                          title: Text(l10n.rateApp),
                           contentPadding: EdgeInsets.zero,
                           dense: true,
                         ),

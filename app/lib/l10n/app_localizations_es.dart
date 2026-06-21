@@ -165,6 +165,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get supportMenu => 'Apoyar el desarrollo';
 
   @override
+  String get rateApp => 'Valorar la app';
+
+  @override
   String get supportLink => 'Apoyar el desarrollo';
 
   @override

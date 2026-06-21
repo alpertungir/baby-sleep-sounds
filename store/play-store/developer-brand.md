@@ -57,9 +57,9 @@ Baby Sleep Sounds does not collect personal data; favorites are stored on the de
 **Uygulama adı:** Bebek Uyku Sesleri  
 **Kısa açıklama (80 karakter max):**
 ```
-Bebeğiniz için ninni, beyaz gürültü ve rahatlatıcı sesler. Reklamsız.
+Bebek uyku sesi: ninni, beyaz gürültü, rahatlatıcı melodiler. Reklamsız, 50+ ses.
 ```
-*(79 karakter)*
+*(79 karakter — ASO anahtar kelimeleri: bebek uyku sesi, ninni, beyaz gürültü)*
 
 ---
 
@@ -68,9 +68,9 @@ Bebeğiniz için ninni, beyaz gürültü ve rahatlatıcı sesler. Reklamsız.
 **App name:** Baby Sleep Sounds  
 **Short description (80 chars max):**
 ```
-Lullabies, white noise and calming sounds for your baby. Ad-free.
+Baby sleep sounds: lullabies, white noise & calming nursery audio. 50+ sounds, ad-free.
 ```
-*(63 characters)*
+*(78 characters)*
 
 ---
 
@@ -81,7 +81,8 @@ Lullabies, white noise and calming sounds for your baby. Ad-free.
 
 • 4 kategori, 50+ rahatlatıcı ses
 • 8 dil desteği
-• Uyku zamanlayıcısı ve favoriler
+• Uyku zamanlayıcısı, favoriler ve çalma listesi
+• Kilit ekranı ve bildirimden müzik kontrolü
 • Beyaz gürültü ve Türk ninneleri çevrimdışı
 • Reklamsız, gizlilik odaklı
 ```
@@ -95,7 +96,14 @@ First release!
 
 • 4 categories, 50+ calming sounds
 • 8 languages
-• Sleep timer and favorites
+• Sleep timer, favorites and playlist
+• Lock screen and notification controls
 • White noise and Turkish lullabies offline
 • Ad-free and privacy-focused
 ```
+
+---
+
+## ASO
+
+Detaylı Play Store sıralama rehberi: [`aso-guide.md`](aso-guide.md)

@@ -70,6 +70,7 @@
   "playingStatus": "Playing · {time}",
   "pausedStatus": "Paused",
   "supportMenu": "Support development",
+  "rateApp": "Rate the app",
   "supportLink": "Support development",
   "supportTitle": "Voluntary support",
   "supportBody": "This app is free and ad-free. If you enjoy it, you can voluntarily support development. No features are locked.",

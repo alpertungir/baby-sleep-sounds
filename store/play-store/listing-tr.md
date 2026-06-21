@@ -1,39 +1,40 @@
 # Google Play — Uzun Açıklama (Türkçe)
 
-Bebeğinizin huzurla uykuya dalması için tasarlanmış sade ve kullanışlı bir uyku sesi uygulaması.
+**Bebek uyku sesi**, **ninni**, **beyaz gürültü** ve rahatlatıcı melodiler — bebeğinizin huzurla uykuya dalması için tek uygulama. Reklamsız, göz yormayan karanlık arayüz, gece kullanımına uygun.
 
-Bebek Uyku Sesleri; beyaz gürültü, ninniler, rahatlatıcı sesler ve uyku müziklerini tek bir uygulamada bir araya getirir. Mor tonlu, göz yormayan arayüzü gece kullanımına uygundur.
+Bebek Uyku Sesleri; yeni ebeveynler ve bebek odası için fan, yağmur, okyanus, Türk ninneleri, ambient ve hafif uyku müziklerini bir araya getirir. **Tngr Studio** tarafından geliştirilmiştir.
 
-**Tngr Studio** tarafından geliştirilmiştir.
+## Neden Bebek Uyku Sesleri?
 
-## Öne çıkan özellikler
-
-• 4 kategori, 50+ ses
-• Beyaz gürültü ve Türk ninneleri çevrimdışı çalışır
-• Döngüsel (sürekli) ses çalma
-• Ses seviyesi kontrolü ve mini oynatıcı
-• Uyku zamanlayıcısı (15, 30, 45, 60, 120 dakika veya sınırsız)
-• Favori sesler — cihazınızda saklanır
-• 8 dil desteği (TR, EN, ES, FR, DE, IT, RU, AR)
-• Reklamsız, sade deneyim
+• **50+ ses** — beyaz gürültü, ninni, rahatlatıcı ve müzik
+• **Çevrimdışı** — beyaz gürültü ve Türk ninneleri internetsiz çalışır
+• **Döngüsel çalma** — kesintisiz uyku sesi
+• **Uyku zamanlayıcısı** — 15, 30, 45, 60, 120 dk veya sınırsız
+• **Favoriler ve çalma listesi** — sevdiğiniz sesleri kaydedin, sırayla dinleyin
+• **Kilit ekranı kontrolü** — arka planda çalarken bildirimden duraklat/devam
+• **8 dil** — TR, EN, ES, FR, DE, IT, RU, AR
+• **Reklamsız** — odak dağıtmayan sade deneyim
 
 ## Kategoriler
 
-• **Beyaz Gürültü** — fan, yağmur, okyanus, fırtına ve daha fazlası (çevrimdışı)
-• **Ninniler** — Türk ninneleri ve dünya ninnileri
-• **Rahatlatıcı** — ambient, piyano, doğa hissi veren sesler
+• **Beyaz Gürültü** — fan, yağmur, fırtına, okyanus, pembe gürültü (çevrimdışı)
+• **Ninniler** — Türk ninneleri ve dünya ninneleri
+• **Rahatlatıcı** — ambient, piyano, doğa sesleri
 • **Müzik** — hafif arka plan melodileri
 
 ## Kimler için?
 
-• Yeni ebeveynler
-• Bebek odasında arka plan sesi arayan aileler
-• Uyku rutini oluşturmak isteyen herkes
+• Yeni anne ve babalar
+• Bebek uyutma rutini oluşturan aileler
+• Bebek odasında arka plan sesi arayanlar
+• Gece beslenmesi ve uyku saatlerinde sakin ortam isteyenler
 
 ## Gizlilik
 
-Uygulama kişisel veri toplamaz. Favoriler yalnızca cihazınızda tutulur. Hesap oluşturma gerekmez.
+Kişisel veri toplanmaz. Hesap gerekmez. Favoriler yalnızca cihazınızda saklanır.
 
 ---
 
-Geliştirici: **Tngr Studio** · Sorularınız için: alperttungir@gmail.com
+**Anahtar kelimeler:** bebek uyku sesi, ninni, beyaz gürültü, bebek uyutma, rahatlatıcı ses, uyku müziği, bebek odası, pembe gürültü, fan sesi, yağmur sesi
+
+Geliştirici: **Tngr Studio** · alperttungir@gmail.com

@@ -7,6 +7,7 @@ Google Play ve App Store listeleri için hazır metinler, gizlilik politikası v
 | Alan | Dosya |
 |------|--------|
 | Google Play TR/EN açıklama | [`play-store/listing-tr.md`](play-store/listing-tr.md) |
+| Play Store ASO rehberi | [`play-store/aso-guide.md`](play-store/aso-guide.md) |
 | App Store TR/EN açıklama | [`app-store/listing-tr.md`](app-store/listing-tr.md) |
 | Kısa alanlar (başlık, anahtar kelime) | [`play-store/metadata.yaml`](play-store/metadata.yaml), [`app-store/metadata.yaml`](app-store/metadata.yaml) |
 | Sürüm notları 1.0.0 | [`release-notes/1.0.0-tr.txt`](release-notes/1.0.0-tr.txt) |

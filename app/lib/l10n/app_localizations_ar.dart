@@ -163,6 +163,9 @@ class AppLocalizationsAr extends AppLocalizations {
   String get supportMenu => 'ادعم التطوير';
 
   @override
+  String get rateApp => 'قيّم التطبيق';
+
+  @override
   String get supportLink => 'ادعم التطوير';
 
   @override

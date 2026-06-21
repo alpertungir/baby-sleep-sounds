@@ -1,20 +1,21 @@
 # App Store — Açıklama (Türkçe)
 
-Bebeğinizin huzurla uykuya dalması için tasarlanmış sade bir uyku sesi uygulaması.
+Bebeğinizin huzurla uykuya dalması için **bebek uyku sesi**, **ninni** ve **beyaz gürültü** — tek reklamsız uygulama.
 
-Bebek Uyku Sesleri; beyaz gürültü, Türk ninneleri, ninni, klasik müzik, rahatlatıcı ve arka plan seslerini tek uygulamada sunar. Karanlık arayüzü gece kullanımına uygundur.
+Bebek Uyku Sesleri; beyaz gürültü, Türk ninneleri, rahatlatıcı sesler ve hafif uyku müziklerini karanlık, gece dostu arayüzde sunar. **Tngr Studio**.
 
 ÖZELLİKLER
-• 7 kategori, 71 ses
-• Döngüsel çalma
-• Ses seviyesi ayarı
-• Uyku zamanlayıcısı
-• Favoriler (cihazda saklanır)
+• 4 kategori, 50+ ses
+• Beyaz gürültü ve Türk ninneleri çevrimdışı
+• Döngüsel çalma ve ses seviyesi
+• Uyku zamanlayıcısı (15–120 dk)
+• Favoriler ve çalma listesi
+• Kilit ekranı / bildirim kontrolleri
+• 8 dil desteği
 • Reklamsız
-• Çevrimdışı çalışır
 
 KATEGORİLER
-Beyaz Gürültü · Türk Ninneleri · Ninni · Klasik · Rahatlatıcı · Arka Plan · Dünya Ninneleri
+Beyaz Gürültü · Ninniler · Rahatlatıcı · Müzik
 
 GİZLİLİK
 Kişisel veri toplanmaz. Hesap gerekmez. Favoriler yalnızca cihazınızda tutulur.

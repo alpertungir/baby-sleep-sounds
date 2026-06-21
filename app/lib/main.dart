@@ -12,6 +12,7 @@ import 'providers/app_state.dart';
 import 'providers/locale_provider.dart';
 import 'providers/support_purchase_provider.dart';
 import 'screens/app_root.dart';
+import 'services/app_review_service.dart';
 import 'services/audio_player_service.dart';
 import 'services/favorites_service.dart';
 import 'services/remote_catalog_service.dart';
@@ -60,16 +61,19 @@ Future<void> main() async {
     systemLocale: WidgetsBinding.instance.platformDispatcher.locale,
   );
   final supportPurchaseProvider = SupportPurchaseProvider();
+  final appReviewService = AppReviewService(enabled: _mobilePlatform);
   final appState = AppState(
     audioService: audioService,
     favoritesService: favoritesService,
     downloadService: downloadService,
     remoteCatalogService: remoteCatalogService,
+    appReviewService: appReviewService,
   );
 
   await localeProvider.load();
   if (_mobilePlatform) {
     await supportPurchaseProvider.initialize();
+    await appReviewService.recordLaunch();
   }
   await appState.initialize();
 

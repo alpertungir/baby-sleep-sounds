@@ -165,6 +165,9 @@ class AppLocalizationsRu extends AppLocalizations {
   String get supportMenu => 'Поддержать разработку';
 
   @override
+  String get rateApp => 'Оценить приложение';
+
+  @override
   String get supportLink => 'Поддержать разработку';
 
   @override

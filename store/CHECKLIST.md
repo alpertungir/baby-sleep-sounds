@@ -26,8 +26,10 @@ Detay: [`docs/github-pages.md`](docs/github-pages.md)
 - [ ] Google Play Console hesabı ($25 tek seferlik)
 - [ ] Firebase'e Android uygulaması eklendi: `com.tngrstudio.babysleepsounds` + yeni `google-services.json`
 - [ ] Uygulama oluşturuldu: `com.tngrstudio.babysleepsounds`
-- [ ] **Store listing** — TR (+ isteğe bağlı EN) metinler yapıştırıldı
-- [ ] **Kısa açıklama** (80 karakter): `Bebeğiniz için ninni, beyaz gürültü ve rahatlatıcı sesler.`
+- [ ] **Store listing** — TR (+ isteğe bağlı EN) metinler yapıştırıldı (`listing-tr.md`, `listing-en.md`)
+- [ ] **Kısa açıklama** (80 karakter): `Bebek uyku sesi: ninni, beyaz gürültü, rahatlatıcı melodiler. Reklamsız, 50+ ses.`
+- [ ] **ASO rehberi** okundu: [`play-store/aso-guide.md`](play-store/aso-guide.md)
+- [ ] **Etiketler (Tags)** seçildi: Parenting, Sleep, Baby (Play Console)
 - [ ] **Kategori:** Parenting (Ebeveynlik)
 - [ ] **Grafikler:** 512 ikon, 1024×500 feature graphic, min 2 screenshot
 - [ ] **Content rating** anketi tamamlandı
@@ -80,5 +82,6 @@ Detay: [`docs/ios-signing.md`](docs/ios-signing.md)
 ## Yayın sonrası
 
 - [ ] Mağaza linkleri README'ye eklendi
-- [ ] İlk kullanıcı geri bildirimleri izleniyor
-- [ ] Gerçek ninni/ses dosyaları placeholder'ların yerine kondu (isteğe bağlı güncelleme)
+- [ ] İlk kullanıcı geri bildirimleri ve değerlendirmeler izleniyor
+- [ ] Play Console → Store listing experiments ile kısa açıklama A/B testi
+- [ ] Android vitals (crash, ANR) yeşil

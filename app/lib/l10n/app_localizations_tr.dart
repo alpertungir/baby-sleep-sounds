@@ -164,6 +164,9 @@ class AppLocalizationsTr extends AppLocalizations {
   String get supportMenu => 'Gönüllü destek';
 
   @override
+  String get rateApp => 'Uygulamayı değerlendir';
+
+  @override
   String get supportLink => 'Geliştirmeyi destekle';
 
   @override

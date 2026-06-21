@@ -1,5 +1,6 @@
 # Google Play Console — kopyala-yapıştır alanları
 # Son güncelleme: 1.0.0 — Tngr Studio
+# ASO rehberi: play-store/aso-guide.md
 
 developer:
   name: Tngr Studio
@@ -13,26 +14,35 @@ app:
 listing:
   tr:
     title: "Bebek Uyku Sesleri"
-    short_description: "Bebeğiniz için ninni, beyaz gürültü ve rahatlatıcı sesler. Reklamsız."
+    short_description: "Bebek uyku sesi: ninni, beyaz gürültü, rahatlatıcı melodiler. Reklamsız, 50+ ses."
+  # 79 karakter — anahtar kelimeler: bebek uyku sesi, ninni, beyaz gürültü
     full_description_file: listing-tr.md
     category: PARENTING
     tags:
-      - Bebek
-      - Ninni
-      - Uyku
-      - Beyaz gürültü
-      - Rahatlatıcı sesler
+      - Parenting
+      - Sleep
+      - Baby
+      - Music
+      - Health
   en:
     title: "Baby Sleep Sounds"
-    short_description: "Lullabies, white noise and calming sounds for your baby. Ad-free."
+    short_description: "Baby sleep sounds: lullabies, white noise & calming nursery audio. 50+ sounds, ad-free."
+  # 78 karakter
     full_description_file: listing-en.md
     category: PARENTING
+    tags:
+      - Parenting
+      - Sleep
+      - Baby
+      - Music
+      - Health
 
 content_rating:
   suggested: Everyone / PEGI 3 / USK 0
   questionnaire_hints:
     - No violence, gambling, or user-generated content
     - No ads in current version
+    - Voluntary in-app support (consumable, optional)
     - No account or social features
     - Local favorites stored on device only
 
@@ -44,6 +54,7 @@ data_safety:
   notes: |
     Uygulama kişisel veri toplamaz. Favori sesler yalnızca cihazda
     (SharedPreferences) saklanır. Hesap, analitik ve reklam SDK'sı yok.
+    İsteğe bağlı gönüllü destek (Play Billing) — kişisel veri toplamaz.
 
 contact:
   email: "alperttungir@gmail.com"
@@ -55,6 +66,7 @@ graphics:
   feature_graphic: store/play-store/graphics/feature-graphic-1024x500.png
   phone_screenshots_dir: store/screenshots/android/
   screenshot_plan: screenshot-plan.md
+  aso_guide: aso-guide.md
   generate_script: app/tools/generate_play_store_graphics.py
 
 release:

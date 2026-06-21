@@ -380,6 +380,12 @@ abstract class AppLocalizations {
   /// **'Gönüllü destek'**
   String get supportMenu;
 
+  /// No description provided for @rateApp.
+  ///
+  /// In tr, this message translates to:
+  /// **'Uygulamayı değerlendir'**
+  String get rateApp;
+
   /// No description provided for @supportLink.
   ///
   /// In tr, this message translates to:

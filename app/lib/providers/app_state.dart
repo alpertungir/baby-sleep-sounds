@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import '../data/sound_catalog.dart';
 import '../models/sound_category.dart';
 import '../models/sound_item.dart';
+import '../services/app_review_service.dart';
 import '../services/audio_player_service.dart';
 import '../services/favorites_service.dart';
 import '../services/notification_permission.dart';
@@ -17,10 +18,12 @@ class AppState extends ChangeNotifier {
     required FavoritesService favoritesService,
     required SoundDownloadService downloadService,
     required RemoteCatalogService remoteCatalogService,
+    AppReviewService? appReviewService,
   })  : _audioService = audioService,
         _favoritesService = favoritesService,
         _downloadService = downloadService,
-        _remoteCatalogService = remoteCatalogService {
+        _remoteCatalogService = remoteCatalogService,
+        _appReviewService = appReviewService ?? AppReviewService(enabled: false) {
     _audioService.onStateChanged = notifyListeners;
   }
 
@@ -28,12 +31,14 @@ class AppState extends ChangeNotifier {
   final FavoritesService _favoritesService;
   final SoundDownloadService _downloadService;
   final RemoteCatalogService _remoteCatalogService;
+  final AppReviewService _appReviewService;
 
   Set<String> _favoriteIds = {};
   final Set<String> _cachedRemoteIds = {};
   List<SoundItem> _remoteSounds = [];
   String? _loadingSoundId;
   bool _isRefreshingCatalog = false;
+  bool _notificationPermissionRequested = false;
   Timer? _sleepTimer;
   Duration? _timerRemaining;
   double _volume = 0.8;
@@ -68,7 +73,6 @@ class AppState extends ChangeNotifier {
   bool get canSkipToPrevious => hasPlaylistNavigation && _playlistIndex > 0;
 
   Future<void> initialize() async {
-    await ensureNotificationPermission();
     await _audioService.initSession();
     _audioService.configureSkipHandlers(
       onNext: () => skipToNextTrack(),
@@ -142,6 +146,8 @@ class AppState extends ChangeNotifier {
     String? displayTitle,
     List<SoundItem>? playlist,
   }) async {
+    await _ensurePlaybackPermission();
+
     if (playlist != null && playlist.isNotEmpty) {
       _setPlaylist(playlist, sound.id);
     } else {
@@ -156,6 +162,8 @@ class AppState extends ChangeNotifier {
       if (sound.isRemote) {
         _cachedRemoteIds.add(sound.id);
       }
+      await _appReviewService.recordPlaybackSession();
+      await _appReviewService.maybeRequestReview();
     } finally {
       if (_loadingSoundId == sound.id) {
         _loadingSoundId = null;
@@ -183,6 +191,8 @@ class AppState extends ChangeNotifier {
   }
 
   Future<void> _playPlaylistItem(String? displayTitle) async {
+    await _ensurePlaybackPermission();
+
     final sound = _playlist[_playlistIndex];
     _loadingSoundId = sound.id;
     _syncPlaylistControls();
@@ -213,10 +223,23 @@ class AppState extends ChangeNotifier {
     );
   }
 
-  Future<void> togglePlayback(SoundItem sound, {String? displayTitle}) =>
-      _audioService.toggle(sound, displayTitle: displayTitle);
+  Future<void> togglePlayback(SoundItem sound, {String? displayTitle}) async {
+    final willStart = currentSound?.id != sound.id || !isPlaying;
+    if (willStart) {
+      await _ensurePlaybackPermission();
+    }
+    await _audioService.toggle(sound, displayTitle: displayTitle);
+  }
+
+  Future<void> _ensurePlaybackPermission() async {
+    if (_notificationPermissionRequested) return;
+    _notificationPermissionRequested = true;
+    await ensureNotificationPermission();
+  }
 
   Future<void> pause() => _audioService.pause();
+
+  Future<void> openStoreListing() => _appReviewService.openStoreListing();
 
   Future<void> setVolume(double value) async {
     _volume = value;
