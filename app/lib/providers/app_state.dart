@@ -49,8 +49,9 @@ class AppState extends ChangeNotifier {
   Duration? get timerRemaining => _timerRemaining;
   bool get hasActiveTimer => _timerRemaining != null;
   String? get loadingSoundId => _loadingSoundId;
+  Duration get playbackElapsed => _audioService.playbackElapsed;
 
-  Stream<Duration> get positionStream => _audioService.positionStream;
+  Stream<Duration> get playbackTimerStream => _audioService.playbackTimerStream;
   Stream<Duration?> get durationStream => _audioService.durationStream;
 
   Future<void> initialize() async {
