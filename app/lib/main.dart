@@ -41,7 +41,7 @@ Future<void> main() async {
         androidNotificationChannelId: AppIdentity.androidNotificationChannelId,
         androidNotificationChannelName: AppIdentity.mediaAlbumTitle,
         androidNotificationChannelDescription: 'Çalan ses kontrolleri',
-        androidNotificationOngoing: true,
+        androidNotificationOngoing: false,
         androidStopForegroundOnPause: false,
         androidNotificationIcon: 'drawable/ic_notification',
         androidNotificationClickStartsActivity: true,
