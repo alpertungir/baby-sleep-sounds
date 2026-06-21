@@ -168,6 +168,10 @@ class AppLocalizationsRu extends AppLocalizations {
   String get rateApp => 'Оценить приложение';
 
   @override
+  String get rateAppUnavailable =>
+      'Оценка недоступна на этом устройстве. Попробуйте в Play Store.';
+
+  @override
   String get supportLink => 'Поддержать разработку';
 
   @override

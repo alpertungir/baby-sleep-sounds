@@ -79,6 +79,7 @@
   "pausedStatus": "Pausiert",
   "supportMenu": "Entwicklung unterstützen",
   "rateApp": "App bewerten",
+  "rateAppUnavailable": "Bewertung auf diesem Gerät nicht verfügbar. Bitte im Play Store versuchen.",
   "supportLink": "Entwicklung unterstützen",
   "supportTitle": "Freiwillige Unterstützung",
   "supportBody": "Diese App ist kostenlos und werbefrei. Wenn sie dir gefällt, kannst du die Entwicklung freiwillig unterstützen. Keine Funktionen sind gesperrt.",

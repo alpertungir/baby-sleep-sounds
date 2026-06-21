@@ -91,6 +91,7 @@
   "pausedStatus": "Duraklatıldı",
   "supportMenu": "Gönüllü destek",
   "rateApp": "Uygulamayı değerlendir",
+  "rateAppUnavailable": "Bu cihazda puanlama açılamadı. Play Store üzerinden deneyebilirsiniz.",
   "supportLink": "Geliştirmeyi destekle",
   "supportTitle": "Gönüllü destek",
   "supportBody": "Bu uygulama reklamsız ve tamamen ücretsiz. Beğendiysen geliştirmeyi gönüllü olarak destekleyebilirsin. Hiçbir özellik kilitli değildir.",

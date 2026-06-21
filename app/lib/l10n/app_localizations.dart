@@ -386,6 +386,12 @@ abstract class AppLocalizations {
   /// **'Uygulamayı değerlendir'**
   String get rateApp;
 
+  /// No description provided for @rateAppUnavailable.
+  ///
+  /// In tr, this message translates to:
+  /// **'Bu cihazda puanlama açılamadı. Play Store üzerinden deneyebilirsiniz.'**
+  String get rateAppUnavailable;
+
   /// No description provided for @supportLink.
   ///
   /// In tr, this message translates to:

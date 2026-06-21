@@ -169,6 +169,10 @@ class AppLocalizationsDe extends AppLocalizations {
   String get rateApp => 'App bewerten';
 
   @override
+  String get rateAppUnavailable =>
+      'Bewertung auf diesem Gerät nicht verfügbar. Bitte im Play Store versuchen.';
+
+  @override
   String get supportLink => 'Entwicklung unterstützen';
 
   @override

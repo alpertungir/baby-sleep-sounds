@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../data/sound_catalog.dart';
 import '../models/sound_category.dart';
@@ -39,8 +40,12 @@ class AppState extends ChangeNotifier {
   String? _loadingSoundId;
   bool _isRefreshingCatalog = false;
   bool _notificationPermissionRequested = false;
+  static const _keyLastSleepTimerMinutes = 'sleep_timer_last_duration_minutes';
+
   Timer? _sleepTimer;
   Duration? _timerRemaining;
+  Duration? _timerDuration;
+  Duration? _lastSleepTimerDuration;
   double _volume = 0.8;
 
   List<SoundItem> _playlist = [];
@@ -57,6 +62,8 @@ class AppState extends ChangeNotifier {
   bool get isPlaying => _audioService.isPlaying;
   double get volume => _volume;
   Duration? get timerRemaining => _timerRemaining;
+  Duration? get timerDuration => _timerDuration;
+  Duration? get lastSleepTimerDuration => _lastSleepTimerDuration;
   bool get hasActiveTimer => _timerRemaining != null;
   String? get loadingSoundId => _loadingSoundId;
   bool get isRefreshingCatalog => _isRefreshingCatalog;
@@ -73,6 +80,12 @@ class AppState extends ChangeNotifier {
   bool get canSkipToPrevious => hasPlaylistNavigation && _playlistIndex > 0;
 
   Future<void> initialize() async {
+    final prefs = await SharedPreferences.getInstance();
+    final lastMinutes = prefs.getInt(_keyLastSleepTimerMinutes);
+    if (lastMinutes != null) {
+      _lastSleepTimerDuration = Duration(minutes: lastMinutes);
+    }
+
     await _audioService.initSession();
     _audioService.configureSkipHandlers(
       onNext: () => skipToNextTrack(),
@@ -239,7 +252,7 @@ class AppState extends ChangeNotifier {
 
   Future<void> pause() => _audioService.pause();
 
-  Future<void> openStoreListing() => _appReviewService.openStoreListing();
+  Future<bool> requestAppReview() => _appReviewService.requestReviewManually();
 
   Future<void> setVolume(double value) async {
     _volume = value;
@@ -249,7 +262,10 @@ class AppState extends ChangeNotifier {
 
   void startSleepTimer(Duration duration) {
     _sleepTimer?.cancel();
+    _timerDuration = duration;
     _timerRemaining = duration;
+    _lastSleepTimerDuration = duration;
+    unawaited(_persistLastSleepTimerDuration(duration));
     notifyListeners();
 
     _sleepTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
@@ -280,6 +296,12 @@ class AppState extends ChangeNotifier {
     _sleepTimer?.cancel();
     _sleepTimer = null;
     _timerRemaining = null;
+    _timerDuration = null;
+  }
+
+  Future<void> _persistLastSleepTimerDuration(Duration duration) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setInt(_keyLastSleepTimerMinutes, duration.inMinutes);
   }
 
   @override

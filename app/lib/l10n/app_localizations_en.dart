@@ -166,6 +166,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get rateApp => 'Rate the app';
 
   @override
+  String get rateAppUnavailable =>
+      'Rating is not available on this device. Try again from the Play Store.';
+
+  @override
   String get supportLink => 'Support development';
 
   @override

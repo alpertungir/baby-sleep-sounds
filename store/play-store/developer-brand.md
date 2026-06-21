@@ -83,7 +83,7 @@ Baby sleep sounds: lullabies, white noise & calming nursery audio. 50+ sounds, a
 • 8 dil desteği
 • Uyku zamanlayıcısı, favoriler ve çalma listesi
 • Kilit ekranı ve bildirimden müzik kontrolü
-• Beyaz gürültü ve Türk ninneleri çevrimdışı
+• Beyaz gürültü ve Türk ninnileri çevrimdışı
 • Reklamsız, gizlilik odaklı
 ```
 

@@ -167,6 +167,10 @@ class AppLocalizationsTr extends AppLocalizations {
   String get rateApp => 'Uygulamayı değerlendir';
 
   @override
+  String get rateAppUnavailable =>
+      'Bu cihazda puanlama açılamadı. Play Store üzerinden deneyebilirsiniz.';
+
+  @override
   String get supportLink => 'Geliştirmeyi destekle';
 
   @override

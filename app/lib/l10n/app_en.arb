@@ -71,6 +71,7 @@
   "pausedStatus": "Paused",
   "supportMenu": "Support development",
   "rateApp": "Rate the app",
+  "rateAppUnavailable": "Rating is not available on this device. Try again from the Play Store.",
   "supportLink": "Support development",
   "supportTitle": "Voluntary support",
   "supportBody": "This app is free and ad-free. If you enjoy it, you can voluntarily support development. No features are locked.",

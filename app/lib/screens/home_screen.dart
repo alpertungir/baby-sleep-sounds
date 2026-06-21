@@ -84,7 +84,13 @@ class HomeScreen extends StatelessWidget {
                         case _HomeMenuAction.support:
                           openSupportScreen(context);
                         case _HomeMenuAction.rateApp:
-                          await state.openStoreListing();
+                          final shown = await state.requestAppReview();
+                          if (!context.mounted) return;
+                          if (!shown) {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text(l10n.rateAppUnavailable)),
+                            );
+                          }
                       }
                     },
                     itemBuilder: (context) => [
@@ -93,24 +99,6 @@ class HomeScreen extends StatelessWidget {
                         child: ListTile(
                           leading: const Icon(Icons.queue_music_outlined),
                           title: Text(l10n.playlist),
-                          contentPadding: EdgeInsets.zero,
-                          dense: true,
-                        ),
-                      ),
-                      PopupMenuItem(
-                        value: _HomeMenuAction.support,
-                        child: ListTile(
-                          leading: const Icon(Icons.volunteer_activism_outlined),
-                          title: Text(l10n.supportMenu),
-                          contentPadding: EdgeInsets.zero,
-                          dense: true,
-                        ),
-                      ),
-                      PopupMenuItem(
-                        value: _HomeMenuAction.rateApp,
-                        child: ListTile(
-                          leading: const Icon(Icons.star_outline_rounded),
-                          title: Text(l10n.rateApp),
                           contentPadding: EdgeInsets.zero,
                           dense: true,
                         ),
@@ -131,6 +119,25 @@ class HomeScreen extends StatelessWidget {
                                 ? l10n.refreshCatalogInProgress
                                 : l10n.refreshCatalog,
                           ),
+                          contentPadding: EdgeInsets.zero,
+                          dense: true,
+                        ),
+                      ),
+                      const PopupMenuDivider(),
+                      PopupMenuItem(
+                        value: _HomeMenuAction.support,
+                        child: ListTile(
+                          leading: const Icon(Icons.volunteer_activism_outlined),
+                          title: Text(l10n.supportMenu),
+                          contentPadding: EdgeInsets.zero,
+                          dense: true,
+                        ),
+                      ),
+                      PopupMenuItem(
+                        value: _HomeMenuAction.rateApp,
+                        child: ListTile(
+                          leading: const Icon(Icons.star_outline_rounded),
+                          title: Text(l10n.rateApp),
                           contentPadding: EdgeInsets.zero,
                           dense: true,
                         ),

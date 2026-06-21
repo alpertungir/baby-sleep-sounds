@@ -99,12 +99,28 @@ class MiniPlayerBar extends StatelessWidget {
                               initialData: state.playbackElapsed,
                               builder: (context, snapshot) {
                                 final position = snapshot.data ?? Duration.zero;
+                                final subtitle = state.hasActiveTimer &&
+                                        state.timerRemaining != null
+                                    ? l10n.timerRemaining(
+                                        formatSleepTimerCountdown(
+                                          state.timerRemaining!,
+                                        ),
+                                      )
+                                    : state.isPlaying
+                                        ? l10n.playingStatus(_format(position))
+                                        : l10n.pausedStatus;
                                 return Text(
-                                  state.isPlaying
-                                      ? l10n.playingStatus(_format(position))
-                                      : l10n.pausedStatus,
+                                  subtitle,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
                                   style: theme.textTheme.bodySmall?.copyWith(
-                                    color: theme.colorScheme.onSurface.withValues(alpha: 0.75),
+                                    color: state.hasActiveTimer
+                                        ? theme.colorScheme.primary
+                                        : theme.colorScheme.onSurface
+                                            .withValues(alpha: 0.75),
+                                    fontWeight: state.hasActiveTimer
+                                        ? FontWeight.w600
+                                        : null,
                                   ),
                                 );
                               },
@@ -113,7 +129,11 @@ class MiniPlayerBar extends StatelessWidget {
                         ),
                       ),
                       IconButton(
-                        tooltip: l10n.sleepTimer,
+                        tooltip: state.hasActiveTimer && state.timerRemaining != null
+                            ? l10n.timerRemaining(
+                                formatSleepTimerCountdown(state.timerRemaining!),
+                              )
+                            : l10n.sleepTimer,
                         onPressed: () => showSleepTimerSheet(context),
                         icon: Icon(
                           state.hasActiveTimer ? Icons.timer_rounded : Icons.timer_outlined,

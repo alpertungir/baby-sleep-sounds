@@ -2,12 +2,12 @@
 
 **Bebek uyku sesi**, **ninni**, **beyaz gürültü** ve rahatlatıcı melodiler — bebeğinizin huzurla uykuya dalması için tek uygulama. Reklamsız, göz yormayan karanlık arayüz, gece kullanımına uygun.
 
-Bebek Uyku Sesleri; yeni ebeveynler ve bebek odası için fan, yağmur, okyanus, Türk ninneleri, ambient ve hafif uyku müziklerini bir araya getirir. **Tngr Studio** tarafından geliştirilmiştir.
+Bebek Uyku Sesleri; yeni ebeveynler ve bebek odası için fan, yağmur, okyanus, Türk ninnileri, ambient ve hafif uyku müziklerini bir araya getirir. **Tngr Studio** tarafından geliştirilmiştir.
 
 ## Neden Bebek Uyku Sesleri?
 
 • **50+ ses** — beyaz gürültü, ninni, rahatlatıcı ve müzik
-• **Çevrimdışı** — beyaz gürültü ve Türk ninneleri internetsiz çalışır
+• **Çevrimdışı** — beyaz gürültü ve Türk ninnileri internetsiz çalışır
 • **Döngüsel çalma** — kesintisiz uyku sesi
 • **Uyku zamanlayıcısı** — 15, 30, 45, 60, 120 dk veya sınırsız
 • **Favoriler ve çalma listesi** — sevdiğiniz sesleri kaydedin, sırayla dinleyin
@@ -18,7 +18,7 @@ Bebek Uyku Sesleri; yeni ebeveynler ve bebek odası için fan, yağmur, okyanus,
 ## Kategoriler
 
 • **Beyaz Gürültü** — fan, yağmur, fırtına, okyanus, pembe gürültü (çevrimdışı)
-• **Ninniler** — Türk ninneleri ve dünya ninneleri
+• **Ninniler** — Türk ninnileri ve dünya ninnileri
 • **Rahatlatıcı** — ambient, piyano, doğa sesleri
 • **Müzik** — hafif arka plan melodileri
 

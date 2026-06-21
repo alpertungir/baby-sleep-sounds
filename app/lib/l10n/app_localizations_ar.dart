@@ -166,6 +166,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get rateApp => 'قيّم التطبيق';
 
   @override
+  String get rateAppUnavailable =>
+      'التقييم غير متاح على هذا الجهاز. جرّب من متجر Play.';
+
+  @override
   String get supportLink => 'ادعم التطوير';
 
   @override

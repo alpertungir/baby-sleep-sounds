@@ -168,6 +168,10 @@ class AppLocalizationsFr extends AppLocalizations {
   String get rateApp => 'Noter l\'application';
 
   @override
+  String get rateAppUnavailable =>
+      'L\'évaluation n\'est pas disponible sur cet appareil. Essayez via le Play Store.';
+
+  @override
   String get supportLink => 'Soutenir le développement';
 
   @override

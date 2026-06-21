@@ -76,9 +76,17 @@ class CategoryScreen extends StatelessWidget {
                       const FavoritesAppBarButton(color: Colors.white),
                       LanguageMenuButton(color: Colors.white),
                       IconButton(
-                        tooltip: l10n.sleepTimer,
+                        tooltip: state.hasActiveTimer && state.timerRemaining != null
+                            ? l10n.timerRemaining(
+                                formatSleepTimerCountdown(state.timerRemaining!),
+                              )
+                            : l10n.sleepTimer,
                         onPressed: () => showSleepTimerSheet(context),
-                        icon: const Icon(Icons.timer_outlined),
+                        icon: Icon(
+                          state.hasActiveTimer
+                              ? Icons.timer_rounded
+                              : Icons.timer_outlined,
+                        ),
                       ),
                     ],
                     flexibleSpace: FlexibleSpaceBar(

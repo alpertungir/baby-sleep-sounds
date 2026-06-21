@@ -38,18 +38,37 @@ class AppReviewService {
     final sessions = prefs.getInt(_keyPlaybackSessions) ?? 0;
     if (launches < minLaunches || sessions < minPlaybackSessions) return;
 
-    final review = InAppReview.instance;
-    if (!await review.isAvailable()) return;
-
-    await review.requestReview();
-    await prefs.setBool(_keyPrompted, true);
+    final shown = await _requestInAppReview();
+    if (shown) {
+      await prefs.setBool(_keyPrompted, true);
+    }
   }
 
-  Future<void> openStoreListing() async {
-    if (!_enabled) return;
-    final review = InAppReview.instance;
-    if (await review.isAvailable()) {
-      await review.openStoreListing();
+  /// Menüden tetiklenir: önce uygulama içi puanlama, olmazsa mağaza sayfası.
+  Future<bool> requestReviewManually() async {
+    if (!_enabled) return false;
+
+    if (await _requestInAppReview()) {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setBool(_keyPrompted, true);
+      return true;
     }
+
+    return openStoreListing();
+  }
+
+  Future<bool> _requestInAppReview() async {
+    final review = InAppReview.instance;
+    if (!await review.isAvailable()) return false;
+    await review.requestReview();
+    return true;
+  }
+
+  Future<bool> openStoreListing() async {
+    if (!_enabled) return false;
+    final review = InAppReview.instance;
+    if (!await review.isAvailable()) return false;
+    await review.openStoreListing();
+    return true;
   }
 }

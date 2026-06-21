@@ -68,7 +68,7 @@ open ios/Runner.xcworkspace   # Team seçimini doğrula
 2. `lib/data/sounds/<kategori>_sounds.dart` dosyasına `SoundItem` ekle
 3. Gerekirse `scripts/generate_sounds.py` manifestine slug ekle
 
-Türk ninneleri için ayrı klasör: `assets/sounds/turkish_lullaby/`
+Türk ninnileri için ayrı klasör: `assets/sounds/turkish_lullaby/`
 
 ## Proje yapısı
 
