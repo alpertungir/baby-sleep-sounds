@@ -19,30 +19,37 @@ STRINGS = {
     "en": {
         "white_noise": "White Noise",
         "lullabies": "Lullabies",
-        "sound_count_19": "19 sounds",
-        "sound_count_27": "27 sounds",
         "sleep_timer": "Sleep Timer",
         "favorites": "Favorites",
         "language": "Language",
         "english": "English",
         "fan": "Fan",
+        "home_ready": "White Noise",
     },
     "tr": {
         "white_noise": "Beyaz Gürültü",
         "lullabies": "Ninniler",
-        "sound_count_19": "19 ses",
-        "sound_count_27": "27 ses",
         "sleep_timer": "Uyku Zamanlayıcısı",
         "favorites": "Favoriler",
         "language": "Dil",
         "english": "English",
         "fan": "Fan",
+        "home_ready": "Beyaz Gürültü",
     },
 }
 
 
 def adb(*args: str) -> subprocess.CompletedProcess[str]:
     return subprocess.run(["adb", *args], check=True, text=True, capture_output=True)
+
+
+def wake_device() -> None:
+    adb("shell", "input", "keyevent", "224")  # KEYCODE_WAKEUP
+    time.sleep(0.4)
+    adb("shell", "wm", "dismiss-keyguard")
+    time.sleep(0.4)
+    adb("shell", "input", "keyevent", "82")  # KEYCODE_MENU / unlock helper on some devices
+    time.sleep(0.3)
 
 
 def tap(x: int, y: int) -> None:
@@ -55,33 +62,8 @@ def back() -> None:
     time.sleep(0.9)
 
 
-def switch_locale_via_ui(xml: str, s: dict[str, str], target: str) -> str:
-    """Open language sheet and pick target locale by menu label."""
-    if target == "en" and find_bounds(xml, s["white_noise"], s["sound_count_19"]):
-        return xml
-    if target == "tr" and find_bounds(xml, STRINGS["tr"]["white_noise"], STRINGS["tr"]["sound_count_19"]):
-        return xml
-
-    for language_label in ("Language", "Dil", s["language"]):
-        if find_bounds(xml, language_label):
-            xml = tap_desc(xml, language_label)
-            break
-    else:
-        raise RuntimeError("Language button not found")
-
-    time.sleep(0.6)
-    menu_label = s["english"] if target == "en" else STRINGS["tr"]["english"]
-    if target == "tr":
-        menu_label = "Türkçe"
-    elif target != "en":
-        raise RuntimeError(f"Unsupported UI locale switch: {target}")
-
-    xml = tap_desc(xml, menu_label)
-    time.sleep(1.2)
-    return wait_for(xml, s["white_noise"], s["sound_count_19"])
-
-
 def launch() -> None:
+    wake_device()
     adb("shell", "am", "force-stop", PKG)
     time.sleep(0.8)
     adb("shell", "am", "start", "-n", ACTIVITY)
@@ -100,20 +82,45 @@ def center(bounds: tuple[int, int, int, int]) -> tuple[int, int]:
     return (x1 + x2) // 2, (y1 + y2) // 2
 
 
-def find_bounds(xml: str, *needles: str) -> tuple[int, int, int, int] | None:
-    for node in re.finditer(
-        r'content-desc="([^"]*)"[^>]*bounds="\[(\d+),(\d+)\]\[(\d+),(\d+)\]"', xml
-    ):
-        desc, x1, y1, x2, y2 = node.group(1), *map(int, node.groups()[1:])
-        normalized = desc.replace("&#10;", "\n")
-        if all(n in normalized for n in needles):
-            return x1, y1, x2, y2
+def _normalize(label: str) -> str:
+    return label.replace("&#10;", "\n")
+
+
+def find_node(
+    xml: str,
+    *needles: str,
+    attr: str = "content-desc",
+    clickable: bool | None = None,
+) -> tuple[int, int, int, int] | None:
+    pattern = (
+        rf'{attr}="([^"]*)"[^>]*'
+        rf'(?:clickable="(true|false)")?[^>]*'
+        rf'bounds="\[(\d+),(\d+)\]\[(\d+),(\d+)\]"'
+    )
+    for node in re.finditer(pattern, xml):
+        value = _normalize(node.group(1))
+        is_clickable = node.group(2)
+        if clickable is True and is_clickable != "true":
+            continue
+        if clickable is False and is_clickable == "true":
+            continue
+        if all(needle in value for needle in needles):
+            return int(node.group(3)), int(node.group(4)), int(node.group(5)), int(node.group(6))
     return None
 
 
-def tap_desc(xml: str, *needles: str, retries: int = 8) -> str:
+def find_bounds(xml: str, *needles: str, clickable: bool | None = None) -> tuple[int, int, int, int] | None:
+    bounds = find_node(xml, *needles, attr="content-desc", clickable=clickable)
+    if bounds:
+        return bounds
+    return find_node(xml, *needles, attr="text", clickable=clickable)
+
+
+def tap_desc(xml: str, *needles: str, retries: int = 10) -> str:
     for _ in range(retries):
-        bounds = find_bounds(xml, *needles)
+        bounds = find_bounds(xml, *needles, clickable=True)
+        if not bounds:
+            bounds = find_bounds(xml, *needles)
         if bounds:
             x, y = center(bounds)
             tap(x, y)
@@ -132,7 +139,7 @@ def shot(name: str, delay: float = 0.8) -> None:
     print(f"Saved {name} ({len(png)} bytes)")
 
 
-def wait_for(xml: str, *needles: str, timeout: float = 12) -> str:
+def wait_for(xml: str, *needles: str, timeout: float = 15) -> str:
     deadline = time.time() + timeout
     while time.time() < deadline:
         if find_bounds(xml, *needles):
@@ -142,8 +149,26 @@ def wait_for(xml: str, *needles: str, timeout: float = 12) -> str:
     raise RuntimeError(f"Timed out waiting for: {needles!r}")
 
 
-def switch_to_english_if_needed(xml: str, s: dict[str, str]) -> str:
-    return switch_locale_via_ui(xml, s, "en")
+def ensure_locale(xml: str, s: dict[str, str], target: str) -> str:
+    if find_bounds(xml, s["home_ready"]):
+        return xml
+
+    xml = tap_desc(xml, s["language"])
+    time.sleep(0.6)
+    menu_label = "English" if target == "en" else "Türkçe"
+    xml = tap_desc(xml, menu_label)
+    time.sleep(1.5)
+    return wait_for(xml, s["home_ready"])
+
+
+def tap_play_on_row(xml: str, sound_name: str) -> str:
+    row = find_bounds(xml, sound_name)
+    if not row:
+        raise RuntimeError(f"Sound row not found: {sound_name!r}")
+    x1, y1, x2, y2 = row
+    tap(x2 - 72, (y1 + y2) // 2)
+    time.sleep(3)
+    return dump_ui()
 
 
 def main() -> int:
@@ -154,34 +179,26 @@ def main() -> int:
 
     launch()
     xml = dump_ui()
-    if args.locale == "en":
-        xml = switch_to_english_if_needed(xml, s)
-    else:
-        xml = wait_for(xml, s["white_noise"], s["sound_count_19"])
+    xml = ensure_locale(xml, s, args.locale)
     shot("01-home.png")
 
-    xml = tap_desc(xml, s["white_noise"], s["sound_count_19"])
+    xml = tap_desc(xml, s["white_noise"])
     xml = wait_for(xml, s["fan"])
     shot("02-white-noise.png")
 
     back()
     xml = dump_ui()
-    xml = wait_for(xml, s["lullabies"], s["sound_count_27"])
-    xml = tap_desc(xml, s["lullabies"], s["sound_count_27"])
-    xml = wait_for(xml, s["sound_count_27"])
+    xml = wait_for(xml, s["lullabies"])
+    xml = tap_desc(xml, s["lullabies"])
+    xml = wait_for(xml, s["lullabies"])
     shot("03-lullaby.png")
 
     back()
     xml = dump_ui()
-    xml = wait_for(xml, s["white_noise"], s["sound_count_19"])
-    xml = tap_desc(xml, s["white_noise"], s["sound_count_19"])
+    xml = wait_for(xml, s["white_noise"])
+    xml = tap_desc(xml, s["white_noise"])
     xml = wait_for(xml, s["fan"])
-    fan = find_bounds(xml, s["fan"])
-    if not fan:
-        raise RuntimeError("Fan sound row not found")
-    tap(936, fan[1] + (fan[3] - fan[1]) // 2)
-    time.sleep(3)
-    xml = dump_ui()
+    xml = tap_play_on_row(xml, s["fan"])
     shot("04-player.png")
 
     xml = tap_desc(xml, s["sleep_timer"])

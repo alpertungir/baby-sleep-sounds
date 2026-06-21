@@ -58,10 +58,10 @@ def _feature_graphic() -> None:
     brand_font = _load_font(18, bold=True)
     tag_font = _load_font(20)
 
-    draw.text((320, 130), "Bebek Uyku Sesleri", font=title_font, fill=TEXT)
-    draw.text((320, 198), "Baby Sleep Sounds", font=sub_font, fill=MUTED)
-    draw.text((320, 252), "Ninni  ·  Beyaz Gürültü  ·  Zamanlayıcı", font=tag_font, fill=ACCENT)
-    draw.text((320, 300), "50+ ses  ·  8 dil  ·  Reklamsız", font=tag_font, fill=TEXT)
+    draw.text((320, 130), "Baby Sleep Sounds", font=title_font, fill=TEXT)
+    draw.text((320, 198), "Lullabies  ·  White Noise  ·  Sleep Timer", font=sub_font, fill=MUTED)
+    draw.text((320, 252), "50+ sounds  ·  8 languages  ·  Ad-free", font=tag_font, fill=ACCENT)
+    draw.text((320, 300), "Offline white noise  ·  Favorites & playlist", font=tag_font, fill=TEXT)
 
     brand = "Tngr Studio"
     draw.rounded_rectangle((720, 400, 968, 458), radius=18, fill=ACCENT)
