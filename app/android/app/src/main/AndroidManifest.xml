@@ -8,7 +8,7 @@
     <uses-permission android:name="com.android.vending.BILLING" />
 
     <application
-        android:label="Bebek Uyku Sesleri"
+        android:label="@string/app_name"
         android:name=".BabySleepApplication"
         android:icon="@mipmap/ic_launcher"
         android:localeConfig="@xml/locales_config">

@@ -6,6 +6,7 @@ import '../providers/support_purchase_provider.dart';
 import '../widgets/decorative_background.dart';
 import '../widgets/favorites_app_bar_button.dart';
 import '../widgets/language_menu_button.dart';
+import '../widgets/screen_insets.dart';
 
 class SupportScreen extends StatefulWidget {
   const SupportScreen({super.key});
@@ -78,7 +79,12 @@ class _SupportScreenState extends State<SupportScreen> {
         children: [
           const Positioned.fill(child: DecorativeBackground()),
           ListView(
-            padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
+            padding: EdgeInsets.fromLTRB(
+              20,
+              8,
+              20,
+              ScreenInsets.viewBottom(context) + 32,
+            ),
             children: [
               Icon(
                 Icons.favorite_outline_rounded,
