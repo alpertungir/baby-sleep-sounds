@@ -1,6 +1,8 @@
 # Keep the native media service classes referenced from AndroidManifest.xml and
 # audio_service callbacks stable when release builds are code-shrunk.
 -keep class com.ryanheise.audioservice.** { *; }
+-keep class com.ryanheise.just_audio.** { *; }
+-keep class com.ryanheise.audio_session.** { *; }
 -keep class androidx.media.** { *; }
 -keep class android.support.v4.media.** { *; }
 
