@@ -172,7 +172,9 @@ class AudioPlayerService {
   void dispose() {
     _resetPlaybackTimer();
     _playbackTimerController.close();
-    _handler?.disposeHandler();
+    _handler?.onStateChanged = null;
+    _handler?.onSkipToNext = null;
+    _handler?.onSkipToPrevious = null;
     _localPlayer?.dispose();
   }
 

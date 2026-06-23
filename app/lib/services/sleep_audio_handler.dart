@@ -115,13 +115,20 @@ class SleepAudioHandler extends BaseAudioHandler with SeekHandler {
 
   @override
   Future<void> onTaskRemoved() async {
-    // Keep playing when swiped from recents (like Spotify).
+    // Keep active playback alive, but do not leave a stale paused notification.
+    if (!_player.playing) {
+      await stop();
+    }
   }
 
   @override
   Future<void> stop() async {
     await _player.stop();
     currentSound = null;
+    isPlaying = false;
+    mediaItem.add(null);
+    _publishStoppedState();
+    onStateChanged?.call();
     await super.stop();
   }
 
@@ -177,6 +184,20 @@ class SleepAudioHandler extends BaseAudioHandler with SeekHandler {
       bufferedPosition: _player.bufferedPosition,
       speed: _player.speed,
       queueIndex: event.currentIndex,
+    );
+  }
+
+  void _publishStoppedState() {
+    playbackState.add(
+      playbackState.value.copyWith(
+        controls: const [],
+        systemActions: const {},
+        androidCompactActionIndices: const [],
+        processingState: AudioProcessingState.idle,
+        playing: false,
+        updatePosition: Duration.zero,
+        bufferedPosition: Duration.zero,
+      ),
     );
   }
 
