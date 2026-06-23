@@ -1,0 +1,6 @@
+Update
+
+• Improved background playback and notification player
+• Fixed lock screen media controls
+• App name now follows your device language
+• Android edge-to-edge display and stability fixes

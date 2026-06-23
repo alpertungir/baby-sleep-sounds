@@ -1,0 +1,6 @@
+Update
+
+• Fixed background playback and notification media player
+• Improved lock screen controls
+• Album art and track info now shown in notification
+• Playback continues when app is closed

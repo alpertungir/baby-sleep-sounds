@@ -1,7 +1,5 @@
 package com.tngrstudio.babysleepsounds
 
-import android.Manifest
-import android.content.pm.PackageManager
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
@@ -14,7 +12,6 @@ class MainActivity : AudioServiceActivity() {
         configureEdgeToEdgeBeforeCreate()
         super.onCreate(savedInstanceState)
         configureEdgeToEdgeAfterCreate()
-        requestNotificationPermission()
     }
 
     private fun configureEdgeToEdgeBeforeCreate() {
@@ -42,23 +39,5 @@ class MainActivity : AudioServiceActivity() {
                     View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
                     View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
         }
-    }
-
-    private fun requestNotificationPermission() {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) return
-        if (checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) ==
-            PackageManager.PERMISSION_GRANTED
-        ) {
-            return
-        }
-
-        requestPermissions(
-            arrayOf(Manifest.permission.POST_NOTIFICATIONS),
-            NOTIFICATION_PERMISSION_REQUEST_CODE,
-        )
-    }
-
-    private companion object {
-        const val NOTIFICATION_PERMISSION_REQUEST_CODE = 1001
     }
 }

@@ -1,0 +1,6 @@
+Güncelleme
+
+• Arka planda çalma ve bildirim oynatıcısı iyileştirildi
+• Kilit ekranından müzik kontrolü düzeltildi
+• Uygulama adı cihaz diline göre gösteriliyor
+• Android tam ekran görünüm ve kararlılık düzeltmeleri
