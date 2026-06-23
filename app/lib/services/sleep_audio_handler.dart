@@ -115,10 +115,7 @@ class SleepAudioHandler extends BaseAudioHandler with SeekHandler {
 
   @override
   Future<void> onTaskRemoved() async {
-    // Keep active playback alive, but do not leave a stale paused notification.
-    if (!_player.playing) {
-      await stop();
-    }
+    await stop();
   }
 
   @override
@@ -127,7 +124,6 @@ class SleepAudioHandler extends BaseAudioHandler with SeekHandler {
     currentSound = null;
     isPlaying = false;
     mediaItem.add(null);
-    _publishStoppedState();
     onStateChanged?.call();
     await super.stop();
   }
@@ -184,20 +180,6 @@ class SleepAudioHandler extends BaseAudioHandler with SeekHandler {
       bufferedPosition: _player.bufferedPosition,
       speed: _player.speed,
       queueIndex: event.currentIndex,
-    );
-  }
-
-  void _publishStoppedState() {
-    playbackState.add(
-      playbackState.value.copyWith(
-        controls: const [],
-        systemActions: const {},
-        androidCompactActionIndices: const [],
-        processingState: AudioProcessingState.idle,
-        playing: false,
-        updatePosition: Duration.zero,
-        bufferedPosition: Duration.zero,
-      ),
     );
   }
 

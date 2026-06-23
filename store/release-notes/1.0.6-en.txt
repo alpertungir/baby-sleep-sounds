@@ -1,0 +1,5 @@
+Update
+
+• Fixed app not reopening from launcher after fully closing from recents
+• Improved return-to-app from notification controls
+• Improved background playback and media notification stability

@@ -1,5 +1,6 @@
 package com.tngrstudio.babysleepsounds
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
@@ -12,6 +13,11 @@ class MainActivity : AudioServiceActivity() {
         configureEdgeToEdgeBeforeCreate()
         super.onCreate(savedInstanceState)
         configureEdgeToEdgeAfterCreate()
+    }
+
+    override fun onNewIntent(intent: Intent) {
+        super.onNewIntent(intent)
+        setIntent(intent)
     }
 
     private fun configureEdgeToEdgeBeforeCreate() {

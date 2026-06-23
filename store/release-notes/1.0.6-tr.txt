@@ -1,0 +1,5 @@
+Güncelleme
+
+• Uygulama tamamen kapatıldıktan sonra launcher'dan yeniden açılma sorunu düzeltildi
+• Bildirimden uygulamaya dönüş iyileştirildi
+• Arka planda çalma ve medya bildirimi kararlılığı artırıldı
