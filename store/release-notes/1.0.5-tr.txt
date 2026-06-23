@@ -1,0 +1,6 @@
+Güncelleme
+
+• Arka planda çalma ve bildirim oynatıcısı düzeltildi
+• Kilit ekranından müzik kontrolü iyileştirildi
+• Bildirimde kapak resmi ve şarkı bilgisi gösteriliyor
+• Release sürümünde medya bildirimi kararlılığı iyileştirildi
