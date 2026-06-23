@@ -50,6 +50,10 @@ android {
                 println("WARNING: android/key.properties not found — release build uses debug signing.")
                 signingConfigs.getByName("debug")
             }
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro",
+            )
         }
     }
 }
