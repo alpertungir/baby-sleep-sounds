@@ -1,5 +1,7 @@
 package com.tngrstudio.babysleepsounds
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
@@ -9,12 +11,13 @@ import com.ryanheise.audioservice.AudioServiceActivity
 
 class MainActivity : AudioServiceActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
-        configureEdgeToEdge()
+        configureEdgeToEdgeBeforeCreate()
         super.onCreate(savedInstanceState)
+        configureEdgeToEdgeAfterCreate()
+        requestNotificationPermission()
     }
 
-    @Suppress("DEPRECATION")
-    private fun configureEdgeToEdge() {
+    private fun configureEdgeToEdgeBeforeCreate() {
         window.statusBarColor = Color.TRANSPARENT
         window.navigationBarColor = Color.TRANSPARENT
 
@@ -22,7 +25,10 @@ class MainActivity : AudioServiceActivity() {
             window.isStatusBarContrastEnforced = false
             window.isNavigationBarContrastEnforced = false
         }
+    }
 
+    @Suppress("DEPRECATION")
+    private fun configureEdgeToEdgeAfterCreate() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             window.setDecorFitsSystemWindows(false)
             window.insetsController?.setSystemBarsAppearance(
@@ -36,5 +42,23 @@ class MainActivity : AudioServiceActivity() {
                     View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or
                     View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
         }
+    }
+
+    private fun requestNotificationPermission() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) return
+        if (checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) ==
+            PackageManager.PERMISSION_GRANTED
+        ) {
+            return
+        }
+
+        requestPermissions(
+            arrayOf(Manifest.permission.POST_NOTIFICATIONS),
+            NOTIFICATION_PERMISSION_REQUEST_CODE,
+        )
+    }
+
+    private companion object {
+        const val NOTIFICATION_PERMISSION_REQUEST_CODE = 1001
     }
 }
